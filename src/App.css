@@ -1,0 +1,148 @@
+@font-face {
+  font-family: 'SUITE-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+.AdminHeader,
+.AdminFooter{
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AdminHeader{
+  background-color: rgb(0, 187, 255);
+  top: 0;
+}
+
+.AdminFooter {
+  bottom: 0;
+}
+
+.menu-button {
+  top: 0;
+  margin-right: 120px;
+}
+.AdminHeader>div {
+  margin-left: 80px;
+  justify-content: space-between;
+}
+.AdminHeader img {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip, .tooltip2 {
+  top: 66px;
+  right: 5px;
+  visibility: visible;
+  position: absolute;
+  background-color: #333;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.tooltip {
+  width: 200px;
+  height: 100px;
+  
+}
+
+.tooltip2 {
+  width: 150px;
+  height: 86px;
+}
+
+.tooltip2 button, .tooltip button {
+  
+  width: 90%;
+  height: 40px;
+  border-radius: 15px;
+  font-family: 'SUITE-Regular';
+}
+
+.tooltip button{
+  position: absolute;
+  bottom: 10px;
+}
+
+
+
+.menu-close {
+  width: 0px;
+  margin-left: -150px;
+  transition: margin-left 0.3s;
+  
+}
+
+.menu-close div {
+  display: none;
+}
+
+
+.menu-open {
+  margin-top: 18%;
+  margin-left: 0px;
+  border-top-right-radius: 20px;
+  background-color: rgb(226, 234, 247);
+  width: 150px;
+  height:520px;
+  transition: margin-left 0.3s;
+}
+.menu-open div{
+
+  font-size: 18px;
+  border-bottom: 1px solid rgb(201, 199, 199);
+  height: 30px;
+  font-family: 'SUITE-Regular';
+  align-items: center;
+}
+.menu-open div :first-child{
+  color: #fff;
+  text-align: center;
+  align-items: center;
+  background-color: rgb(0, 128, 255);
+  border-bottom: 1px solid rgb(201, 199, 199);
+  height: 30px;
+  border-top-right-radius: 20px;
+  
+}
+
+.menu-button {
+  border: none;
+  cursor: pointer;
+}
+
+
+.AdminFooter>div {
+  display: flex;
+  background-color: #36aeef;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 7);
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  border-radius: 10%;
+}
+
+.AdminFooter img{
+ 
+  width: 40px;
+  height: 40px;
+}
