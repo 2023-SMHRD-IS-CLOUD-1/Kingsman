@@ -1,39 +1,36 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Chart, registerables } from "chart.js";
 
 const MonthlyLine = ({data}) => {
   const chartRef = useRef(null);
   let chartInstance = null;
+  var backgroundColor =[];
+  var borderColor =[];
 
   useEffect(() => {
+    const year = data.getFullYear();
+    const month = data.getMonth() + 1; // 월은 0부터 시작하므로 1을 더합니다.
+    const lastDay = new Date(year, month, 0).getDate();
+    const newArray = Array.from({ length: lastDay}, (_, index) => index + 1);
     const ctx = chartRef.current.getContext("2d");
     const createChart = () => {
       
+      newArray.forEach(number => backgroundColor.push(`rgba(${50*number},${50*number},${50*number},0.2})`));
+
+      newArray.forEach(number => borderColor.push(`rgba(${50*number},${50*number},${50*number},1})`))
+
       Chart.register(...registerables);
       chartInstance = new Chart(ctx, {
         type: "line",
         data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: newArray,
           datasets: [
             {
               label: "# of Votes",
-              data: [15, 20, 60, 10, 22, 30],
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-              ],
-              borderColor: [
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)",
-              ],
+              data: newArray,
+              backgroundColor: backgroundColor
+             ,
+              borderColor: borderColor,
               borderWidth: 1,
             },
           ],

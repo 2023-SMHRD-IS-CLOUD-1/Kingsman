@@ -12,15 +12,15 @@ const Dashboard = (/*{list}*/) => {
     const [timeLine, setTimeLine] = useState("Week");
 
     // 시간 데이터 혹시 몰라서
-//     const [currentDate, setCurrentDate] = useState(new Date());
+    const [currentDate, setCurrentDate] = useState(new Date());
 
-//   useEffect(() => {
-//     const intervalId = setInterval(() => {
-//         setCurrentDate(new Date());
-//     }, 1000);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+        setCurrentDate(new Date());
+    }, 1000);
 
-//     return () => clearInterval(intervalId);
-//   }, []);
+    return () => clearInterval(intervalId);
+  }, []);
     
    
   return (
@@ -41,9 +41,9 @@ const Dashboard = (/*{list}*/) => {
             </div>
             <div className='chart'>
             {timeLine === "Week"?
-                <><h3>이번 주 입고량</h3><WeeklyLine className='chart' data={"?"} /></>:
+                <><h3>이번 주 입고량</h3><WeeklyLine className='chart' data={currentDate} /></>:
                 
-                <><h3>이번 달 입고량</h3><MonthlyLine className='chart' data={"?"} /></>}
+                <><h3>이번 달 입고량</h3><MonthlyLine className='chart' data={currentDate} /></>}
 
             </div>
             <div className='chart'>

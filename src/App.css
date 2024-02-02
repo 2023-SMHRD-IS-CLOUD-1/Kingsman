@@ -162,6 +162,70 @@
 
 
 /**************************************/
+.AdminHome {
+  top: 60px;
+  position: absolute;
+  
+}
+
+.AdminHome img, .AdminHome>div div {
+  height: 75px;
+  width : 75px;
+  text-align: center;
+}
+.AdminHome>div div:nth-child(2){
+  margin-left: 80px;
+}
+
+.AdminHome>div {
+  justify-content: center;
+  align-items: center;
+  margin-left: 60px;
+  margin-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.AdminHome p {
+  margin: 0;
+}
+
+/* .AdminHome div:nth-child(5),
+.AdminHome div:nth-child(6){
+  margin-top: 10px;
+} */
+
+/* .homeTitle {
+  position :absolute;
+  top: 210px;
+  left: 60px;
+}
+.homeTitle div {
+  display: flex; 
+}
+
+.homeTitle div *:nth-child(2) {
+  margin-left: 100px;
+}
+
+
+.homeTitle div:not(:first-child){
+  margin-top: 100px;
+  
+}
+.homeTitle div:nth-child(2){
+  margin-left: -20px;
+
+}
+.homeTitle div:nth-child(3){
+  margin-left: -10px;
+}
+
+.homeTitle div:nth-child(3) >:last-child{
+  margin-left: 80px;
+} */
+
+/**************************************/
 .chartTable{
   top: 200px;
   left: 40px;
@@ -200,6 +264,7 @@
   background-color: darkgreen;
   border-radius: 5px;
 }
+
 
 
 
