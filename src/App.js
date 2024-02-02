@@ -1,7 +1,7 @@
 import './App.css';
 import AdminHome from './components/AdminHome';
 import AllActivitiLog from './components/AllActivitiLog';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import TowelCount from './components/TowelCount';
 import PromotionalText from './components/PromotionalText';
 import ScheduleManagement from './components/ScheduleManagement';
