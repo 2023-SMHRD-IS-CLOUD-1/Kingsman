@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import AdminFooter from '../AdminFooter'
-import AdminHeader from '../AdminHeader'
+import AdminFooter from '../AdminHome/AdminFooter'
+import AdminHeader from '../AdminHome/AdminHeader'
 import TfBar from './TfBar'
 import UserBar from './UserBar'
 import TfPie from './TfPie'
@@ -48,18 +48,18 @@ const Dashboard = (/*{list}*/) => {
             </div>
             <div className='chart'>
                 <h3>일별 정확도</h3>
-                <AccuracyLine className='chart' data={"?"} />
+                <AccuracyLine className='chart' data={currentDate} />
             </div>
             <div className='chart'>
-                <h3>일별 오차 비교</h3>
-                <TfBar  data={"?"}/>
+                <h3>금일 T/F</h3>
+                <TfBar  data={""}/>
             </div>
             <div className='chart'>
                 <h3>사용자별 정확도</h3>
                 <UserBar className='chart' data={"?"} />
             </div>
             <div className='chart'>
-                <h3>전체 오차 비교</h3>
+                <h3>전체 T/F</h3>
                 <TfPie  data={"?"}/>
             </div>
         </div>

@@ -5,35 +5,24 @@ const AccuracyLine = ({data}) => {
   const chartRef = useRef(null);
   let chartInstance = null;
 
-  useEffect(() => {
-    const ctx = chartRef.current.getContext("2d");
 
+  useEffect(() => {
+    const year = data.getFullYear();
+    const month = data.getMonth() + 1;
+    const lastDay = new Date(year, month, 0).getDate();
+    const newArray = Array.from({ length: lastDay}, (_, index) => index + 1);
+    const ctx = chartRef.current.getContext("2d");
     const createChart = () => {
+
       Chart.register(...registerables);
       chartInstance = new Chart(ctx, {
         type: "line",
         data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: newArray,
           datasets: [
             {
               label: "# of Votes",
-              data: [15, 20, 60, 10, 22, 30],
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-              ],
-              borderColor: [
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)",
-              ],
+              data: newArray,
               borderWidth: 1,
             },
           ],
@@ -41,6 +30,7 @@ const AccuracyLine = ({data}) => {
         options: {
           responsive:false,
           scales: {
+          
             y: {
               beginAtZero: true,
               max: 100,

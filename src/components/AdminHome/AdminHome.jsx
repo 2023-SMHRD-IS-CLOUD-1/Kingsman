@@ -2,12 +2,12 @@ import React from 'react'
 import AdminFooter from './AdminFooter'
 import AdminHeader from './AdminHeader'
 import { useNavigate } from 'react-router-dom';
-import graphIcon from '../image/graph.png'
-import promotionIcon from '../image/promotion.png'
-import editIcon from '../image/edit.png'
-import scheduleIcon from '../image/schedule.png'
-import logIcon from '../image/log.png'
-import uploadIcon from '../image/upload.png'
+import graphIcon from '../../image/graph.png'
+import promotionIcon from '../../image/promotion.png'
+import editIcon from '../../image/edit.png'
+import scheduleIcon from '../../image/schedule.png'
+import logIcon from '../../image/log.png'
+import uploadIcon from '../../image/upload.png'
 
 const AdminHome = () => {
   const nav = useNavigate();

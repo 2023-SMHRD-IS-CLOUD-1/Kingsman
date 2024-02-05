@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import menuIcon from '../image/menu.png'
-import profileIcon from '../image/profile.png'
-import bellIcon from '../image/notification.png'
+import menuIcon from '../../image/menu.png'
+import profileIcon from '../../image/profile.png'
+import bellIcon from '../../image/notification.png'
 import { useNavigate } from 'react-router-dom'
 
 

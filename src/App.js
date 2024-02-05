@@ -1,13 +1,13 @@
 import './App.css';
-import AdminHome from './components/AdminHome';
-import AllActivitiLog from './components/AllActivitiLog';
+import AdminHome from './components/AdminHome/AdminHome';
+import AllActivityLog from './components/AllActivityLog/AllActivityLog';
 import Dashboard from './components/Dashboard/Dashboard';
-import TowelCount from './components/TowelCount';
-import PromotionalText from './components/PromotionalText';
-import ScheduleManagement from './components/ScheduleManagement';
-import UserManagement from './components/UserManagement';
-import AdminModifyProfile from './components/AdminModifyProfile';
-import Login from './components/Login';
+import TowelCount from './components/TowelCount/TowelCount';
+import PromotionalText from './components/PromotinalText/PromotionalText';
+import ScheduleManagement from './components/ScheduleManagement/ScheduleManagement';
+import UserManagement from './components/UserManagement/UserManagement';
+import AdminModifyProfile from './components/AdminModifyProfile/AdminModifyProfile';
+import Login from './components/Login/Login';
 import {Routes, Route} from 'react-router-dom'
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -28,7 +28,7 @@ function App() {
       
         <Routes>
             <Route path='/AdminHome' element={<AdminHome></AdminHome>}></Route>
-            <Route path='/AllActivitiLog' element={<AllActivitiLog></AllActivitiLog>}></Route>
+            <Route path='/AllActivityLog' element={<AllActivityLog></AllActivityLog>}></Route>
             <Route path='/Dashboard' element={<Dashboard></Dashboard>}></Route>
             <Route path='/TowelCount' element={<TowelCount></TowelCount>}></Route>
             <Route path='/PromotionalText' element={<PromotionalText></PromotionalText>}></Route>
