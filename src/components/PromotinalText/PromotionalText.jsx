@@ -16,71 +16,58 @@ const PromotionalText = () => {
     const [selectedFeel, setSelectedFeel] = useState(null);
     const [selectedMaterial, setSelectedMaterial] = useState(null);
     const [selectedColor, setSelectedColor] = useState(null);
-    const lastlist = [{ product, name, feel, material, color, text }]
     const [promotionalText, setPromotionalText] = useState();
     const feelbtn1 = () => {
         setFeel("질감1");
         setSelectedFeel("질감1");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 질감1, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const feelbtn2 = () => {
         setFeel("질감2");
         setSelectedFeel("질감2");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 질감1, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const feelbtn3 = () => {
         setFeel("질감3");
         setSelectedFeel("질감3");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 질감1, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const feelbtn4 = () => {
         setFeel("질감4");
         setSelectedFeel("질감4");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 질감1, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
 
 
     const matbtn1 = () => {
         setMaterial("소재1");
         setSelectedMaterial("소재1");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 소재1, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const matbtn2 = () => {
         setMaterial("소재2");
         setSelectedMaterial("소재2");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 소재2, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const matbtn3 = () => {
         setMaterial("소재3");
         setSelectedMaterial("소재3");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 소재3, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const matbtn4 = () => {
         setMaterial("소재4");
         setSelectedMaterial("소재4");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 소재4, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
 
 
     const colorbtn1 = () => {
         setColor("색깔1");
         setSelectedColor("색깔1")
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 색깔1입니다.`);
     };
     const colorbtn2 = () => {
         setColor("색깔2");
         setSelectedColor("색깔2")
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 색깔2입니다.`);
     };
     const colorbtn3 = () => {
         setColor("색깔3");
         setSelectedColor("색깔3")
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 색깔3입니다.`);
     };
     const colorbtn4 = () => {
         setColor("색깔4");
         setSelectedColor("색깔4")
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 색깔4입니다.`);
     };
 
     const PromotionalBtn = () => {
@@ -119,11 +106,9 @@ const PromotionalText = () => {
     };
     const handleProductChange = (selectedProduct) => {
         setProduct(selectedProduct);
-        setPromotionalText(`제품군은 ${selectedProduct ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const handleNameChange = (selectedName) => {
         setName(selectedName);
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${selectedName ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
 
     
