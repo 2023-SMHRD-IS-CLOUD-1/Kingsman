@@ -91,12 +91,13 @@ const PromotionalText = () => {
 
        
         const payload2 = {
-                promotionalText: promotionalText,
-                product: product,
-                name: name
+                
+               pr_QUESTION: promotionalText,
+               pr_PRODUCT: product,
+               pr_NAME: name
         };
         console.log('payload2 값 확인:', payload2);
-        axios.post('http://localhost:8088/SpringBoot/MemberPromotional', payload2, { withCredentials: true })
+        axios.post('http://localhost:8085/kingsman/MemberPromotional', payload2, { withCredentials: true })
    .then(response => {
        console.log('데이터 전송 성공:', response.data);
    })
