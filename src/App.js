@@ -1,14 +1,15 @@
 import './App.css';
-import AdminHome from './components/AdminHome';
-import AllActivitiLog from './components/AllActivitiLog';
-import Dashboard from './components/Dashboard';
-import TowelCount from './components/TowelCount';
-import PromotionalText from './components/PromotionalText';
 import ScheduleManagement from './components/ScheduleManagementPage/ScheduleManagement';
-import UserManagement from './components/UserManagement';
-import AdminModifyProfile from './components/AdminModifyProfile';
 import Login from './components/LoginPage/Login';
 import SignUp from './components/SignUpPage/SignUp'
+import AdminHome from './components/AdminHome/AdminHome';
+import AllActivityLog from './components/AllActivityLog/AllActivityLog';
+import Dashboard from './components/Dashboard/Dashboard';
+import TowelCount from './components/TowelCount/TowelCount';
+import PromotionalText from './components/PromotinalText/PromotionalText';
+import UserManagement from './components/UserManagement/UserManagement';
+import AdminModifyProfile from './components/AdminModifyProfile/AdminModifyProfile';
+import UserModifyProfile from './components/UserModifyProfile/UserModifyProfile'
 import {Routes, Route} from 'react-router-dom'
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -29,7 +30,7 @@ function App() {
       
         <Routes>
             <Route path='/AdminHome' element={<AdminHome></AdminHome>}></Route>
-            <Route path='/AllActivitiLog' element={<AllActivitiLog></AllActivitiLog>}></Route>
+            <Route path='/AllActivityLog' element={<AllActivityLog></AllActivityLog>}></Route>
             <Route path='/Dashboard' element={<Dashboard></Dashboard>}></Route>
             <Route path='/TowelCount' element={<TowelCount></TowelCount>}></Route>
             <Route path='/PromotionalText' element={<PromotionalText></PromotionalText>}></Route>
@@ -38,7 +39,9 @@ function App() {
             <Route path='/AdminModifyProfile' element={<AdminModifyProfile></AdminModifyProfile>}></Route>
             <Route path='/' element={<Login></Login>}></Route>
             <Route path='/signUp' element={<SignUp />} />
+            <Route path='/UserModifyProfile' element={<UserModifyProfile></UserModifyProfile>}></Route>
         </Routes>
+        
         
 
       

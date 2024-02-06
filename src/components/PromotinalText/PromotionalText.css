@@ -1,0 +1,97 @@
+.selectbtn {
+    background-color: white; 
+    color: limegreen; 
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    max-height: 40px;
+    min-width: 54px;
+    border: 2px solid limegreen;
+  }
+  
+  .selectbtn:hover {
+    background-color: #2980b9; 
+  }
+
+.container {
+    margin-bottom: 20px;
+  }
+  
+
+  select {
+    width: 80px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 33px;
+  }
+  .PTT {
+    height: 70px;
+    width: 300px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  
+  .submit{
+    background-color: #27ae60; 
+    color: white; 
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+ 
+
+} 
+
+.container {
+    margin-bottom: 20px;
+  }
+  
+  select {
+    width: 80px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  
+  .AdminHeader {
+    height: 64px; 
+    min-height: 64px;
+    margin: auto;
+  }
+  
+ 
+  .AdminFooter {
+    height: 64px; 
+    min-height: 64px;
+    margin: auto;
+    
+  }
+  
+
+  .PromotionalText {
+    max-height: 512px;
+    margin: 84px auto 0; 
+    
+  }
+  .AdminHeader {
+    height: 64px; 
+    min-height: 64px;
+    margin: auto;
+    
+  }
+  
+
+  
+
+  .PromotionalText {
+    max-height: 512px;
+    margin: 84px auto 0; 
+    
+  }

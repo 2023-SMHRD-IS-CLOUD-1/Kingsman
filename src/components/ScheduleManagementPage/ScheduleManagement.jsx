@@ -1,8 +1,8 @@
 import React from 'react'
 import Calendar from './Calendar'
 import SearchSchedule from './SearchSchedule'
-import AdminHeader from '../AdminHeader'
-import AdminFooter from '../AdminFooter'
+import AdminHeader from '../AdminHome/AdminHeader'
+import AdminFooter from '../AdminHome/AdminFooter'
 const ScheduleManagement = () => {
   return (
     <div>

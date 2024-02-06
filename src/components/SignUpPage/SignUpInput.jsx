@@ -20,8 +20,8 @@ const SignUpInput = () => {
         <div className='departPosition'>
           <div>
 
-            <label htmlFor="department" className="input-label">부서*</label>
-            <select id="department" className="input-field">
+            <label htmlFor="signUpDepartment" className="input-label">부서*</label>
+            <select id="signUpDepartment" className="input-field">
               <option value="" disabled selected hidden>부서를 선택하세요</option>
               <option value="IT">IT</option>
               <option value="영업">영업</option>
@@ -30,8 +30,8 @@ const SignUpInput = () => {
           </div>
           <div>
 
-            <label htmlFor="position" className="input-label">직급*</label>
-            <select id="position" className="input-field">
+            <label htmlFor="signUpPosition" className="input-label">직급*</label>
+            <select id="signUpPosition" className="input-field">
               <option value="" disabled selected hidden>직급을 선택하세요</option>
               <option value="사장">사장</option>
               <option value="과장">과장</option>

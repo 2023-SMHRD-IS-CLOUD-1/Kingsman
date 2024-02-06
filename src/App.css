@@ -1,42 +1,61 @@
+/*footer, header*/
 @font-face {
   font-family: 'SUITE-Regular';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
 }
+*{
+  font-family: 'SUITE-Regular';
+}
 
 .AdminHeader,
 .AdminFooter{
-  color: #fff;
+  color: white;
   text-align: center;
   position: fixed;
   width: 100%;
   height: 64px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  
 }
 .AdminHeader{
-  background-color: rgb(0, 187, 255);
+  border-bottom-right-radius: 30px;
+  background-color: limegreen;
+  height : 10%;
   top: 0;
+  z-index: 2;
+ 
+  
 }
 
 .AdminFooter {
   bottom: 0;
+  height: 10%;
+  background-color: white;
 }
 
 .menu-button {
   top: 0;
-  margin-right: 120px;
+  height: 50%;
+  margin-right: 110px;
 }
+
+.notification{
+  z-index: 3;
+  
+}
+
 .AdminHeader>div {
   margin-left: 80px;
   justify-content: space-between;
 }
 .AdminHeader img {
+  margin-top: 10px;
   width: 40px;
   height: 40px;
-  position: relative;
+
   display: inline-block;
   cursor: pointer;
 }
@@ -73,7 +92,7 @@
   width: 90%;
   height: 40px;
   border-radius: 15px;
-  font-family: 'SUITE-Regular';
+  
 }
 
 .tooltip button{
@@ -85,8 +104,11 @@
 
 .menu-close {
   width: 0px;
-  margin-left: -150px;
-  transition: margin-left 0.3s;
+  margin-top: -200px;
+  margin-left: 150px;
+  transition: margin-top 3s;
+  position: fixed;
+
   
 }
 
@@ -96,32 +118,25 @@
 
 
 .menu-open {
-  margin-top: 18%;
+ 
   margin-left: 0px;
-  border-top-right-radius: 20px;
-  background-color: rgb(226, 234, 247);
-  width: 150px;
-  height:520px;
-  transition: margin-left 0.3s;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(232, 243, 237);
+  width:  150px;
+  height: 220px;
+  transition: margin-top 3s;
+  position: fixed;
+  z-index: 1;
 }
 .menu-open div{
-
+  
   font-size: 18px;
   border-bottom: 1px solid rgb(201, 199, 199);
   height: 30px;
   font-family: 'SUITE-Regular';
   align-items: center;
 }
-.menu-open div :first-child{
-  color: #fff;
-  text-align: center;
-  align-items: center;
-  background-color: rgb(0, 128, 255);
-  border-bottom: 1px solid rgb(201, 199, 199);
-  height: 30px;
-  border-top-right-radius: 20px;
-  
-}
+
 
 .menu-button {
   border: none;
@@ -131,21 +146,22 @@
 
 .AdminFooter>div {
   display: flex;
-  background-color: #36aeef;
+  /* background-color: #36aeef; */
   align-items: center;
   justify-content: center;
-  width: calc(100% / 7);
+  width: calc(100% / 5);
   height: 100%;
   box-sizing: border-box;
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
   border-radius: 10%;
 }
 
 .AdminFooter img{
- 
+  
   width: 40px;
   height: 40px;
 }
+
 
 /* 로그인 페이지!!!!!! */
 .loginPageContainer {
@@ -243,8 +259,79 @@
 
 .departPosition {
   display: flex;
+}
+
+/**************************************/
+.AdminHome {
+  top: 60px;
+  position: absolute;
+  
+}
+
+.AdminHome img, .AdminHome>div div {
+  height: 75px;
+  width : 75px;
+  text-align: center;
+}
+.AdminHome>div div:nth-child(2){
+  margin-left: 80px;
+}
+
+.AdminHome>div {
+  justify-content: center;
+  align-items: center;
+  margin-left: 65px;
+  margin-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.AdminHome p {
+  margin: 0;
+}
+
+
+/**************************************/
+.chartTable{
+  top: 200px;
+  left: 40px;
+  position :absolute;
+  padding-bottom: 100px;
+}
+
+.percent {
+  top: 90px;
+  left: 50px;
+  position :absolute;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.percent * {
+  margin: 5px;
+  height: 20px;
+  width: 130px;
+  background-color: darkgreen;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
 
 }
+
+.setTime {
+  display:flex;
+   
+}
+.setTime *{
+  width: 50px;
+  text-align: center;
+  color: white;
+  margin: 5px;
+  background-color: darkgreen;
+  border-radius: 5px;
+
+}
+
 
 
 
@@ -253,9 +340,9 @@
   text-align: center;
 }
 
-#department,
-#position {
-  font-size: 0.83rem;
+#signUpDepartment,
+#signUpPosition {
+  font-size: 0.85rem !important;
   color: rgb(190, 182, 182);
 }
 
