@@ -7,6 +7,7 @@ import PromotionalText from './components/PromotinalText/PromotionalText';
 import ScheduleManagement from './components/ScheduleManagement/ScheduleManagement';
 import UserManagement from './components/UserManagement/UserManagement';
 import AdminModifyProfile from './components/AdminModifyProfile/AdminModifyProfile';
+import UserModifyProfile from './components/UserModifyProfile/UserModifyProfile'
 import Login from './components/Login/Login';
 import {Routes, Route} from 'react-router-dom'
 import { useState } from 'react';
@@ -36,7 +37,9 @@ function App() {
             <Route path='/UserManagement' element={<UserManagement></UserManagement>}></Route>
             <Route path='/AdminModifyProfile' element={<AdminModifyProfile></AdminModifyProfile>}></Route>
             <Route path='/Login' element={<Login></Login>}></Route>
+            <Route path='/UserModifyProfile' element={<UserModifyProfile></UserModifyProfile>}></Route>
         </Routes>
+        
         
 
       
