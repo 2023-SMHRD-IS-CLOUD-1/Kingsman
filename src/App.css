@@ -15,7 +15,7 @@
   text-align: center;
   position: fixed;
   width: 100%;
-  
+  height: 64px;
   display: flex;
   justify-content: center;
   
@@ -163,6 +163,104 @@
 }
 
 
+/* 로그인 페이지!!!!!! */
+.loginPageContainer {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+}
+
+.userHeader {
+  height: 96px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.localLogin {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.snsLogin {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+
+/* 회원가입 페이지 */
+.signUpHeader {
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: left;
+}
+
+.signUpHeader span {
+  font-size: 0.5em;
+  /* 원하는 글자 크기 설정 */
+  margin: 0px 0;
+  /* 간격 조절 */
+  color:gray;
+  /* 글자색을 초록색으로 설정 */
+  font-weight: bold;
+}
+
+.signUpHeader h2 {
+  color: rgb(60, 158, 60);
+}
+
+.signUpUser {
+  height: 544px;
+}
+
+.signUpInput {
+  height: 470px;
+  width: 80%;
+  margin: auto;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 20px;  */
+  /* 각 입력란 간격 조절 */
+}
+
+.input-label {
+  font-size: 0.8em;
+  /* 레이블 글자 크기 작게 설정 */
+  color: gray;
+  /* 레이블 글자색 회색으로 설정 */
+}
+
+.input-field {
+  border: none;
+  border-bottom: 1px solid gray;
+  /* 밑줄 추가 */
+  padding: 5px;
+  font-size: 1em;
+  /* 입력 필드 글자 크기 설정 */
+  /* margin-top: 5px;  */
+  /*입력 필드 위 여백 조절 */
+  margin-bottom: 10px;
+}
+
+.departPosition {
+  display: flex;
+}
+
 /**************************************/
 .AdminHome {
   top: 60px;
@@ -192,40 +290,6 @@
   margin: 0;
 }
 
-/* .AdminHome div:nth-child(5),
-.AdminHome div:nth-child(6){
-  margin-top: 10px;
-} */
-
-/* .homeTitle {
-  position :absolute;
-  top: 210px;
-  left: 60px;
-}
-.homeTitle div {
-  display: flex; 
-}
-
-.homeTitle div *:nth-child(2) {
-  margin-left: 100px;
-}
-
-
-.homeTitle div:not(:first-child){
-  margin-top: 100px;
-  
-}
-.homeTitle div:nth-child(2){
-  margin-left: -20px;
-
-}
-.homeTitle div:nth-child(3){
-  margin-left: -10px;
-}
-
-.homeTitle div:nth-child(3) >:last-child{
-  margin-left: 80px;
-} */
 
 /**************************************/
 .chartTable{
@@ -265,9 +329,52 @@
   margin: 5px;
   background-color: darkgreen;
   border-radius: 5px;
+
 }
 
 
 
 
+.signUpButton {
+  height: 15%;
+  text-align: center;
+}
 
+#signUpDepartment,
+#signUpPosition {
+  font-size: 0.85rem !important;
+  color: rgb(190, 182, 182);
+}
+
+.joinButton {
+  color: limegreen;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+/* ///////////////////////////////////////////////////////// */
+/* 관리자 - 일정관리 페이지 !!!! */
+.adminHeader{
+  background-color: limegreen;
+  height: 64px;
+}
+
+.calendarContainer{
+  height: 330px;
+}
+
+.searchScheduleContainer{
+  background-color: skyblue;
+  height: 182px;
+}
+
+.adminFooter{
+  background-color: black;
+  height: 64px;
+}
+
+.AdminHeaderContainer{
+  height: 64px;
+}
