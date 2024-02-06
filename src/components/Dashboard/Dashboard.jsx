@@ -47,20 +47,20 @@ const Dashboard = (/*{list}*/) => {
 
             </div>
             <div className='chart'>
-                <h3>일별 정확도</h3>
-                <AccuracyLine className='chart' data={currentDate} />
-            </div>
-            <div className='chart'>
                 <h3>금일 T/F</h3>
                 <TfBar  data={""}/>
             </div>
             <div className='chart'>
-                <h3>사용자별 정확도</h3>
-                <UserBar className='chart' data={"?"} />
-            </div>
-            <div className='chart'>
                 <h3>전체 T/F</h3>
                 <TfPie  data={"?"}/>
+            </div>
+            <div className='chart'>
+                <h3>일별 정확도</h3>
+                <AccuracyLine className='chart' data={currentDate} />
+            </div>
+            <div className='chart'>
+                <h3>사용자별 정확도</h3>
+                <UserBar className='chart' data={"?"} />
             </div>
         </div>
 

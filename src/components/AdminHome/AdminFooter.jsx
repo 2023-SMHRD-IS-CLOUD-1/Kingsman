@@ -42,7 +42,7 @@ const AdminFooter = () => {
           <img src= {scheduleIcon}></img>:
           <img src= {scheduleGrayIcon}></img>}
           </div>
-        <div onClick={()=>{nav('/AllActivitiLog')}}>
+        <div onClick={()=>{nav('/AllActivityLog')}}>
           {currentPath === '/AllActivitiLog'?
           <img src= {logIcon}></img>:
           <img src= {logGrayIcon}></img>}

@@ -5,19 +5,30 @@ import bellIcon from '../../image/notification.png'
 import { useNavigate } from 'react-router-dom'
 
 
-const AdminHeader = () => {
+const AdminHeader = ({data}) => {
 
     const nav = useNavigate();
 
+    const [latestItems, setLatestItems] = useState([]);
+    
     const [isMenuOpen, setMenuOpen] = useState(false);
-
+    
     const [isTooltipVisible, setTooltipVisible] = useState(false);
     
     const [isTooltipVisible2, setTooltipVisible2] = useState(false);
-
+    
     const [notificationCount, setNotificationCount] = useState(0);
-
-
+    
+    useEffect(() => {
+        // data가 배열이고 길이가 3 이상인 경우에만 slice 실행
+        if (Array.isArray(data) && data.length >= 3) {
+          const latestItems = data.slice(-3);
+          setLatestItems(latestItems);
+        } else {
+          setLatestItems([]);
+        }
+      }, [data]);
+    
     // 나중에 알림 뜨면 숫자
     useEffect(() => {
        //실시간으로 데이터를 가져오는 함수 추가해야 함
@@ -68,6 +79,11 @@ const AdminHeader = () => {
             
         </div>
         {isTooltipVisible && <div className="tooltip">
+                <ul>
+                    {latestItems.map((item, index) => (
+                    <li key={index}>{item}</li>
+                    ))}
+                </ul>
                 <button onClick={()=>{nav('/AllActivitiLog')}}>전체 로그</button>
             </div>}
         {isTooltipVisible2 && <div className="tooltip2">
