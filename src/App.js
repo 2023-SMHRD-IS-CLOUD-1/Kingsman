@@ -12,7 +12,6 @@ import AdminModifyProfile from './components/AdminModifyProfile/AdminModifyProfi
 import UserModifyProfile from './components/UserModifyProfile/UserModifyProfile'
 import UserActivityLog from './components/UserActivityLog/UserActivityLog'
 import UserTowelCount from './components/UserTowelCount.jsx/UserTowelCount';
-import Login from './components/Login/Login';
 import {Routes, Route} from 'react-router-dom'
 import { useState } from 'react';
 import { useEffect } from 'react';
