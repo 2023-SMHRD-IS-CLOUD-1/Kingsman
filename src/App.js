@@ -1,10 +1,12 @@
 import './App.css';
+import ScheduleManagement from './components/ScheduleManagementPage/ScheduleManagement';
+import Login from './components/LoginPage/Login';
+import SignUp from './components/SignUpPage/SignUp'
 import AdminHome from './components/AdminHome/AdminHome';
 import AllActivityLog from './components/AllActivityLog/AllActivityLog';
 import Dashboard from './components/Dashboard/Dashboard';
 import AdminTowelCount from './components/AdminTowelCount/AdminTowelCount';
 import PromotionalText from './components/PromotinalText/PromotionalText';
-import ScheduleManagement from './components/ScheduleManagement/ScheduleManagement';
 import UserManagement from './components/UserManagement/UserManagement';
 import AdminModifyProfile from './components/AdminModifyProfile/AdminModifyProfile';
 import UserModifyProfile from './components/UserModifyProfile/UserModifyProfile'
@@ -15,7 +17,7 @@ import {Routes, Route} from 'react-router-dom'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-
+import './Calendar.css'
 function App() {
   // 데이터 받는 용도임. 일단 주석 처리 해놓음
   // const [list,setList] = useState([]);
@@ -43,6 +45,7 @@ function App() {
             <Route path='/UserTowelCount' element={<UserTowelCount></UserTowelCount>}></Route>
             <Route path='/Login' element={<Login></Login>}></Route>
         </Routes>
+        
         
 
       
