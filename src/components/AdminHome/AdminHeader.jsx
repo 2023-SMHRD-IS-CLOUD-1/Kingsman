@@ -53,9 +53,13 @@ const AdminHeader = () => {
                 <h3 onClick={() => {
                     nav('/AdminHome')
                 }}>title</h3>
-                <div>
-                    <img onClick={handleIconClick} src={bellIcon} />
-                    <img onClick={handleIconClick2} src={profileIcon} />
+                <div style={{display:'flex', justifyContent:'center'}}>
+                    <div>
+                        <img onClick={handleIconClick} src={bellIcon} />
+                    </div>
+                    <div>
+                        <img onClick={handleIconClick2} src={profileIcon} />
+                    </div>
                 </div>
             </div>
             <div className={`${isMenuOpen ? 'menu-open' : 'menu-close'}`}>
