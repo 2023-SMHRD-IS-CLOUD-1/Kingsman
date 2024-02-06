@@ -28,7 +28,7 @@ const AdminHeader = () => {
         setMenuOpen(!isMenuOpen);
     };
   return (
-    <div>
+    <div className='AdminHeaderContainer'>
         <div className="AdminHeader">
             <img className='menu-button' onClick={toggleMenu} src={menuIcon}/>
             <h3 onClick={() =>{
