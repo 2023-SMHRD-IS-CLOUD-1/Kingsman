@@ -4,6 +4,7 @@ import './PromotionalText.css'
 import AdminHeader from '../AdminHome/AdminHeader';
 import AdminFooter from '../AdminHome/AdminFooter';
 import { useEffect } from 'react';
+import chatGPTAPI from './chatGPTAPI';
 const PromotionalText = () => {
     const [product, setProduct] = useState(null);
     const [name, setName] = useState(null);
@@ -72,12 +73,23 @@ const [namelist2, setNamelist2] = useState([]);
         setSelectedColor("색깔4")
     };
 
-    const PromotionalBtn = () => {
+    const PromotionalBtn = async () => {
         if (product === null || name === null || feel === null || material === null || color === null) {
             alert('제대로 입력해라');
             return;
         }
+        
         else {
+            const apiKey = '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'; 
+              const prompt = `제품군 ${product} 중 ${name}에 대한 홍보문구를 만드세요. 특징에 대해서는 ${feel}, ${material}, ${color}를 기반으로 작성해 주세요.`;
+              const fetchedPromotionalText = await chatGPTAPI(apiKey, prompt);
+
+              if (fetchedPromotionalText) {
+                setPromotionalText(fetchedPromotionalText);
+              } else {
+                alert('ChatGPT API로부터 홍보문구 생성에 실패했습니다.');
+              }
+           
             sendPromotionalData();
 
 
@@ -107,6 +119,8 @@ const [namelist2, setNamelist2] = useState([]);
        console.error('데이터 전송 중 오류:', error);
    });
     };
+
+
     const handleProductChange = (selectedProduct) => {
         setProduct(selectedProduct);
     };
@@ -137,6 +151,8 @@ const [namelist2, setNamelist2] = useState([]);
       fetchData();
   }, []); // 빈 배열을 전달하여 최초 한 번만 실행하도록 설정합니다.
 
+
+  
 
     return (
         <div>
