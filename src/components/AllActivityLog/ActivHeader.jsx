@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import menuIcon from '../image/menu.png'
-import profileIcon from '../image/profile.png'
-import bellIcon from '../image/notification.png'
+import menu1 from '../../image/menu1.png'
+import profileIcon from '../../image/profile.png'
+import bellIcon from '../../image/notification.png'
 import { useNavigate } from 'react-router-dom'
 
 
-const AdminHeader = () => {
+const ActivHeader = () => {
 
     const nav = useNavigate();
 
@@ -30,9 +30,9 @@ const AdminHeader = () => {
   return (
     <div>
         <div className="AdminHeader">
-            <img className='menu-button' onClick={toggleMenu} src={menuIcon}/>
+            <img className='menu-button' onClick={toggleMenu} src={menu1}/>
             <h3 onClick={() =>{
-                nav('/AdminHome')}}>title</h3>
+                nav('/AdminHome')}}>활동기록</h3>
             <div>
                 <img onClick={handleIconClick} src={bellIcon}/>
                 <img onClick={handleIconClick2} src={profileIcon}/>
@@ -60,4 +60,4 @@ const AdminHeader = () => {
   )
 }
 
-export default AdminHeader
+export default ActivHeader
