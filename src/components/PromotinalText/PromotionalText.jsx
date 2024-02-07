@@ -139,7 +139,7 @@ const [namelist2, setNamelist2] = useState([]);
 
 
     return (
-
+        <div>
         <div className="PromotionalText">
             <AdminHeader />
             <div style={{ textAlign: 'center' }}>
@@ -239,6 +239,7 @@ const [namelist2, setNamelist2] = useState([]);
                 </p>
             </div>
             <AdminFooter />
+        </div>
         </div>
     )
 }

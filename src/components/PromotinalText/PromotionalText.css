@@ -44,10 +44,7 @@
     margin: 5px;
     cursor: pointer;
     border-radius: 5px;
- 
-
 } 
-
 .container {
     margin-bottom: 20px;
   }
@@ -63,6 +60,7 @@
   .AdminHeader {
     height: 64px; 
     min-height: 64px;
+    max-height: 64px;
     margin: auto;
   }
   
@@ -77,21 +75,7 @@
 
   .PromotionalText {
     max-height: 512px;
-    margin: 84px auto 0; 
     
   }
-  .AdminHeader {
-    height: 64px; 
-    min-height: 64px;
-    margin: auto;
-    
-  }
-  
 
   
-
-  .PromotionalText {
-    max-height: 512px;
-    margin: 84px auto 0; 
-    
-  }
