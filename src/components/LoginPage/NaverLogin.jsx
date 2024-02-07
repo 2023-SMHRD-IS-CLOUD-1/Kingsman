@@ -17,6 +17,11 @@ const NaverLogin = () => {
     clientId : 'HimgLp_GCske67Zajotz',
     callbackUrl : "http://localhost:3000/signUp",
     isPopup : true,
+    loginButton : {
+      color : "green",
+      type : 1,
+      height : "30"
+    }
   })
 
   
@@ -27,6 +32,7 @@ const NaverLogin = () => {
         console.log("성공", naverLogin.user);
       }else{
         console.log("실패");
+        console.log(naver);
       }
       console.log(naverLogin);
     })
@@ -39,9 +45,11 @@ const NaverLogin = () => {
 
   return (
     <div className='snsLogin' style={{ height:"70px"}}>
-      <div><img src={naverIcon} alt="" 
+      <div id='naverIdLogin'>
+        <img src={naverIcon} alt="" 
       style={{height:'40px', padding:'5px'}}
-      onClick={naverApiLogin}/></div>
+      onClick={naverApiLogin} />
+      </div>
       <div>
       <img src={kakaoIcon} alt="" 
       style={{height:'40px', padding:'5px'}}/>
