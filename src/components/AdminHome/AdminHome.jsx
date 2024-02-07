@@ -36,11 +36,11 @@ const AdminHome = () => {
             </div>
           </div>
           <div>
-            <div onClick={()=>{nav('/AllActivitiLog')}}>
+            <div onClick={()=>{nav('/AllActivityLog')}}>
               <img src= {logIcon}></img>
               <p>활동 기록</p>
             </div>
-            <div onClick={()=>{nav('/TowelCount')}}><img src= {uploadIcon}></img>
+            <div onClick={()=>{nav('/AdminTowelCount')}}><img src= {uploadIcon}></img>
             
               <p>수건 수량 확인</p>
             </div>

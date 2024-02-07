@@ -5,11 +5,13 @@ import SignUp from './components/SignUpPage/SignUp'
 import AdminHome from './components/AdminHome/AdminHome';
 import AllActivityLog from './components/AllActivityLog/AllActivityLog';
 import Dashboard from './components/Dashboard/Dashboard';
-import TowelCount from './components/TowelCount/TowelCount';
+import AdminTowelCount from './components/AdminTowelCount/AdminTowelCount';
 import PromotionalText from './components/PromotinalText/PromotionalText';
 import UserManagement from './components/UserManagement/UserManagement';
 import AdminModifyProfile from './components/AdminModifyProfile/AdminModifyProfile';
 import UserModifyProfile from './components/UserModifyProfile/UserModifyProfile'
+import UserActivityLog from './components/UserActivityLog/UserActivityLog'
+import UserTowelCount from './components/UserTowelCount.jsx/UserTowelCount';
 import {Routes, Route} from 'react-router-dom'
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -32,14 +34,16 @@ function App() {
             <Route path='/AdminHome' element={<AdminHome></AdminHome>}></Route>
             <Route path='/AllActivityLog' element={<AllActivityLog></AllActivityLog>}></Route>
             <Route path='/Dashboard' element={<Dashboard></Dashboard>}></Route>
-            <Route path='/TowelCount' element={<TowelCount></TowelCount>}></Route>
+            <Route path='/AdminTowelCount' element={<AdminTowelCount></AdminTowelCount>}></Route>
             <Route path='/PromotionalText' element={<PromotionalText></PromotionalText>}></Route>
             <Route path='/ScheduleManagement' element={<ScheduleManagement></ScheduleManagement>}></Route>
             <Route path='/UserManagement' element={<UserManagement></UserManagement>}></Route>
             <Route path='/AdminModifyProfile' element={<AdminModifyProfile></AdminModifyProfile>}></Route>
+            <Route path='/UserModifyProfile' element={<UserModifyProfile></UserModifyProfile>}></Route>
+            <Route path='/UserActivityLog' element={<UserActivityLog></UserActivityLog>}></Route>
+            <Route path='/UserTowelCount' element={<UserTowelCount></UserTowelCount>}></Route>
             <Route path='/' element={<Login></Login>}></Route>
             <Route path='/signUp' element={<SignUp />} />
-            <Route path='/UserModifyProfile' element={<UserModifyProfile></UserModifyProfile>}></Route>
         </Routes>
         
         

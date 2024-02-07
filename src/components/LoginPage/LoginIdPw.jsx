@@ -1,16 +1,21 @@
 import React from 'react'
+import { useContext } from 'react'
+import { LoginContext } from '../../context/LoginContext'
 
 const LoginIdPw = () => {
+
+  const {setLoginId, setLoginPw}= useContext(LoginContext);
+
+
+
   return (
     <div>
         
-        <input type='text' placeholder='아이디'
-        style={{ width: '200px', height: '40px', marginBottom:'5px',
-        borderColor: 'limegreen', borderWidth: '2px' }} /> <br/>
+        <input type='text' placeholder='아이디' className='loginIdInput'
+        onChange={(e)=>{setLoginId(e.target.value)}}/> <br/>
         
-        <input type='password' placeholder='비밀번호' 
-        style={{ width: '200px', height: '40px',
-        borderColor: 'limegreen', borderWidth: '2px' }}/>
+        <input type='password' placeholder='비밀번호' className='loginPwInput'
+        onChange={(e)=>{setLoginPw(e.target.value)}}/>
     </div>
   )
 }
