@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import '../css/UserActivityLog.css'
 
 const UserLogListTable = () => {
 

@@ -1,0 +1,77 @@
+.AdminHeader {
+    height: 64px; 
+    min-height: 64px;
+    margin: auto;
+  }
+  
+
+  .AdminFooter {
+    height: 64px; 
+    min-height: 64px;
+    margin: auto;
+    
+  }
+  
+
+  .UserModifyProfile{
+    
+    max-height: 512px;
+    margin: 84px auto 0; 
+    margin: 84px auto 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+  }
+  .page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* 조정된 간격 값 */
+  }
+  
+  .ump {
+    width: 200px; /* Adjust the width according to your preference */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  label {
+    margin-right: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    margin-top: 20px; /* Add margin for better spacing */
+  }
+  
+  .umbtn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .cancel-btn {
+    background-color: #e74c3c;
+  }
+  
+  .modify-btn {
+    background-color: limegreen;
+  }
+  

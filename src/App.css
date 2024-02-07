@@ -1,99 +1,91 @@
+/*footer, header*/
 @font-face {
   font-family: 'SUITE-Regular';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
 }
-
-/* for ActivitiLog */
-
-/* 전체적인 header와 footer의 틀 */
-.aHeader,
-.aFooter {
-  color: #fff;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  height: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* header 색상*/
-.aHeader {
-  background-color: mediumseagreen;
-  top: 0;
-}
-
-.menu-button {
-  top: 0;
-  margin-right: 120px;
-}
-
-.AdminHeader>div {
-  margin-left: 80px;
-  justify-content: space-between;
-}
-
-.AdminHeader img {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
+*{
+  font-family: 'SUITE-Regular';
 }
 
 
-/* for AdminHome ============================================================================= */
 
+/***********************************/
+
+
+.UserHeader div{
+  margin-left: 120px;
+}
+.UserHeader h3{
+  margin-left: 165px;
+}
+
+/************************************/
 .AdminHeader,
-.AdminFooter {
-  color: #fff;
+.AdminFooter,
+.UserHeader{
+  color: black;
   text-align: center;
   position: fixed;
   width: 100%;
-  height: 10%;
+  height: 64px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+ 
 }
-
-.AdminHeader {
-  background-color: #97bc61;
+.AdminHeader,
+.UserHeader{
+  background-color: rgba(50,205,50);
+  height : 64px;
   top: 0;
+  z-index: 2;
+ 
+  
 }
 
 .AdminFooter {
   bottom: 0;
+  height: 10%;
+  background-color: white;
 }
 
 .menu-button {
   top: 0;
-  margin-right: 120px;
+  height: 50%;
+  margin-right: 110px;
 }
 
-.AdminHeader>div {
+.notification{
+  z-index: 3;
+  
+}
+
+.AdminHeader>div{
   margin-left: 80px;
   justify-content: space-between;
 }
 
-.AdminHeader img {
+.AdminHeader h3{
+  margin-left: 15px;
+}
+
+.AdminHeader img,
+.UserHeader img {
+  margin-top: 10px;
   width: 40px;
   height: 40px;
-  position: relative;
+
   display: inline-block;
   cursor: pointer;
 }
 
-.tooltip,
-.tooltip2 {
+.tooltip, .tooltip2, .tooltip3 {
   top: 66px;
   right: 5px;
   visibility: visible;
   position: absolute;
   background-color: #333;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 8px;
   font-size: 14px;
   z-index: 1;
@@ -106,47 +98,63 @@
 .tooltip {
   width: 200px;
   height: 100px;
+  
 }
 
 .tooltip2 {
   width: 150px;
-  height: 86px;
+ 
+}
+.tooltip3 {
+  width: 150px;
+  
 }
 
+.tooltip3 button,
 .tooltip2 button,
 .tooltip button {
+  
   width: 90%;
   height: 40px;
   border-radius: 15px;
-  font-family: 'SUITE-Regular';
+  
 }
 
-.tooltip button {
+.tooltip button{
   position: absolute;
   bottom: 10px;
 }
 
+
+
 .menu-close {
   width: 0px;
-  margin-left: -150px;
-  transition: margin-left 0.3s;
+  margin-top: -200px;
+  margin-left: 150px;
+  transition: margin-top 1s;
+  position: fixed;
+
+  
 }
 
 .menu-close div {
   display: none;
 }
 
-.menu-open {
-  margin-top: 18%;
-  margin-left: 0px;
-  border-top-right-radius: 20px;
-  background-color: rgb(226, 234, 247);
-  width: 150px;
-  height: 520px;
-  transition: margin-left 0.3s;
-}
 
-.menu-open div {
+.menu-open {
+ 
+  margin-left: 0px;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(232, 243, 237);
+  width:  150px;
+  height: 220px;
+  transition: margin-top 1s;
+  position: fixed;
+  z-index: 1;
+}
+.menu-open div{
+  
   font-size: 18px;
   border-bottom: 1px solid rgb(201, 199, 199);
   height: 30px;
@@ -154,32 +162,346 @@
   align-items: center;
 }
 
-.menu-open div :first-child {
-  color: #fff;
-  text-align: center;
-  align-items: center;
-  background-color: #97bc61;
-  border-bottom: 1px solid rgb(201, 199, 199);
-  height: 30px;
-  border-top-right-radius: 20px;
-}
 
 .menu-button {
   border: none;
   cursor: pointer;
 }
 
+
 .AdminFooter>div {
   display: flex;
-  background-color: #97bc61;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: calc(100% / 5);
   height: 100%;
   box-sizing: border-box;
+  border-radius: 10%;
 }
 
-.AdminFooter img {
+.AdminFooter img{
+  
   width: 40px;
   height: 40px;
+}
+
+
+/* 로그인 페이지!!!!!! */
+.loginPageContainer {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+}
+
+.userHeader {
+  height: 96px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.localLogin {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.snsLogin {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.loginIdInput{
+  width: 200px;
+  height: 40px;
+  margin-bottom: 5px;
+  border-color: limegreen;
+  border-width: 2px;
+}
+.loginPwInput{
+  width: 200px;
+  height: 40px;
+  border-color: limegreen;
+  border-width: 2px;
+}
+
+/* 회원가입 페이지 */
+.signUpHeader {
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: left;
+}
+
+.signUpHeader span {
+  font-size: 0.5em;
+  /* 원하는 글자 크기 설정 */
+  margin: 0px 0;
+  /* 간격 조절 */
+  color:gray;
+  /* 글자색을 초록색으로 설정 */
+  font-weight: bold;
+}
+
+.signUpHeader h2 {
+  color: rgb(60, 158, 60);
+}
+
+.signUpUser {
+  height: 544px;
+}
+
+.signUpInput {
+  height: 470px;
+  width: 80%;
+  margin: auto;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 20px;  */
+  /* 각 입력란 간격 조절 */
+}
+
+.input-label {
+  font-size: 0.8em;
+  /* 레이블 글자 크기 작게 설정 */
+  color: gray;
+  /* 레이블 글자색 회색으로 설정 */
+}
+
+.input-field {
+  border: none;
+  border-bottom: 1px solid gray;
+  /* 밑줄 추가 */
+  padding: 5px;
+  font-size: 1em;
+  /* 입력 필드 글자 크기 설정 */
+  /* margin-top: 5px;  */
+  /*입력 필드 위 여백 조절 */
+  margin-bottom: 10px;
+}
+
+.departPosition {
+  display: flex;
+}
+
+/**************************************/
+.AdminHome {
+  top: 60px;
+  position: absolute;
+  
+}
+
+.AdminHome img, .AdminHome>div div {
+  height: 75px;
+  width : 75px;
+  text-align: center;
+}
+.AdminHome>div div:nth-child(2){
+  margin-left: 80px;
+}
+
+.AdminHome>div {
+  justify-content: center;
+  align-items: center;
+  margin-left: 65px;
+  margin-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.AdminHome p {
+  margin: 0;
+}
+
+/**************************************/
+.chartTable{
+  top: 200px;
+  left: 40px;
+  position :absolute;
+  padding-bottom: 100px;
+}
+
+.percent {
+  top: 90px;
+  left: 40px;
+  position :absolute;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.percent * {
+  margin: 5px;
+  height: 20px;
+  width: 130px;
+  background-color: darkgreen;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+
+}
+
+.setTime {
+  display:flex;
+   
+}
+.setTime *{
+  width: 50px;
+  text-align: center;
+  color: white;
+  margin: 5px;
+  background-color: darkgreen;
+  border-radius: 5px;
+
+}
+
+/*************************************/
+.TowelCountMain {
+  top : 100px;
+  position: fixed;
+}
+.uploadImage {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid black 10px;
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.uploadImage img {
+  width: 280px;
+  height: 280px;
+}
+
+.userActivity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-color: rgb(28, 174, 125);
+  width: 100%;
+  height: 10%;
+  bottom: 0;
+  position: fixed;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.upload {
+  position: fixed;
+  left: 140px;
+  bottom: 120px;
+}
+
+.upload button {
+  color: white;
+  background-color: rgb(2, 153, 103);
+  border-radius: 15px;
+  width: 80px;
+  height: 50px;
+  margin-left: 2ch;
+  border-style: none;
+}
+
+.green{
+  color: greenyellow;
+  text-align: center;
+  border-color: greenyellow;
+}
+
+.red{
+  color: red;
+  text-align: center;
+  border-color: red;
+}
+
+/***************************************/
+
+.SearchUser{
+  height: 15%;
+  width: 100%;
+  top: 10%;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+}
+
+.SearchUser select {
+  height: 30px;
+  width: 100px;
+}
+
+.SearchUser input {
+  height: 24px;
+}
+
+.SearchUser button {
+  height: 30%;
+} 
+
+.UserInfo {
+  position: fixed;
+  top: 25%;
+  left: 20px;
+}
+
+.signUpButton {
+  height: 15%;
+  text-align: center;
+}
+
+#signUpDepartment,
+#signUpPosition {
+  font-size: 0.90rem !important;
+  color: rgb(190, 182, 182);
+}
+
+.joinButton {
+  color: limegreen;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+/* ///////////////////////////////////////////////////////// */
+/* 관리자 - 일정관리 페이지 !!!! */
+.adminHeader{
+  background-color: limegreen;
+  height: 64px;
+}
+
+.calendarContainer{
+  height: 330px;
+}
+
+.searchScheduleContainer{
+  background-color: skyblue;
+  height: 182px;
+}
+
+.adminFooter{
+  background-color: black;
+  height: 64px;
+}
+
+.AdminHeaderContainer{
+  height: 64px;
 }
