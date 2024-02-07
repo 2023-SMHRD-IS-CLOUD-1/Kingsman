@@ -3,6 +3,7 @@ import axios from 'axios';
 import './PromotionalText.css'
 import AdminHeader from '../AdminHome/AdminHeader';
 import AdminFooter from '../AdminHome/AdminFooter';
+import { useEffect } from 'react';
 const PromotionalText = () => {
     const [product, setProduct] = useState(null);
     const [name, setName] = useState(null);
@@ -11,76 +12,64 @@ const PromotionalText = () => {
     const [color, setColor] = useState(null);
     const [text, setText] = useState(null);
     const productlist = ["손수건", "타올"]
-    const namelist1 = ["손수건1", "손수건2", "손수건3", "손수건4"]
-    const namelist2 = ["타올1", "타올2", "타올3", "타올4"]
+    const [namelist1, setNamelist1] = useState([]);
+const [namelist2, setNamelist2] = useState([]);
     const [selectedFeel, setSelectedFeel] = useState(null);
     const [selectedMaterial, setSelectedMaterial] = useState(null);
     const [selectedColor, setSelectedColor] = useState(null);
-    const lastlist = [{ product, name, feel, material, color, text }]
     const [promotionalText, setPromotionalText] = useState();
+    
     const feelbtn1 = () => {
         setFeel("질감1");
         setSelectedFeel("질감1");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 질감1, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const feelbtn2 = () => {
         setFeel("질감2");
         setSelectedFeel("질감2");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 질감1, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const feelbtn3 = () => {
         setFeel("질감3");
         setSelectedFeel("질감3");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 질감1, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const feelbtn4 = () => {
         setFeel("질감4");
         setSelectedFeel("질감4");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 질감1, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
 
 
     const matbtn1 = () => {
         setMaterial("소재1");
         setSelectedMaterial("소재1");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 소재1, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const matbtn2 = () => {
         setMaterial("소재2");
         setSelectedMaterial("소재2");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 소재2, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const matbtn3 = () => {
         setMaterial("소재3");
         setSelectedMaterial("소재3");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 소재3, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const matbtn4 = () => {
         setMaterial("소재4");
         setSelectedMaterial("소재4");
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 소재4, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
 
 
     const colorbtn1 = () => {
         setColor("색깔1");
         setSelectedColor("색깔1")
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 색깔1입니다.`);
     };
     const colorbtn2 = () => {
         setColor("색깔2");
         setSelectedColor("색깔2")
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 색깔2입니다.`);
     };
     const colorbtn3 = () => {
         setColor("색깔3");
         setSelectedColor("색깔3")
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 색깔3입니다.`);
     };
     const colorbtn4 = () => {
         setColor("색깔4");
         setSelectedColor("색깔4")
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 색깔4입니다.`);
     };
 
     const PromotionalBtn = () => {
@@ -104,12 +93,13 @@ const PromotionalText = () => {
 
        
         const payload2 = {
-                promotionalText: promotionalText,
-                product: product,
-                name: name
+                
+               pr_QUESTION: promotionalText,
+               pr_PRODUCT: product,
+               pr_NAME: name
         };
         console.log('payload2 값 확인:', payload2);
-        axios.post('http://localhost:8088/SpringBoot/MemberPromotional', payload2, { withCredentials: true })
+        axios.post('http://localhost:8085/kingsman/MemberPromotional', payload2, { withCredentials: true })
    .then(response => {
        console.log('데이터 전송 성공:', response.data);
    })
@@ -119,18 +109,37 @@ const PromotionalText = () => {
     };
     const handleProductChange = (selectedProduct) => {
         setProduct(selectedProduct);
-        setPromotionalText(`제품군은 ${selectedProduct ?? 'xxx'}이고, 제품명은 ${name ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
     const handleNameChange = (selectedName) => {
         setName(selectedName);
-        setPromotionalText(`제품군은 ${product ?? 'xxx'}이고, 제품명은 ${selectedName ?? 'xxx'}이며, 질감은 ${feel ?? 'xxx'}, 소재는 ${material ?? 'xxx'}, 색깔은 ${color ?? 'xxx'}입니다.`);
     };
 
-    
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+              const url = "http://localhost:8085/kingsman/ProductList";
+              const res = await axios.get(url);
+              console.log("hi",res.data);
+              res.data.forEach(item => {
+                if (item.p_PRODUCT === '손수건') {
+                  setNamelist1(prevList => [...prevList, item.p_NAME]);
+                } else {
+                  setNamelist2(prevList => [...prevList, item.p_NAME]);
+                }
+            });
+            console.log("namelist1",namelist1)
+            console.log("namelist2",namelist2)
+          } catch (error) {
+              console.error('Error fetching data:', error);
+          }
+      };
+
+      fetchData();
+  }, []); // 빈 배열을 전달하여 최초 한 번만 실행하도록 설정합니다.
 
 
     return (
-
+        <div>
         <div className="PromotionalText">
             <AdminHeader />
             <div style={{ textAlign: 'center' }}>
@@ -230,6 +239,7 @@ const PromotionalText = () => {
                 </p>
             </div>
             <AdminFooter />
+        </div>
         </div>
     )
 }
