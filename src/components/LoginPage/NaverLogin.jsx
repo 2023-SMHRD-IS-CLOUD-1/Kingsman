@@ -29,18 +29,13 @@ const NaverLogin = () => {
   const naverApiLogin = ()=>{
     naverLogin.getLoginStatus((status)=>{
       if(status) {
-        console.log("성공", naverLogin.user);
       }else{
-        console.log("실패");
-        console.log(naver);
       }
-      console.log(naverLogin);
     })
   }
 
   useEffect(() => {
     naverLogin.init();
-    console.log("init!");
   }, []);
 
   return (
