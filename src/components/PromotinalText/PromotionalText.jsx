@@ -3,6 +3,7 @@ import axios from 'axios';
 import './PromotionalText.css'
 import AdminHeader from '../AdminHome/AdminHeader';
 import AdminFooter from '../AdminHome/AdminFooter';
+import { useEffect } from 'react';
 const PromotionalText = () => {
     const [product, setProduct] = useState(null);
     const [name, setName] = useState(null);
@@ -11,12 +12,13 @@ const PromotionalText = () => {
     const [color, setColor] = useState(null);
     const [text, setText] = useState(null);
     const productlist = ["손수건", "타올"]
-    const namelist1 = ["손수건1", "손수건2", "손수건3", "손수건4"]
-    const namelist2 = ["타올1", "타올2", "타올3", "타올4"]
+    const [namelist1, setNamelist1] = useState([]);
+const [namelist2, setNamelist2] = useState([]);
     const [selectedFeel, setSelectedFeel] = useState(null);
     const [selectedMaterial, setSelectedMaterial] = useState(null);
     const [selectedColor, setSelectedColor] = useState(null);
     const [promotionalText, setPromotionalText] = useState();
+    
     const feelbtn1 = () => {
         setFeel("질감1");
         setSelectedFeel("질감1");
@@ -112,7 +114,28 @@ const PromotionalText = () => {
         setName(selectedName);
     };
 
-    
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+              const url = "http://localhost:8085/kingsman/ProductList";
+              const res = await axios.get(url);
+              console.log("hi",res.data);
+              res.data.forEach(item => {
+                if (item.p_PRODUCT === '손수건') {
+                  setNamelist1(prevList => [...prevList, item.p_NAME]);
+                } else {
+                  setNamelist2(prevList => [...prevList, item.p_NAME]);
+                }
+            });
+            console.log("namelist1",namelist1)
+            console.log("namelist2",namelist2)
+          } catch (error) {
+              console.error('Error fetching data:', error);
+          }
+      };
+
+      fetchData();
+  }, []); // 빈 배열을 전달하여 최초 한 번만 실행하도록 설정합니다.
 
 
     return (
