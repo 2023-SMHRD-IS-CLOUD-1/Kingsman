@@ -25,7 +25,7 @@
 .AdminHeader,
 .AdminFooter,
 .UserHeader{
-  color: white;
+  color: black;
   text-align: center;
   position: fixed;
   width: 100%;
@@ -35,8 +35,7 @@
 }
 .AdminHeader,
 .UserHeader{
-  border-bottom-right-radius: 30px;
-  background-color: limegreen;
+  background-color: rgba(50,205,50);
   height : 64px;
   top: 0;
   z-index: 2;
@@ -219,7 +218,19 @@
   text-align: center;
   align-items: center;
 }
-
+.loginIdInput{
+  width: 200px;
+  height: 40px;
+  margin-bottom: 5px;
+  border-color: limegreen;
+  border-width: 2px;
+}
+.loginPwInput{
+  width: 200px;
+  height: 40px;
+  border-color: limegreen;
+  border-width: 2px;
+}
 
 /* 회원가입 페이지 */
 .signUpHeader {
@@ -478,7 +489,7 @@
 
 #signUpDepartment,
 #signUpPosition {
-  font-size: 0.85rem !important;
+  font-size: 0.90rem !important;
   color: rgb(190, 182, 182);
 }
 
