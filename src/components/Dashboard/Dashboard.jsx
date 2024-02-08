@@ -27,8 +27,8 @@ const Dashboard = (/*{list}*/) => {
     <div className>
         <AdminHeader></AdminHeader>
         <div className='percent'>
-            <div>금주 최고 정확도 {}%</div>
-            <div>정확도 평균 증감 {}%</div>
+            <div>금주 최고 예측률 {}%</div>
+            <div>예측률 평균 증감 {}%</div>
             <div>금일 입고량 {}묶음</div>
             <div>금주 입고량 {}묶음</div>
             <div>금월 입고량 {}묶음</div>
@@ -55,11 +55,11 @@ const Dashboard = (/*{list}*/) => {
                 <TfPie  data={"?"}/>
             </div>
             <div className='chart'>
-                <h3>일별 정확도</h3>
+                <h3>일별 예측률</h3>
                 <AccuracyLine className='chart' data={currentDate} />
             </div>
             <div className='chart'>
-                <h3>사용자별 정확도</h3>
+                <h3>사용자별 예측률</h3>
                 <UserBar className='chart' data={"?"} />
             </div>
         </div>
