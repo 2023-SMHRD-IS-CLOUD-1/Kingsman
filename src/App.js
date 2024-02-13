@@ -10,13 +10,14 @@ import PromotionalText from './components/PromotinalText/PromotionalText';
 import UserManagement from './components/UserManagement/UserManagement';
 import AdminModifyProfile from './components/AdminModifyProfile/AdminModifyProfile';
 import UserModifyProfile from './components/UserModifyProfile/UserModifyProfile'
-import UserActivityLog from './components/UserActivityLog/UserActivityLog'
+import UserActivityLog from './components/UserActivityLogPage/UserActivityLog'
 import UserTowelCount from './components/UserTowelCount.jsx/UserTowelCount';
 import {Routes, Route} from 'react-router-dom'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import './Calendar.css'
+import './css/UserActivityLog.css'
 function App() {
   // 데이터 받는 용도임. 일단 주석 처리 해놓음
   // const [list,setList] = useState([]);
