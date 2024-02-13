@@ -8,8 +8,8 @@ import { useState } from 'react'
 const ScheduleManagement = () => {
 
   const [scheduleInput, setScheduleInput] = useState([
-    { title: '프로젝트 시작', date: '2024-02-01'},
-    { title: '수건수량 분석', date: '2024-02-02'}
+    { title: '프로젝트 시작', date: '2024-02-01', key: 1},
+    { title: '수건수량 분석', date: '2024-02-02', key: 2}
   ]);
 
   const [scheduleDate, setScheduleDate] = useState();
