@@ -15,7 +15,7 @@ const NaverLogin = () => {
 
   const naverLogin = new naver.LoginWithNaverId({
     clientId: 'HimgLp_GCske67Zajotz',
-    callbackUrl: "http://localhost:3000/signUp",
+    callbackUrl: "http://localhost:3000/UserTowelCount",
     isPopup: true,
     loginButton: {
       color: "green",
