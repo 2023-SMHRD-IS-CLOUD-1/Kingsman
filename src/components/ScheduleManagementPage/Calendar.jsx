@@ -1,8 +1,12 @@
 import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
+import { useContext } from 'react'
+import { ScheduleContext } from '../../context/ScheduleContext'
 
 const Calendar = () => {
+
+    const {scheduleInput} = useContext(ScheduleContext);
     
     return (
         <div className='calendarContainer'>
@@ -21,11 +25,7 @@ const Calendar = () => {
                 }}
                 locale='ko'
                 
-                events={[
-                    { title: '프로젝트 시작', date: '2024-02-01' },
-                    { title: '수건수량 분석', date: '2024-02-02' },
-                    
-                ]}
+                events={scheduleInput}
                 />
         </div>
     )

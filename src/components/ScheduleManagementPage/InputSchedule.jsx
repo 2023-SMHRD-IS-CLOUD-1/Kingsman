@@ -1,13 +1,20 @@
 import React from 'react'
+import { useContext } from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { ScheduleContext } from '../../context/ScheduleContext';
 
 const InputSchedule = () => {
+
+  const {setScheduleDate, setQuantity, setStore}= useContext(ScheduleContext);
+
   return (
     <div className='InputSchedule'>
       <div>
     
-          <input type='date' style={{
+          <input type='date' 
+          onChange={(e)=>{setScheduleDate(e.target.value)}}
+          style={{
             height:"50px",
             width:"100%",
             margin:"0",
@@ -21,13 +28,15 @@ const InputSchedule = () => {
 
       </div>
       <div style={{ display: "flex" }}>
-        <Form.Select aria-label="Default select example" style={{color:"gray"}}>
+        <Form.Select aria-label="Default select example" style={{color:"gray"}}
+        onChange={(e)=>{setQuantity(e.target.value)}}>
           <option>수량</option>
-          <option value="50">50개</option>
-          <option value="100">100개</option>
-          <option value="200">200개</option>
+          <option value="50개 ">50개</option>
+          <option value="100개 ">100개</option>
+          <option value="200개 ">200개</option>
         </Form.Select >
-        <Form.Select aria-label="Default select example" style={{color:"gray"}}>
+        <Form.Select aria-label="Default select example" style={{color:"gray"}}
+        onChange={(e)=>{setStore(e.target.value)}}>
           <option value="입고">입고</option>
           <option value="출고">출고</option>
         </Form.Select>

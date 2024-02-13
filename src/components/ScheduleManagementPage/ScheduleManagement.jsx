@@ -3,14 +3,59 @@ import Calendar from './Calendar'
 import SearchSchedule from './SearchSchedule'
 import AdminHeader from '../AdminHome/AdminHeader'
 import AdminFooter from '../AdminHome/AdminFooter'
+import {ScheduleContext} from '../../context/ScheduleContext'
+import { useState } from 'react'
 const ScheduleManagement = () => {
+
+  const [scheduleInput, setScheduleInput] = useState([
+    { title: '프로젝트 시작', date: '2024-02-01'},
+    { title: '수건수량 분석', date: '2024-02-02'}
+  ]);
+
+  const [scheduleDate, setScheduleDate] = useState();
+  const [quantity, setQuantity] = useState();
+  const [store, setStore] = useState();
+
+
+
+
+
+  const handlerScheduleButton = ()=>{
+    console.log(scheduleDate, quantity, store);
+
+    let scheduleKey = 1;
+
+    if(scheduleInput.length>0){
+      scheduleKey = scheduleInput[scheduleInput.length -1].key +1
+    }
+
+    setScheduleInput([
+      ...scheduleInput,
+      {title : quantity+store, date: scheduleDate, key:scheduleKey}
+    ])
+
+  }
+
+
+
   return (
+
+    <ScheduleContext.Provider
+    value={{
+      handlerScheduleButton,
+      scheduleInput, setScheduleInput,
+      scheduleDate, setScheduleDate,
+      quantity, setQuantity,
+      store, setStore
+    }}>
+
     <div>
         <AdminHeader />
         <Calendar />
         <SearchSchedule />
         <AdminFooter />
     </div>
+    </ScheduleContext.Provider>
   )
 }
 
