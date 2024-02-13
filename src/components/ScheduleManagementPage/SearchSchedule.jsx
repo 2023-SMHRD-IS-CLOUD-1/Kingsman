@@ -1,8 +1,13 @@
 import React from 'react'
+import InputSchedule from './InputSchedule'
+import ScheduleButton from './ScheduleButton'
 
 const SearchSchedule = () => {
   return (
-    <div className='searchScheduleContainer'>SearchSchedule</div>
+    <div className='searchScheduleContainer'>
+      <InputSchedule />
+      <ScheduleButton />
+    </div>
   )
 }
 

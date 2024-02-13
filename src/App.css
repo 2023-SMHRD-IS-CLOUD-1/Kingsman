@@ -469,7 +469,8 @@
 
 #signUpDepartment,
 #signUpPosition {
-  font-size: 0.90rem !important;
+  font-size: 0.6rem !important;
+  width: 105px;
   color: rgb(190, 182, 182);
 }
 
@@ -493,7 +494,7 @@
 }
 
 .searchScheduleContainer{
-  background-color: skyblue;
+  /* background-color: skyblue; */
   height: 182px;
 }
 
