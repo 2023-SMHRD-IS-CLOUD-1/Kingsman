@@ -431,7 +431,7 @@
 }
 
 /***************************************/
-
+/* 사용자 관리 */
 .SearchUser{
   height: 15%;
   width: 100%;
@@ -444,16 +444,20 @@
 }
 
 .SearchUser select {
-  height: 30px;
+  height: 36px;
   width: 100px;
 }
 
+
+
 .SearchUser input {
-  height: 24px;
+  height: 34px;
+  width: 140px;
 }
 
 .SearchUser button {
-  height: 30%;
+  height: 32px;
+  width: 50px;
 } 
 
 .UserInfo {
@@ -461,6 +465,22 @@
   top: 25%;
   left: 20px;
 }
+
+.UserInfo th {
+  width: 106px;
+  border: solid black 1px;
+}
+
+.UserInfo tbody tr:hover {
+  color: rgb(46, 199, 148);
+}
+
+.UserInfo table {
+  text-align: center;
+ 
+}
+
+
 
 .signUpButton {
   height: 15%;
@@ -472,6 +492,20 @@
   font-size: 0.6rem !important;
   width: 105px;
   color: rgb(190, 182, 182);
+}
+
+.user-info-popup {
+  background-color: #333;
+  color: aliceblue;
+  position: fixed;
+  top: 250px;
+  left: 20px;
+  width: 320px;
+  text-align: center;
+}
+.user-info-popup td:nth-child(1), 
+.user-info-popup td:nth-child(3) {
+  color: aquamarine;
 }
 
 .joinButton {

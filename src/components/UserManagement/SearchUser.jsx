@@ -19,9 +19,9 @@ const SearchUser = ({ onSearch }) => {
   return (
     <div className='SearchUser'>
      <select onChange={handleCategoryChange} value={selectedCategory}>
-        <option value="name">이름</option>
-        <option value="position">직급</option>
-        <option value="deps">부서</option>
+        <option value="b_name">이름</option>
+        <option value="b_position">직급</option>
+        <option value="b_deps">부서</option>
         
       </select>
       <input type="text" value={searchQuery} onChange={handleInputChange} />
