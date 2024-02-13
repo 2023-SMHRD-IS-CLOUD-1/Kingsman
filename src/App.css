@@ -195,7 +195,7 @@
 }
 
 .userHeader {
-  height: 96px;
+  height: 80px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -209,11 +209,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 .snsLogin {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -230,6 +232,7 @@
   height: 40px;
   border-color: limegreen;
   border-width: 2px;
+  margin-bottom: 5px;
 }
 
 /* 회원가입 페이지 */
@@ -539,4 +542,20 @@
 
 .AdminHeaderContainer{
   height: 64px;
+}
+
+.loginButton {
+  width: 200px;
+  height: 40px;
+}
+
+.loginLogoContainer{
+  height: 270px;
+}
+
+.snsLoginButtons{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
