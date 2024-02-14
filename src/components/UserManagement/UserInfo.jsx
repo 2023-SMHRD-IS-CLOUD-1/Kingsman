@@ -68,7 +68,11 @@ useEffect(() => {
                 </tr>
              </table>
             <br/>
-          <Button variant='secondary' onClick={handleCloseInfo}>닫기</Button>
+          <div>
+            <Button variant='secondary' onClick={handleCloseInfo}>수정</Button>
+            <Button variant='secondary' onClick={handleCloseInfo}>닫기</Button>
+
+          </div>
         </div>
       )}
     </div>

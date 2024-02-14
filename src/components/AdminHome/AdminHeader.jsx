@@ -63,13 +63,7 @@ const AdminHeader = () => {
                     </div>
                 </div>
             </div>
-            <div className={`${isMenuOpen ? 'menu-open' : 'menu-close'}`}>
 
-                <div>
-                    <img onClick={handleIconClick} src={bellIcon} />
-                    <img onClick={handleIconClick2} src={profileIcon} />
-                </div>
-            </div>
             <div className={`${isMenuOpen ? 'menu-open' : 'menu-close'}`}>
 
                 <div onClick={() => { nav('/Dashboard') }}>대시보드</div>
