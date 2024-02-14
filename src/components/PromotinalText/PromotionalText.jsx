@@ -43,7 +43,7 @@ const PromotionalText = () => {
                 console.log(humidity)
             })
     })
-
+    
 
     const apply = () => {
         setText("제품군 : " + product + " 제품명 : " + name + " 색상 : " + color + " 소재 : " + material);

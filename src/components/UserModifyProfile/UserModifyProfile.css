@@ -14,14 +14,11 @@
   
 
   .UserModifyProfile{
-    
-    max-height: 512px;
-    margin: 84px auto 0; 
-    margin: 84px auto 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
+    min-height: 440px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* 변경된 부분 */
   }
   .page-title {
     font-size: 24px;
@@ -56,6 +53,7 @@
     display: flex;
     justify-content: center; /* Center the buttons horizontally */
     margin-top: 20px; /* Add margin for better spacing */
+    margin-bottom: 20px; /* Add margin at the bottom */
   }
   
   .umbtn {
@@ -65,6 +63,7 @@
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    margin-right: 10px; /* Add margin between buttons */
   }
   
   .cancel-btn {
