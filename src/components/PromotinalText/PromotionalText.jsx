@@ -78,7 +78,7 @@ const PromotionalText = () => {
         fetchData();
     }, []);
 
-    const openaiApiKey = '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';
+    const openaiApiKey = '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';
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${openaiApiKey}`,
