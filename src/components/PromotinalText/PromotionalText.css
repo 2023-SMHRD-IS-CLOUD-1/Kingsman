@@ -25,25 +25,32 @@
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    height: 33px;
+    height: 35px;
   }
   .PTT {
-    height: 70px;
+    height: 120px;
     width: 300px;
     padding: 8px;
     border-radius: 10px;
     border: 1px solid #ccc;
   }
-  
+  .size{
+    width: 80px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 35px;
+  }
   
   .submit{
-    background-color: #27ae60; 
+    background-color: limegreen; 
     color: white; 
     border: none;
     padding: 10px;
     margin: 5px;
     cursor: pointer;
     border-radius: 5px;
+    max-height: 35px;
 } 
 .container {
     margin-bottom: 20px;
