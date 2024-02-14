@@ -4,8 +4,11 @@ import SignUpUser from './SignUpUser'
 import { SignUpContext } from '../../context/SignUpContext'
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
+
+  const nav = useNavigate();
 
   const [signUpId, setSignUpId] = useState('');
   const [signUpPw, setSignUpPw] = useState('');
@@ -32,6 +35,7 @@ const SignUp = () => {
     axios.post('http://localhost:8085/kingsman/signUp', signUpUser, {withCredentials : true})
     .then(res => {
       console.log("회원가입 성공", res);
+      nav('/')
     })
     .catch(error =>{
       console.log("회원가입 오류", error);

@@ -4,242 +4,236 @@ import './PromotionalText.css'
 import AdminHeader from '../AdminHome/AdminHeader';
 import AdminFooter from '../AdminHome/AdminFooter';
 import { useEffect } from 'react';
+import ChatGPTImage from '../../image/ChatGPT.jpg';
+
+
+
+
 const PromotionalText = () => {
     const [product, setProduct] = useState(null);
     const [name, setName] = useState(null);
-    const [feel, setFeel] = useState(null);
     const [material, setMaterial] = useState(null);
     const [color, setColor] = useState(null);
-    const [text, setText] = useState(null);
     const productlist = ["손수건", "타올"]
+    const colorlist = ["화이트", "베이지", "그레이", "블루", "블랙"]
+    const materiallist = ["면", "대나무", "리넨 ", "바스티크 ", "폴리에스테르 "]
     const [namelist1, setNamelist1] = useState([]);
-const [namelist2, setNamelist2] = useState([]);
-    const [selectedFeel, setSelectedFeel] = useState(null);
-    const [selectedMaterial, setSelectedMaterial] = useState(null);
-    const [selectedColor, setSelectedColor] = useState(null);
-    const [promotionalText, setPromotionalText] = useState();
+    const [namelist2, setNamelist2] = useState([]);
+    const [text, setText] = useState();
+    const date = new Date();
+    const [temp, setTemp] = useState('');
+    const [city, setCity] = useState('');
+    const [dd, setDd] = useState('');
+    const [img, setImg] = useState('')
+    const [humidity,setHumidity]=useState('')
+    const [isLoading, setIsLoading] = useState(false);
+    useEffect(function () {
+        fetch('https://api.openweathermap.org/data/2.5/weather?lat=37.564214&lon=127.001699&appid=b3bb290e3cf3e3f29e55972f489fe79a&units=metric')
+            .then((res) => {
+                console.log(res)
+                return res.json();
+            })
+            .then((res) => {
+                console.log("s", res)
+                setCity(res.name)
+                setTemp(res.main.temp)
+                setDd(date.toLocaleDateString());
+                setImg(res.weather[0].icon)
+                setHumidity(res.main.humidity)
+                console.log(humidity)
+            })
+    })
     
-    const feelbtn1 = () => {
-        setFeel("질감1");
-        setSelectedFeel("질감1");
+
+    const apply = () => {
+        setText("제품군 : " + product + " 제품명 : " + name + " 색상 : " + color + " 소재 : " + material);
     };
-    const feelbtn2 = () => {
-        setFeel("질감2");
-        setSelectedFeel("질감2");
-    };
-    const feelbtn3 = () => {
-        setFeel("질감3");
-        setSelectedFeel("질감3");
-    };
-    const feelbtn4 = () => {
-        setFeel("질감4");
-        setSelectedFeel("질감4");
-    };
+    const reset = () => {
+        setText("")
+    }
 
 
-    const matbtn1 = () => {
-        setMaterial("소재1");
-        setSelectedMaterial("소재1");
-    };
-    const matbtn2 = () => {
-        setMaterial("소재2");
-        setSelectedMaterial("소재2");
-    };
-    const matbtn3 = () => {
-        setMaterial("소재3");
-        setSelectedMaterial("소재3");
-    };
-    const matbtn4 = () => {
-        setMaterial("소재4");
-        setSelectedMaterial("소재4");
-    };
 
 
-    const colorbtn1 = () => {
-        setColor("색깔1");
-        setSelectedColor("색깔1")
-    };
-    const colorbtn2 = () => {
-        setColor("색깔2");
-        setSelectedColor("색깔2")
-    };
-    const colorbtn3 = () => {
-        setColor("색깔3");
-        setSelectedColor("색깔3")
-    };
-    const colorbtn4 = () => {
-        setColor("색깔4");
-        setSelectedColor("색깔4")
+
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const url = "http://localhost:8085/kingsman/ProductList";
+                const res = await axios.get(url);
+                res.data.forEach(item => {
+                    if (item.p_PRODUCT === '손수건') {
+                        setNamelist1(prevList => [...prevList, item.p_NAME]);
+                    } else {
+                        setNamelist2(prevList => [...prevList, item.p_NAME]);
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const openaiApiKey = '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';
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${openaiApiKey}`,
     };
 
-    const PromotionalBtn = () => {
-        if (product === null || name === null || feel === null || material === null || color === null) {
-            alert('제대로 입력해라');
-            return;
-        }
-        else {
+    const fixedQuestion = "홍보문구를 생성해줘 제품특징은 " + text + "고 글자수는 50자 미만으로 해줘";
+
+    const [chatHistory, setChatHistory] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+
+        try {
+            const response = await axios.post(
+                'https://api.openai.com/v1/chat/completions',
+                {
+                    model: 'gpt-3.5-turbo',
+                    messages: [{ role: 'user', content: fixedQuestion }],
+                },
+                { headers }
+            );
+            const chatResponse = response.data.choices[0].message.content;
+            setChatHistory(chatResponse);
+            console.log(chatResponse + "dddddddddddddddddd")
             sendPromotionalData();
-
-
+        } catch (error) {
+            console.error('Error:', error);
+        }
+        finally {
+            setIsLoading(false); // 로딩 종료
         }
     };
     const sendPromotionalData = () => {
-
-        if (product === null || name === null || feel === null || material === null || color === null) {
+        console.log("--------------------" + chatHistory)
+        if (product === null || name === null || material === null || color === null) {
             alert('제대로 입력해라');
             return;
+        } else {
+            const payload2 = {
+                pr_QUESTION: fixedQuestion,
+                pr_PRODUCT: product,
+                pr_NAME: name,
+                pr_TEXT: chatHistory
+            };
+            console.log('payload2 값 확인:', payload2);
+            axios
+                .post('http://localhost:8085/kingsman/MemberPromotional', payload2, { withCredentials: true })
+                .then((response) => {
+                    console.log('데이터 전송 성공:', response.data);
+                })
+                .catch((error) => {
+                    console.error('데이터 전송 중 오류:', error);
+                });
         }
-
-
-       
-        const payload2 = {
-                
-               pr_QUESTION: promotionalText,
-               pr_PRODUCT: product,
-               pr_NAME: name
-        };
-        console.log('payload2 값 확인:', payload2);
-        axios.post('http://localhost:8085/kingsman/MemberPromotional', payload2, { withCredentials: true })
-   .then(response => {
-       console.log('데이터 전송 성공:', response.data);
-   })
-   .catch(error => {
-       console.error('데이터 전송 중 오류:', error);
-   });
-    };
-    const handleProductChange = (selectedProduct) => {
-        setProduct(selectedProduct);
-    };
-    const handleNameChange = (selectedName) => {
-        setName(selectedName);
     };
 
-    useEffect(() => {
-      const fetchData = async () => {
-          try {
-              const url = "http://localhost:8085/kingsman/ProductList";
-              const res = await axios.get(url);
-              console.log("hi",res.data);
-              res.data.forEach(item => {
-                if (item.p_PRODUCT === '손수건') {
-                  setNamelist1(prevList => [...prevList, item.p_NAME]);
-                } else {
-                  setNamelist2(prevList => [...prevList, item.p_NAME]);
-                }
-            });
-            console.log("namelist1",namelist1)
-            console.log("namelist2",namelist2)
-          } catch (error) {
-              console.error('Error fetching data:', error);
-          }
-      };
-
-      fetchData();
-  }, []); // 빈 배열을 전달하여 최초 한 번만 실행하도록 설정합니다.
 
 
     return (
         <div>
-        <div className="PromotionalText">
-            <AdminHeader />
-            <div style={{ textAlign: 'center' }}>
-                제품군　:　<select onChange={(e) => handleProductChange(e.target.value)}>
-                    <option value="" disabled selected>
-                        선택하세요
-                    </option>
-                    {productlist.map((item, index) => (
-                        <option key={index} value={item}>
-                            {item}
+            <div className="PromotionalText">
+                <AdminHeader />
+
+                <div style={{ textAlign: 'right' }}></div>
+                <div style={{ textAlign: 'center', marginTop: '20px' }}>
+
+                <div className="bubble-container" style={{ height: "120px", textAlign: "left" }}>
+    {isLoading ? (
+        <div className="bubble">홍보문구 생성 중...</div>
+    ) : (
+        <>
+            {chatHistory ? (
+                <div className="bubble">{chatHistory}</div>
+            ) : (
+                <div className='chatgptimg'><img src={ChatGPTImage} alt="No chat history available" className='chatimg' /></div>
+            )}
+        </>
+    )}
+</div>
+
+                </div>
+                <br/>
+                <hr />
+
+                <div style={{ textAlign: 'center', padding: "2px" }}>
+                    <select onChange={(e) => setProduct(e.target.value)}>
+                        <option value="" disabled selected>
+                            제품군
                         </option>
-                    ))}
-                </select>　　제품명　:
-                <select onChange={(e) => handleNameChange(e.target.value)}>
-                    <option value="" disabled selected>
-                        선택하세요
-                    </option>
-                    {product === "손수건"
-                        ? namelist1.map((item, index) => (
+                        {productlist.map((item, index) => (
                             <option key={index} value={item}>
                                 {item}
                             </option>
-                        ))
-                        : product === "타올"
-                            ? namelist2.map((item, index) => (
+                        ))}
+                    </select>
+                    <select onChange={(e) => setName(e.target.value)}>
+                        <option value="" disabled selected>
+                            제품명
+                        </option>
+                        {product === "손수건"
+                            ? namelist1.map((item, index) => (
                                 <option key={index} value={item}>
                                     {item}
                                 </option>
                             ))
-                            : null}
-                </select>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-                질감　:
-                <button onClick={feelbtn1} style={selectedFeel === '질감1' ? { background: '#3498db' } : null} className='selectbtn'>
-                    질감1
-                </button>
-                <button onClick={feelbtn2} style={selectedFeel === '질감2' ? { background: '#3498db' } : null} className='selectbtn'>
-                    질감2
-                </button>
-                <button onClick={feelbtn3} style={selectedFeel === '질감3' ? { background: '#3498db' } : null} className='selectbtn'>
-                    질감3
-                </button>
-                <button onClick={feelbtn4} style={selectedFeel === '질감4' ? { background: '#3498db' } : null} className='selectbtn'>
-                    질감4
-                </button>
-            </div>
-            <div style={{ textAlign: 'center' }}>소재　:
-                <button onClick={matbtn1} style={selectedMaterial === '소재1' ? { background: '#3498db' } : null} className='selectbtn'>
-                    소재1
-                </button>
-                <button onClick={matbtn2} style={selectedMaterial === '소재2' ? { background: '#3498db' } : null} className='selectbtn'>
-                    소재2
-                </button>
-                <button onClick={matbtn3} style={selectedMaterial === '소재3' ? { background: '#3498db' } : null} className='selectbtn'>
-                    소재3
-                </button>
-                <button onClick={matbtn4} style={selectedMaterial === '소재4' ? { background: '#3498db' } : null} className='selectbtn'>
-                    소재4
-                </button>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-                색깔　:
-                <button onClick={colorbtn1} style={selectedColor === '색깔1' ? { background: '#3498db' } : null} className='selectbtn'>
-                    색깔1
-                </button>
-                <button onClick={colorbtn2} style={selectedColor === '색깔2' ? { background: '#3498db' } : null} className='selectbtn'>
-                    색깔2
-                </button>
-                <button onClick={colorbtn3} style={selectedColor === '색깔3' ? { background: '#3498db' } : null} className='selectbtn'>
-                    색깔3
-                </button>
-                <button onClick={colorbtn4} style={selectedColor === '색깔4' ? { background: '#3498db' } : null} className='selectbtn'>
-                    색깔4
-                </button>
+                            : product === "타올"
+                                ? namelist2.map((item, index) => (
+                                    <option key={index} value={item}>
+                                        {item}
+                                    </option>
+                                ))
+                                : null}
+                    </select>
+                </div>
+                <div style={{ textAlign: 'center', padding: "2px" }}>
+                    <div style={{ textAlign: 'center' }}><select onChange={(e) => setColor(e.target.value)}>
+                        <option value="" disabled selected>
+                            색상
+                        </option>
+                        {colorlist.map((item, index) => (
+                            <option key={index} value={item}>
+                                {item}
+                            </option>
+                        ))}
+                    </select>
+                        <select onChange={(e) => setMaterial(e.target.value)}>
+                            <option value="" disabled selected>
+                                소재
+                            </option>
+                            {materiallist.map((item, index) => (
+                                <option key={index} value={item}>
+                                    {item}
+                                </option>
+                            ))}
+                        </select></div>
+                </div>
+              <div style={{ textAlign: "center", margin: "10px;", height:"40px"}}><img src={`https://openweathermap.org/img/wn/${img}.png`}></img>
+                     {temp}°C　습도:{humidity}%</div>
+                <div style={{ textAlign: 'center' }}><button onClick={apply} className='submit'>적용</button><button type="submit" onClick={reset} className='submit'>초기화</button><button type="submit" onClick={handleSubmit} className='submit'>홍보문구생성</button></div>
+                <div style={{ textAlign: 'center', padding: "8PX" }}>
+                    <textarea
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        className='PTT'
+                    />
+                </div>
 
 
+                <div style={{ textAlign: 'center' }}>
+
+                </div>
+
+                <AdminFooter />
             </div>
-            <div style={{ textAlign: 'center' }}>
-                <textarea
-                    value={promotionalText}
-                    onChange={(e) => setPromotionalText(e.target.value)}
-                    className='PTT'
-                />
-            </div>
-            <div style={{ textAlign: 'right' }}><button type="submit" onClick={PromotionalBtn} className='submit'>홍보 문구 생성</button></div>
-
-            <div style={{ textAlign: 'center' }}>
-
-            </div>
-            <h3 style={{ color: 'limegreen', textAlign: 'center', borderBottom: '2px solid #3498db', paddingBottom: '10px' }}>홍보문구</h3>
-            <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                <p style={{ fontSize: '18px', lineHeight: '1.5', color: '#555' }}>
-
-
-
-                </p>
-            </div>
-            <AdminFooter />
-        </div>
         </div>
     )
 }

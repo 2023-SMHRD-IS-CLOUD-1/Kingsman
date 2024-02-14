@@ -4,8 +4,10 @@ import { Chart, registerables } from "chart.js";
 const BarChart = ({data}) => {
   const chartRef = useRef(null);
   let chartInstance = null;
-
+  
   useEffect(() => {
+    console.log(data)
+    
     const ctx = chartRef.current.getContext("2d");
 
     const createChart = () => {
@@ -16,17 +18,15 @@ const BarChart = ({data}) => {
           labels: ["True","False"],
           datasets: [
             {
-              label: "# of Votes",
-              data: [15, 20],
+              label: "금일 T/F",
+              data: data,
               backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
-              
+                "rgba(255, 99, 132, 0.2)",
               ],
               borderColor: [
-                "rgba(255, 99, 132, 1)",
                 "rgba(54, 162, 235, 1)",
-               
+                "rgba(255, 99, 132, 1)",
               ],
               borderWidth: 1,
             },
@@ -37,7 +37,7 @@ const BarChart = ({data}) => {
           scales: {
             y: {
               beginAtZero: true,
-              max: 100,
+              max: 20,
             },
           },
           
@@ -58,7 +58,7 @@ const BarChart = ({data}) => {
     return () => {
       destroyChart(); // 컴포넌트가 unmount될 때 차트 파괴
     };
-  }, []);
+  }, [data]);
 
   return < canvas ref={chartRef} />;
 };

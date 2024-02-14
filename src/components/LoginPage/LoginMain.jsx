@@ -4,11 +4,7 @@ import NaverLogin from './NaverLogin'
 
 const LoginMain = () => {
     return (
-        <div style={{ height: "320px" }}>
-            <div style={{height:"50px"}}>
-                <img src="https://befe.co.kr/data/bbsData/16454404861.png"
-                style={{height:'100%'}} />
-            </div>
+        <div style={{ height: "290px", display:"flex", flexDirection:"column", justifyContent:"center" }}>
             <LocalLogin />
             <NaverLogin />
         </div>

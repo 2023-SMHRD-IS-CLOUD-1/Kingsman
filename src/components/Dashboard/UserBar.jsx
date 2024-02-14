@@ -1,39 +1,52 @@
 import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
 
-const BarChart = ({data}) => {
+const BarChart = ({data, user}) => {
   const chartRef = useRef(null);
   let chartInstance = null;
-
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
+    const id = data.map(item => item.t_ID);
+    let datas = [];
+    let names = [];
+
+    id.forEach(item => {
+      let sum =0;
+      let count =0;
+      data.forEach(item2 => {
+        if(item === item2.t_ID){
+          count += 1;
+          sum+= item2.t_ACCURACY;
+        }
+      })
+      datas.push(sum/count);
+      user.map(item2 => {
+        if(item === item2.b_ID){
+          names.push(item2.b_NAME);
+        }
+      })
+
+    });
+    console.log(user)
+    console.log(names)
 
     const createChart = () => {
+      const backgroundColors = Array.from({ length: id.length }, () => {
+        return `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(
+          Math.random() * 256
+        )}, ${Math.floor(Math.random() * 256)}, 0.2)`;
+      });
       Chart.register(...registerables);
       chartInstance = new Chart(ctx, {
         type: "bar",
         data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: names,
           datasets: [
             {
-              label: "# of Votes",
-              data: [15, 20, 60, 10, 22, 30],
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-              ],
-              borderColor: [
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)",
-              ],
+              label: "사용자별 평균 예측률",
+              data: datas,
+              backgroundColor: backgroundColors,
+              borderColor: backgroundColors,
               borderWidth: 1,
             },
           ],
@@ -63,7 +76,7 @@ const BarChart = ({data}) => {
     return () => {
       destroyChart(); // 컴포넌트가 unmount될 때 차트 파괴
     };
-  }, []);
+  }, [user]);
 
   return < canvas ref={chartRef} />;
 };

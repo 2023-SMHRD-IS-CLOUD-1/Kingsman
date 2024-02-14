@@ -28,3 +28,40 @@
 .fc-day{
     font-size: 10px;
 }
+
+.InputSchedule{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.ScheduleButton{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.searchScheduleContainer{
+    display: flex;
+    height: 167px;
+}
+
+.fc-header-toolbar.fc-toolbar {
+    height: 5% !important;
+    font-size: small;
+    
+}
+
+.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15px;
+}

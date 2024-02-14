@@ -1,13 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
+import { MDBContainer } from "mdbreact";
 
-const WeeklyLine = ({data}) => {
+
+const WeeklyLine = ({ data }) => {
   const chartRef = useRef(null);
   let chartInstance = null;
-
+  
+  
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
-
+    let week = data
+    
+    
+    
     const createChart = () => {
       Chart.register(...registerables);
       chartInstance = new Chart(ctx, {
@@ -16,8 +22,8 @@ const WeeklyLine = ({data}) => {
           labels: ["일", "월", "화", "수", "목", "금", "토"],
           datasets: [
             {
-              label: "# of Votes",
-              data: [15, 20, 60, 10, 22, 30, 3],
+              label: "이번 주 입고량",
+              data: week,
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
@@ -41,11 +47,11 @@ const WeeklyLine = ({data}) => {
           ],
         },
         options: {
-          responsive:false,
+          responsive: false,
           scales: {
             y: {
               beginAtZero: true,
-              max: 100,
+              max: 500,
             },
           },
         },
@@ -65,7 +71,7 @@ const WeeklyLine = ({data}) => {
     return () => {
       destroyChart(); // 컴포넌트가 unmount될 때 차트 파괴
     };
-  }, []);
+  }, [data]);
 
   return <canvas ref={chartRef} />;
 };

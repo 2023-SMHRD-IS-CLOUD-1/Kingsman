@@ -3,22 +3,41 @@ import AdminHeader from '../AdminHome/AdminHeader'
 import AdminFooter from '../AdminHome/AdminFooter'
 import SearchUser from './SearchUser'
 import UserInfo from './UserInfo'
+import axios from 'axios'
 
 const UserManagement = () => {
-  const [userSearch, setUserSearch] = useState([]);
-  const [userList, setUserList] = useState([]);
 
+  const [userList, setUserList] = useState([]);
+  
+  
   const handleSearch = (searchQuery, selectedCategory) => {
-    // 여기서 사용자 정보를 가져오는 로직이나 API 호출 등을 수행
-    // 예시로 간단하게 결과를 설정
-    setUserSearch([searchQuery, selectedCategory]);
+    var sendData = {
+       "searchQuery": searchQuery,
+       "category": selectedCategory
+   };
+   
+    axios.post('http://localhost:8085/kingsman/UserManagement', 
+    sendData,
+  { withCredentials: true,
+    headers: {'Content-type': 'application/json'},
+   
+  })
+    .then(response => {
+      setUserList(response.data);
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error('Error searching users:', error);
+    });
+ 
+  
   };
 
   return (
     <div>
       <AdminHeader></AdminHeader>
       <SearchUser onSearch={handleSearch}></SearchUser>
-      <UserInfo userSearch={userSearch} userList={userList} ></UserInfo>
+      <UserInfo userList={userList} ></UserInfo>
       <AdminFooter></AdminFooter>
 
     </div>

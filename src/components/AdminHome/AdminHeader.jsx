@@ -63,13 +63,7 @@ const AdminHeader = () => {
                     </div>
                 </div>
             </div>
-            <div className={`${isMenuOpen ? 'menu-open' : 'menu-close'}`}>
 
-                <div>
-                    <img onClick={handleIconClick} src={bellIcon} />
-                    <img onClick={handleIconClick2} src={profileIcon} />
-                </div>
-            </div>
             <div className={`${isMenuOpen ? 'menu-open' : 'menu-close'}`}>
 
                 <div onClick={() => { nav('/Dashboard') }}>대시보드</div>
@@ -85,9 +79,9 @@ const AdminHeader = () => {
             </div>}
             {isTooltipVisible2 && <div className="tooltip2">
 
-                <button onClick={() => { nav('/AdminModifyProfile') }}>회원 정보 수정</button>
-                <button onClick={() => { nav('/Login') }}>로그아웃</button>
-            </div>}
+                    <button onClick={() => { nav('/AdminModifyProfile') }}>회원 정보 수정</button>
+                    <button onClick={() => { nav('/Login') }}>로그아웃</button>
+                </div>}
         </div>
     )
 }
