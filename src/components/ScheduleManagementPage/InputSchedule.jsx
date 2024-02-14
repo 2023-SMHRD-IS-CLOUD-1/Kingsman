@@ -15,7 +15,7 @@ const InputSchedule = () => {
           <input type='date' 
           onChange={(e)=>{setScheduleDate(e.target.value)}}
           style={{
-            height:"50px",
+            height:"40px",
             width:"100%",
             margin:"0",
             appearance:"none",
@@ -31,12 +31,14 @@ const InputSchedule = () => {
         <Form.Select aria-label="Default select example" style={{color:"gray"}}
         onChange={(e)=>{setQuantity(e.target.value)}}>
           <option>수량</option>
-          <option value="50개 ">50개</option>
-          <option value="100개 ">100개</option>
-          <option value="200개 ">200개</option>
+          <option value="50 ">50개</option>
+          <option value="100 ">100개</option>
+          <option value="200 ">200개</option>
         </Form.Select >
         <Form.Select aria-label="Default select example" style={{color:"gray"}}
-        onChange={(e)=>{setStore(e.target.value); if(e.target.value == '출고') setScheduleColor("red")}}>
+        onChange={(e)=>{setStore(e.target.value); 
+        if(e.target.value == '출고') setScheduleColor("red");
+        if(e.target.value == '입고') setScheduleColor("blue")}}>
           <option value="입고">입고</option>
           <option value="출고">출고</option>
         </Form.Select>
@@ -44,7 +46,7 @@ const InputSchedule = () => {
       <div>
         <InputGroup>
           <Form.Control as="textarea" aria-label="With textarea" placeholder='특이사항을 입력해주세요' 
-          style={{height:"98px"}}/>
+          style={{height:"90px"}}/>
         </InputGroup>
       </div>
     </div>

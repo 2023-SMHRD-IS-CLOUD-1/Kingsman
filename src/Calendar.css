@@ -50,4 +50,18 @@
 
 .searchScheduleContainer{
     display: flex;
+    height: 167px;
+}
+
+.fc-header-toolbar.fc-toolbar {
+    height: 5% !important;
+    font-size: small;
+    
+}
+
+.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15px;
 }
