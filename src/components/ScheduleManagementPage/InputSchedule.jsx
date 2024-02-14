@@ -6,7 +6,7 @@ import { ScheduleContext } from '../../context/ScheduleContext';
 
 const InputSchedule = () => {
 
-  const {setScheduleDate, setQuantity, setStore}= useContext(ScheduleContext);
+  const {setScheduleDate, setQuantity, setStore, setScheduleColor}= useContext(ScheduleContext);
 
   return (
     <div className='InputSchedule'>
@@ -36,7 +36,7 @@ const InputSchedule = () => {
           <option value="200개 ">200개</option>
         </Form.Select >
         <Form.Select aria-label="Default select example" style={{color:"gray"}}
-        onChange={(e)=>{setStore(e.target.value)}}>
+        onChange={(e)=>{setStore(e.target.value); if(e.target.value == '출고') setScheduleColor("red")}}>
           <option value="입고">입고</option>
           <option value="출고">출고</option>
         </Form.Select>
