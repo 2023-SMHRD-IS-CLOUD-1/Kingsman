@@ -53,7 +53,7 @@ const PromotionalText = () => {
         fetchData();
     }, []);
 
-    const openaiApiKey = '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';
+    const openaiApiKey = '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';
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${openaiApiKey}`,
@@ -71,19 +71,20 @@ const PromotionalText = () => {
                 'https://api.openai.com/v1/chat/completions',
                 {
                     model: 'gpt-3.5-turbo',
-                    messages: [{ role: 'user', content: fixedQuestion }], // 고정된 질문 전달
+                    messages: [{ role: 'user', content: fixedQuestion }], 
                 },
                 { headers }
             );
-    
             const chatResponse = response.data.choices[0].message.content;
-            setChatHistory(chatResponse); // 채팅 기록을 업데이트하고 이전 기록을 지웁니다.
-            sendPromotionalData(); // sendPromotionalData 함수 호출
+            setChatHistory(chatResponse); 
+            console.log(chatResponse+"dddddddddddddddddd")
+            sendPromotionalData();
         } catch (error) {
             console.error('Error:', error);
         }
     };
     const sendPromotionalData = () => {
+        console.log("--------------------"+chatHistory)
         if (product === null || name === null || material === null || color === null) {
             alert('제대로 입력해라');
             return;
@@ -92,7 +93,7 @@ const PromotionalText = () => {
                 pr_QUESTION: fixedQuestion,
                 pr_PRODUCT: product,
                 pr_NAME: name,
-                pr_TEXT: chatHistory,
+                pr_TEXT: chatHistory
             };
             console.log('payload2 값 확인:', payload2);
             axios
@@ -117,30 +118,29 @@ const PromotionalText = () => {
                 <div style={{ textAlign: 'right' }}></div>
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
 
-                    <p style={{ fontSize: '18px', lineHeight: '1.5', color: '#555', height:"120px"}}>
-
-                    {chatHistory}
-        
-
-                    </p>
+                <div className="bubble-container" style={{height:"120px"}}>
+                {chatHistory && (
+                    <div className="bubble">{chatHistory}</div>
+                )}
+            </div>
 
                 </div>
                 <hr />
-                <div style={{ textAlign: 'right' }}><button onClick={apply} className='submit'>적용</button><button type="submit" onClick={reset} className='submit'>초기화</button><button type="submit" onClick={handleSubmit} className='submit'>홍보문구생성</button></div>
-                <div style={{ textAlign: 'left', padding:"2px"}}>
-                 　   제품군　:　<select onChange={(e) => setProduct(e.target.value)}>
+                
+                <div style={{ textAlign: 'center', padding:"2px"}}>
+                 <select onChange={(e) => setProduct(e.target.value)}>
                         <option value="" disabled selected>
-                            선택하세요
+                            제품군
                         </option>
                         {productlist.map((item, index) => (
                             <option key={index} value={item}>
                                 {item}
                             </option>
                         ))}
-                    </select>　 제품명 :　
+                    </select>
                     <select onChange={(e) => setName(e.target.value)}>
                         <option value="" disabled selected>
-                            선택하세요
+                            제품명
                         </option>
                         {product === "손수건"
                             ? namelist1.map((item, index) => (
@@ -158,9 +158,9 @@ const PromotionalText = () => {
                     </select>
                 </div>
                 <div style={{ textAlign: 'center' , padding:"2px"}}>
-                    <div style={{ textAlign: 'left' }}>　 　색상　:　<select onChange={(e) => setColor(e.target.value)}>
+                    <div style={{ textAlign: 'center' }}><select onChange={(e) => setColor(e.target.value)}>
                         <option value="" disabled selected>
-                            선택하세요
+                            색상
                         </option>
                         {colorlist.map((item, index) => (
                             <option key={index} value={item}>
@@ -168,9 +168,9 @@ const PromotionalText = () => {
                             </option>
                         ))}
                     </select>
-                     　   소재　:　<select onChange={(e) => setMaterial(e.target.value)}>
+                     <select onChange={(e) => setMaterial(e.target.value)}>
                             <option value="" disabled selected>
-                                선택하세요
+                                소재
                             </option>
                             {materiallist.map((item, index) => (
                                 <option key={index} value={item}>
@@ -181,6 +181,7 @@ const PromotionalText = () => {
                   
 
                 </div>
+                <div style={{ textAlign: 'center' }}><button onClick={apply} className='submit'>적용</button><button type="submit" onClick={reset} className='submit'>초기화</button><button type="submit" onClick={handleSubmit} className='submit'>홍보문구생성</button></div>
                 <div style={{ textAlign: 'center',padding:"8PX" }}>
                     <textarea
                         value={text}

@@ -21,11 +21,11 @@
   
 
   select {
-    width: 80px;
+    min-width: 130px;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    height: 35px;
+    height: 37px;
   }
   .PTT {
     height: 120px;
@@ -83,6 +83,34 @@
   .PromotionalText {
     max-height: 512px;
     
+  }
+  .bubble-container {
+    position: relative;
+  }
+  
+  .bubble {
+    background-color: yellow;
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 80%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px;
+    min-height: 120px; /* 최소 높이 설정 */
+  }
+  
+  .bubble::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 10px 10px 0;
+    border-color: #f1f1f1 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -10px;
+    right: 10px;
   }
 
   
