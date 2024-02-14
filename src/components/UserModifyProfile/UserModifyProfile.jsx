@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import AdminHeader from '../AdminHome/AdminHeader';
 import './UserModifyProfile.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // useNavigate로 수정
 
 const UserModifyProfile = () => {
   const [id, setId] = useState('');
   const [pw2, setPw2] = useState('');
   const [pw3, setPw3] = useState('');
   const [passwordMatch, setPasswordMatch] = useState(false); // 비밀번호 일치 여부 상태
+  const navigate = useNavigate(); // useHistory 대신에 useNavigate로 변경
 
   useEffect(() => {
     setId(sessionStorage.getItem("user"));
@@ -35,11 +37,18 @@ const UserModifyProfile = () => {
         .post('http://localhost:8085/kingsman/UserModifyProfile', data, { withCredentials: true })
         .then((response) => {
           console.log('데이터 전송 성공:', response.data);
+          // 데이터 전송 후 페이지 새로고침
+          window.location.reload();
         })
         .catch((error) => {
           console.error('데이터 전송 중 오류:', error);
         });
     }
+  };
+
+  // 취소 버튼 클릭 시 처리
+  const handleCancel = () => {
+    navigate("/UserTowelCount"); // "/UserTowelCount" 경로로 이동
   };
 
   return (
@@ -74,7 +83,7 @@ const UserModifyProfile = () => {
 
       <br />
       <div className='button-container'>
-        <button className='umbtn cancel-btn'>취소</button>
+        <button className='umbtn cancel-btn' onClick={handleCancel}>취소</button>
         <button className='umbtn modify-btn' onClick={sendData}>수정</button>
       </div>
     </div>
