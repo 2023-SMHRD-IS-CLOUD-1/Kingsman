@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const UserLogListTable = () => {
 
     const [isOpen, setIsOpen] = useState(false); // 슬라이드 상태를 관리합니다.
@@ -9,10 +8,6 @@ const UserLogListTable = () => {
       setIsOpen(!isOpen); // isOpen 상태를 반전시켜 슬라이드를 열거나 닫습니다.
       console.log(isOpen);
     };
-
-  
-
-
 
    return (
     <div className='UserLogTable'>
@@ -32,7 +27,9 @@ const UserLogListTable = () => {
             <td>50(O)</td>
           </tr>
           <tr className={isOpen ? 'slide-open' : 'slide-closed'}>
-            <td colSpan="3">이미지 데이터</td>
+            <td colSpan="3">
+            <img src="이미지_주소_또는_경로" alt="이미지_설명" />
+            </td>
           </tr>
            <tr>
             <td>2024.02.02</td>
@@ -56,8 +53,7 @@ const UserLogListTable = () => {
       </table>
     </div>
 
-
   )
 }
 
-export default UserLogListTable;
+export default UserLogListTable

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import menu1 from '../../image/menu1.png'
+import menuIcon from '../../image/menu.png'
 import profileIcon from '../../image/profile.png'
 import bellIcon from '../../image/notification.png'
 import { useNavigate } from 'react-router-dom'
@@ -30,7 +30,7 @@ const ActivHeader = () => {
   return (
     <div>
         <div className="AdminHeader">
-            <img className='menu-button' onClick={toggleMenu} src={menu1}/>
+            <img className='menu-button' onClick={toggleMenu} src={menuIcon}/>
             <h3 onClick={() =>{
                 nav('/AdminHome')}}>활동기록</h3>
             <div>

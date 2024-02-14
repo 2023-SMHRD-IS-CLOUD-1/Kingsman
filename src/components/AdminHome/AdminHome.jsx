@@ -36,7 +36,7 @@ const AdminHome = () => {
             </div>
           </div>
           <div>
-            <div onClick={()=>{nav('/AllActivityLog')}}>
+            <div onClick={()=>{nav('/AllActivitiLog')}}>
               <img src= {logIcon}></img>
               <p>활동 기록</p>
             </div>

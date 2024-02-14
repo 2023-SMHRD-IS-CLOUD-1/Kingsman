@@ -1,93 +1,75 @@
+/* 공통 스타일 */
+
+/* 테이블 스타일 */
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 12px; /* 패딩을 조금 더 넉넉하게 설정합니다. */
+  text-align: center;
+}
+
+/* 높이 및 스크롤 관련 스타일 */
+.UserLogTable {
+  overflow: auto;
+  scroll-snap-type: both mandatory;
+  height: 100%;
+}
+
+/* 헤더 스타일 */
 .userMainHeader {
-    height: 64px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    background-color: mediumseagreen;
-  }
-  
-  .userLogDate {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 64px;
-    align-items: center;
-  }
-  
-  .userLogDate>div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .userLogList {
-    background-color: #97bc61;
-    height: 512px;
-  }
-  
-  .userLogListTable {
-    background-color: blue;
-    height: 70%;
-  }
-  
-  .userLogListEtc {
-    background-color: aqua;
-    height: 30%;
-  }
-  
-  
-  .userLogDate>div {
-    margin-top: 10px;
-    /* 위쪽 간격 추가 */
-  }
-  
-  .dateSearch {
-    padding: 8px 16px;
-    /* 패딩 조절 */
-    font-size: 14px;
-    /* 폰트 크기 조절 */
-  }
-  
-  
-  .UserLogTable {
-    overflow: auto; /* 필요한 경우 스크롤을 추가합니다. */
-    scroll-snap-type: both mandatory;
-    height: 100%; /* 부모 요소의 높이가 설정되어 있어야 제대로 작동합니다. */
-  }
-  
-  table {
-    border-collapse: collapse;
-    border: 0;
-    width: 100%; /* 테이블이 부모 요소의 너비를 채우도록 설정합니다. */
-  }
-  th,
-  td {
-    border: 1px solid black;
-    background-clip: padding-box;
-    scroll-snap-align: start;
-  }
-  
-  .UserLogTable table {
-    width: 100%;
-  }
-  
-  .UserLogTable th,
-  .UserLogTable td {
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: center;
-  }
-  
-  .slide-closed {
-    height: 0;
-    display: none;
-    transition: height 0.3s ease-out;
-  }
-  
-  .slide-open {
-    height: auto;
-    transition: height 0.3s ease-in;
-  }
-  
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: mediumseagreen;
+}
+
+/* 로그 날짜 선택 컴포넌트 스타일 */
+.userLogDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 250px; /* 높이를 증가시켜 보다 많은 공간을 확보합니다. */
+}
+
+.userLogDate > div {
+  margin-top: 20px; /* 위쪽 간격을 더 크게 설정합니다. */
+}
+
+/* 로그 리스트 스타일 */
+.userLogList {
+  height: 512px;
+}
+
+.userLogListTable {
+  height: 70%;
+}
+
+.userLogListEtc {
+  height: 30%;
+}
+
+/* 버튼 스타일 */
+.dateSearch {
+  padding: 12px 24px; /* 패딩을 조금 더 넉넉하게 설정합니다. */
+  font-size: 16px; /* 폰트 크기를 조금 크게 설정합니다. */
+}
+
+/* 슬라이드 효과 스타일 */
+.slide-closed {
+  height: 0;
+  display: none;
+  transition: height 0.3s ease-out;
+}
+
+.slide-open {
+  height: auto;
+  transition: height 0.3s ease-in;
+}

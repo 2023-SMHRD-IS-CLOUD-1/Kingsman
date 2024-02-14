@@ -1,0 +1,28 @@
+  .searchActivitiLog {
+    height: 128px;
+    background-color: blanchedalmond;
+  }
+
+  .userActivitiLog{
+    height: 384px;
+    background-color: aqua;
+  }
+  
+  .activitiLogButtons{
+    height: 20%;
+    background-color: paleturquoise;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: right;
+    
+  }
+
+  .activitiLog{
+    height: 80%;
+    background-color: greenyellow ;
+  }
+
+
+
+  
