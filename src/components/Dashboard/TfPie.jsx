@@ -5,10 +5,18 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 const PieChart = ({data}) => {
   const chartRef = useRef(null);
   let chartInstance = null;
-
+  
   useEffect(() => {
+    let tr =0;
+    let fa = 0;
     const ctx = chartRef.current.getContext("2d");
-
+    data.forEach(item => {
+      if(item.t_RESULT == "TRUE"){
+        tr +=1
+        }else{
+        fa +=1;
+        }
+    });
     const createChart = () => {
       Chart.register(...registerables);
       chartInstance = new Chart(ctx, {
@@ -17,17 +25,15 @@ const PieChart = ({data}) => {
           labels: ["True","False"],
           datasets: [
             {
-              label: "# of Votes",
-              data: [15, 20],
+              label: "전체 T/F",
+              data: [tr, fa],
               backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
-              
+                "rgba(255, 99, 132, 0.2)",
               ],
               borderColor: [
-                "rgba(255, 99, 132, 1)",
                 "rgba(54, 162, 235, 1)",
-               
+                "rgba(255, 99, 132, 1)",
               ],
               borderWidth: 1,
             },
@@ -64,7 +70,7 @@ const PieChart = ({data}) => {
     return () => {
       destroyChart(); // 컴포넌트가 unmount될 때 차트 파괴
     };
-  }, []);
+  }, [data]);
 
   return < canvas ref={chartRef} />;
 };

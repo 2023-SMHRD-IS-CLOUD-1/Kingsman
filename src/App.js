@@ -19,15 +19,8 @@ import axios from 'axios';
 import './Calendar.css'
 import './css/UserActivityLog.css'
 function App() {
-  // 데이터 받는 용도임. 일단 주석 처리 해놓음
-  // const [list,setList] = useState([]);
-  //   useEffect(()=>{
-  //       axios.get("")
-  //       .then((res)=>{
-  //         setList(res.data.list)
-          
-  //       })
-  //     },[])
+ 
+
   return (
     <div className="App">
       
