@@ -45,16 +45,20 @@ const UserTowelImageButton = ({ onImageUpload }) => {
   };
 
   return (
-    <div className='upload'>
-      <input
-        type="file"
-        accept="image/*"
-        ref={inputRef}
-        style={{ display: 'none' }}
-        onChange={handleImageChange}
-      />
-      <button onClick={handleButtonClick}><h3>업로드</h3></button>
-      <button onClick={handleImageCheck}><h3>수량 확인</h3></button>
+    <div>
+
+      <div className='upload'>
+        <input
+          type="file"
+          accept="image/*"
+          ref={inputRef}
+          style={{ display: 'none' }}
+          onChange={handleImageChange}
+          />
+          
+        <button onClick={handleButtonClick}><h3>업로드</h3></button>
+        <button onClick={handleImageCheck}><h3>수량 확인</h3></button>
+      </div>
     </div>
   );
 };
