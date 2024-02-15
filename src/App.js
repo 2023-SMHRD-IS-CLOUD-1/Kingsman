@@ -20,6 +20,8 @@ import './Calendar.css'
 import './css/UserActivityLog.css'
 import './css/AllActivityLog.css'
 
+import './css/UserTowelCount.css'
+import UserCountTowel from './components/UserTowelCountPage/UserCountTowel';
 function App() {
   // 데이터 받는 용도임. 일단 주석 처리 해놓음
   // const [list,setList] = useState([]);
@@ -53,6 +55,7 @@ function App() {
             <Route path='/UserTowelCount' element={<UserTowelCount></UserTowelCount>}></Route>
             <Route path='/' element={<Login></Login>}></Route>
             <Route path='/signUp' element={<SignUp />} />
+            <Route path='/UserCountTowel' element={<UserCountTowel/>}/>
         </Routes>
         
         
