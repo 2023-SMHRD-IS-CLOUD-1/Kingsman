@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AdminHeader from '../AdminHome/AdminHeader';
+import AdminHeader from '../AdminHome/AdminHeader.tsx';
 import './UserModifyProfile.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // useNavigate로 수정

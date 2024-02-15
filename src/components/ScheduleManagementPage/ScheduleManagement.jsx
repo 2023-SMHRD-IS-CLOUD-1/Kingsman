@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Calendar from './Calendar'
 import SearchSchedule from './SearchSchedule'
-import AdminHeader from '../AdminHome/AdminHeader'
+import AdminHeader from '../AdminHome/AdminHeader.tsx'
 import AdminFooter from '../AdminHome/AdminFooter'
 import { ScheduleContext } from '../../context/ScheduleContext'
 import { useState } from 'react'
