@@ -66,9 +66,9 @@ const ActivitiLog = () => {
         </tbody>
       </table>
       {/* 더 보기/감추기 버튼 */}
-      <button onClick={handleToggleShowMore}>
-        {showMore ? '감추기' : '더 보기'}
-      </button>
+      <div className='moreButton' onClick={handleToggleShowMore}>
+        {showMore ? '▼ 더보기' : '▲ 감추기'}
+      </div>
     </div>
   );
 };
