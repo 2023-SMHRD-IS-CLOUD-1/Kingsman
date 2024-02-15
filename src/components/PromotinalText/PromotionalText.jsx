@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import './PromotionalText.css'
-import AdminHeader from '../AdminHome/AdminHeader';
+import AdminHeader from '../AdminHome/AdminHeader.tsx';
 import AdminFooter from '../AdminHome/AdminFooter';
 import { useEffect } from 'react';
 import ChatGPTImage from '../../image/ChatGPT.jpg';
@@ -27,6 +27,7 @@ const PromotionalText = () => {
     const [img, setImg] = useState('')
     const [humidity,setHumidity]=useState('')
     const [isLoading, setIsLoading] = useState(false);
+    const [chatHistory, setChatHistory] = useState("");
     useEffect(function () {
         fetch('https://api.openweathermap.org/data/2.5/weather?lat=37.564214&lon=127.001699&appid=b3bb290e3cf3e3f29e55972f489fe79a&units=metric')
             .then((res) => {
@@ -78,7 +79,7 @@ const PromotionalText = () => {
         fetchData();
     }, []);
 
-    const openaiApiKey = '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';
+    const openaiApiKey = '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';
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${openaiApiKey}`,
@@ -86,7 +87,7 @@ const PromotionalText = () => {
 
     const fixedQuestion = "홍보문구를 생성해줘 제품특징은 " + text + "고 글자수는 50자 미만으로 해줘";
 
-    const [chatHistory, setChatHistory] = useState("");
+   
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -104,12 +105,14 @@ const PromotionalText = () => {
             const chatResponse = response.data.choices[0].message.content;
             setChatHistory(chatResponse);
             console.log(chatResponse + "dddddddddddddddddd")
-            sendPromotionalData();
+            console.log(chatHistory+"콘솔콘솔콘솔")
+            
         } catch (error) {
             console.error('Error:', error);
         }
         finally {
             setIsLoading(false); // 로딩 종료
+            sendPromotionalData();
         }
     };
     const sendPromotionalData = () => {
