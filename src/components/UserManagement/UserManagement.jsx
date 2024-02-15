@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
-import AdminHeader from '../AdminHome/AdminHeader.tsx'
 import React, { useEffect, useState } from 'react'
-import AdminHeader from '../AdminHome/AdminHeader'
+import AdminHeader from '../AdminHome/AdminHeader.tsx'
 import AdminFooter from '../AdminHome/AdminFooter'
 import SearchUser from './SearchUser'
 import UserInfo from './UserInfo'
 import axios from 'axios'
-
 const UserManagement = () => {
 
   const [userList, setUserList] = useState([]);

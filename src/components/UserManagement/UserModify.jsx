@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import AdminHeader from '../AdminHome/AdminHeader'
+import AdminHeader from '../AdminHome/AdminHeader.tsx'
 import AdminFooter from '../AdminHome/AdminFooter'
 import { useLocation } from "react-router";
 import { useNavigate } from 'react-router-dom';
