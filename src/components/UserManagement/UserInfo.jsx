@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 
-const UserInfo = ({ userList }) => {
+
+const UserInfo = ({ userList, setSelected}) => {
   const [selectedUser, setSelectedUser] = useState(null);
-
-
-
+  const nav = useNavigate();
   const handleItemClick = (user) => {
     setSelectedUser(user);
   };
@@ -13,14 +13,9 @@ const UserInfo = ({ userList }) => {
   const handleCloseInfo = () => {
       setSelectedUser(null);
 };
-
-useEffect(() => {
-    
-  }, [selectedUser]);
-
   return (
     <div className='UserInfo'>
-      <h2>사용자 정보</h2>
+      <h2>사용자 관리</h2>
       {userList.length > 0 ? (
         <table>
             <thead>
@@ -69,7 +64,8 @@ useEffect(() => {
              </table>
             <br/>
           <div>
-            <Button variant='secondary' onClick={handleCloseInfo}>수정</Button>
+            <Button variant='secondary' onClick={() => { nav('/UserModify', { state: { selectedUser } }) }}>수정</Button>
+            <Button variant='secondary' onClick={() => { if (window.confirm('정말 삭제하시겠습니까?')) { setSelected(selectedUser.b_ID); handleCloseInfo(); } }}>삭제</Button>
             <Button variant='secondary' onClick={handleCloseInfo}>닫기</Button>
 
           </div>

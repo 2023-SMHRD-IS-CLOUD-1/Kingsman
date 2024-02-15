@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const SearchUser = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('all'); // 기본값 'all'
+    const [selectedCategory, setSelectedCategory] = useState('*');
   
     const handleInputChange = (e) => {
       setSearchQuery(e.target.value);
