@@ -1,12 +1,12 @@
 /* AllActivityLog의 전체적인 화면*/
 .searchActivitiLog {
-  height: 128px;
+  height: 100px;
   background-color: blanchedalmond;
 }
 
 .userActivitiLog {
   height: 384px;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 
 .activitiLogButtons {
@@ -16,6 +16,7 @@
   flex-direction: row;
   justify-content: right;
   align-items: right;
+  padding: row;
 }
 
 .activitiLog {
@@ -23,12 +24,24 @@
   background-color: greenyellow;
 }
 
-/* SearchActivitiLog.jsx css*/
-.searchDate {
-  max-height: ;
+/* ActivitiLog.jsx css*/
+.moreButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
+/* SearchActivitiLog.jsx css*/
+
+.searchDate{
+  margin-top: 16px;
+  height: px;
+  
+}
+
+
+/*                          */
 .userCategory{
   width: 10px;
 }
@@ -47,4 +60,34 @@
 
 .th,td {
   max-height: 8px;
+}
+
+/* ActivitiLogButton.jsx css*/
+.modifyLog{
+  /* background-color: #A7DDA7; */
+  background-color: limegreen;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  max-height: 30px;
+  line-height: 10px;
+}
+
+.deleteLog{
+  background-color: limegreen;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  max-height: 30px;
+  line-height: 10px;
+}
+#start-date,#end-date
+{
+  height: 5px;
+  width: ;
+
 }
