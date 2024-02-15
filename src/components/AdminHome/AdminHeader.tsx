@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,8 +12,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { useNavigate } from 'react-router-dom';
 
-export default function PrimarySearchAppBar() {
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  backgroundColor: 'rgb(167, 221, 167);;', // 원하는 색상으로 변경
+}));
+
+export default function AdminHeader() {
+  const nav = useNavigate();
+  
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -55,11 +62,11 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>개인정보변경</MenuItem>
-      <MenuItem onClick={handleMenuClose}>로그아웃</MenuItem>
+      <MenuItem onClick={() => { nav('/AdminModifyProfile') }}>회원 정보 수정</MenuItem>
+      <MenuItem onClick={() => { nav('/Login') }}>로그아웃</MenuItem>
     </Menu>
   );
-
+      
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
@@ -106,7 +113,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <StyledAppBar position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -118,40 +125,39 @@ export default function PrimarySearchAppBar() {
             <MenuIcon />
           </IconButton>
           <Toolbar sx={{ justifyContent: 'center', paddingLeft: '65px' }}>
-  <Typography
-    variant="h6"
-    noWrap
-    component="div"
-  >
-    TowelKing
-  </Typography>
-</Toolbar>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+            >
+              TowelKing
+            </Typography>
+          </Toolbar>
           <Box sx={{ flexGrow: 1 }} />
          
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-         
+          <IconButton
+            size="large"
+            aria-label="show 17 new notifications"
+            color="inherit"
+          >
+            <Badge badgeContent={17} color="error">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+          <IconButton
+            size="large"
+            edge="end"
+            aria-label="account of current user"
+            aria-controls={menuId}
+            aria-haspopup="true"
+            onClick={handleProfileMenuOpen}
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
           
         </Toolbar>
-      </AppBar>
+      </StyledAppBar>
       {renderMobileMenu}
       {renderMenu}
     </Box>
