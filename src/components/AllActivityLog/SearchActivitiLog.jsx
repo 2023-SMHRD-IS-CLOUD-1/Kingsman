@@ -26,7 +26,6 @@ function SearchActivitiLog({ onSearch }) {
           <Grid item xs={4}>
             <TextField
               id="start-date"
-              label="Start Date"
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
@@ -40,7 +39,6 @@ function SearchActivitiLog({ onSearch }) {
           <Grid item xs={4}>
             <TextField
               id="end-date"
-              label="End Date"
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
@@ -51,25 +49,17 @@ function SearchActivitiLog({ onSearch }) {
             />
           </Grid>
           <Grid item xs={2}>
-            <Button
-              className='dateSearch'
-              variant="contained"
-              color="primary"
-              onClick={handleSearch}
-              size="small"
-            >
-              검색
-            </Button>
           </Grid>
         </Grid>
       </div>
-      <div className='userSearch1'>
-        <select onChange={handleCategoryChange} value={selectedCategory}>
+      <div className='userSearch'>
+        <select className='userCategory' onChange={handleCategoryChange} value={selectedCategory}>
           <option value="name">이름</option>
           <option value="position">직급</option>
           <option value="deps">부서</option>
         </select>
         <input
+          className='searchBar'
           type="text"
           value={searchQuery}
           onChange={handleInputChange}

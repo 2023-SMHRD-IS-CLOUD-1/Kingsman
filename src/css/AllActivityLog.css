@@ -1,29 +1,50 @@
- 
- .searchActivitiLog {
-    height: 128px;
-    background-color: blanchedalmond;
-  }
+/* AllActivityLog의 전체적인 화면*/
+.searchActivitiLog {
+  height: 128px;
+  background-color: blanchedalmond;
+}
 
-  .userActivitiLog{
-    height: 384px;
-    background-color: aqua;
-  }
-  
-  .activitiLogButtons{
-    height: 10%;
-    background-color: paleturquoise;
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    align-items: right;
-    
-  }
+.userActivitiLog {
+  height: 384px;
+  background-color: aqua;
+}
 
-  .activitiLog{
-    height: 90%;
-    background-color: greenyellow ;
-  }
+.activitiLogButtons {
+  height: 20%;
+  background-color: paleturquoise;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+}
+
+.activitiLog {
+  height: 80%;
+  background-color: greenyellow;
+}
+
+/* SearchActivitiLog.jsx css*/
+.searchDate {
+  max-height: ;
+}
 
 
+.userCategory{
+  width: 10px;
+}
 
-  
+.searchBar {
+  width: 175px;
+}
+
+.userSearch {
+  max-height: 10px;
+}
+
+.activitiTable {
+  font-size: 12px;
+}
+
+.th,td {
+  max-height: 8px;
+}
