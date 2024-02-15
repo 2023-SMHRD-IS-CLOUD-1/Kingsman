@@ -1,0 +1,92 @@
+.userCountTowelHeader{
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(167, 221, 167);
+}
+
+.UserCountTowelMain{
+    height: 384px;
+    border: 5px solid green;
+}
+
+.UserCountTowelResult{
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.UserCountTowelButtons{
+    height: 64px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.UserCountTowelLogCheck{
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+/* 사진들어오는곳 */
+.UserCountTowelImage{
+    height: 300px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.UsesrCountTowelCamera{
+    height: 84px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.cameraImage{
+    height: 60px;
+}
+
+.uploadButton{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: whitesmoke;
+} 
+.uploadButton:hover{
+    background-color: rgb(169, 231, 169);
+}
+
+
+.checkResultButton{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: whitesmoke;
+    border-left: 1px solid gray;
+}
+
+.checkResultButton:hover{
+    background-color: rgb(169, 231, 169);
+}
+
+.avatarLogo{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

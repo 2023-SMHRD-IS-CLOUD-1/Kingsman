@@ -18,6 +18,8 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import './Calendar.css'
 import './css/UserActivityLog.css'
+import './css/UserTowelCount.css'
+import UserCountTowel from './components/UserTowelCountPage/UserCountTowel';
 function App() {
  
 
@@ -38,6 +40,7 @@ function App() {
             <Route path='/UserTowelCount' element={<UserTowelCount></UserTowelCount>}></Route>
             <Route path='/' element={<Login></Login>}></Route>
             <Route path='/signUp' element={<SignUp />} />
+            <Route path='/UserCountTowel' element={<UserCountTowel/>}/>
         </Routes>
         
         

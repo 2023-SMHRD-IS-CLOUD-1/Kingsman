@@ -9,6 +9,7 @@
     max-height: 40px;
     min-width: 54px;
     border: 2px solid limegreen;
+    
   }
   
   .selectbtn:hover {
@@ -21,19 +22,27 @@
   
 
   select {
-    width: 80px;
+    min-width: 130px;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    height: 35px;
+    height: 37px;
   }
   .PTT {
-    height: 120px;
-    width: 300px;
-    padding: 8px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    background-color: #ffffff; /* 배경색을 흰색으로 설정 */
+    border: 1px solid #000000; /* 테두리를 검은색으로 설정 */
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 80%;
+    position: absolute;
+    right: 0;
+    margin-bottom: 10px;
+    min-height: 120px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+    left: 10%; /* 필요에 따라 조정하세요 */
   }
+  
+  
   .size{
     width: 80px;
     padding: 8px;
@@ -51,6 +60,8 @@
     cursor: pointer;
     border-radius: 5px;
     max-height: 35px;
+    line-height: 17px;
+    
 } 
 .container {
     margin-bottom: 20px;
@@ -61,6 +72,7 @@
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    margin: 2px;
   }
   
   
@@ -84,5 +96,56 @@
     max-height: 512px;
     
   }
+  .bubble-container {
+    position: relative;
+  }
+  
+  .bubble {
+    background-color: #ffffff; /* 배경색을 흰색으로 설정 */
+    border: 1px solid #000000; /* 테두리를 검은색으로 설정 */
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 80%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: -10px;
+    min-height: 120px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 그림자 효과 추가 */
+    left: 10%;
+  }
+  
+  .bubble::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 10px 10px 0;
+    border-color: #000000 transparent; /* 말풍선 꼬리의 색을 검은색으로 설정 */
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -10px;
+    left: 10px; /* 말풍선 꼬리의 위치를 조정 */
+  }
+
+  .img-container {
+    max-width: 100%; /* 최대 너비를 100%로 설정하여 이미지가 부모 요소의 너비에 맞추도록 합니다. */
+    text-align: center; /* 이미지를 가운데 정렬합니다. */
+  }
+  
+  /* 이미지에 스타일을 추가합니다. */
+  .img-container img {
+    max-width: 100%; /* 이미지의 최대 너비를 100%로 설정하여 부모 요소의 너비에 맞추도록 합니다. */
+    height: auto; /* 이미지의 높이를 자동으로 조정합니다. */
+  }
+  .chatimg{
+    width: 360px;
+    height: 190px;
+    opacity: 0.85; /* 0부터 1까지의 값을 가질 수 있으며, 1은 완전 불투명을 의미합니다. */
+}
+.chatgptimg{
+  position: absolute;
+  top: -20px; /* 이동하고자 하는 거리에 따라 값을 조절하세요 */
+}
 
   
