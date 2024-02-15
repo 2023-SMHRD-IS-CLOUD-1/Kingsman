@@ -1,6 +1,6 @@
 import React from 'react'
 import AdminFooter from './AdminFooter'
-import AdminHeader from './AdminHeader'
+import AdminHeader from './AdminHeader.tsx'
 import { useNavigate } from 'react-router-dom';
 import graphIcon from '../../image/graph.png'
 import promotionIcon from '../../image/promotion.png'

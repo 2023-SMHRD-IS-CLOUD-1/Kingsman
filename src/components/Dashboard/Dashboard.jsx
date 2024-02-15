@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import AdminFooter from '../AdminHome/AdminFooter'
-import AdminHeader from '../AdminHome/AdminHeader'
+import AdminHeader from '../AdminHome/AdminHeader.tsx'
 import TfBar from './TfBar'
 import UserBar from './UserBar'
 import TfPie from './TfPie'

@@ -1,6 +1,6 @@
 import React from 'react'
 import AdminFooter from '../AdminHome/AdminFooter'
-import AdminHeader from '../AdminHome/AdminHeader'
+import AdminHeader from '../AdminHome/AdminHeader.tsx'
 import TowelCountMain from '../UserTowelCount.jsx/TowelCountMain'
 
 const TowelCount = () => {
