@@ -12,6 +12,7 @@ const ActivitiLog = () => {
     { date: '2024.02.03 16:14:23', name: '박재욱', pos: '부장', dep: '법인'},
     { date: '2024.02.04 19:50:43', name: '박준', pos: '과장', dep: '인사'},
     { date: '2024.02.05 21:50:54', name: '김동균', pos: '사원', dep: '마케팅'},
+    { date: '2024.02.06 13:31:23', name: '김동균', pos: '사원', dep: '마케팅'},
   ];
 
   // 행 렌더링 함수
@@ -19,7 +20,7 @@ const ActivitiLog = () => {
     if (showMore) {
       return rows.map(row => renderRow(row));
     } else {
-      return rows.slice(0, 3).map(row => renderRow(row));
+      return rows.slice(0, 5).map(row => renderRow(row));
     }
   };
 
@@ -45,29 +46,29 @@ const ActivitiLog = () => {
   };
 
   return (
-    <div className='UserLogTable'>
+    <div className='userLogTable'>
       <table className='activitiTable'>
         <thead>
           <tr>
-            <th onClick={handleSlideToggle}>날짜</th>
+            <th>날짜</th>
             <th>이름</th>
             <th>직급</th>
             <th>부서</th>
 
           </tr>
+        </thead>
+        <tbody onClick={handleSlideToggle}>
+          {renderRows()}
           <tr className={isOpen ? 'slide-open' : 'slide-closed'}>
-            <td colSpan={7}>
+            <td colSpan={4}>
               <img src="이미지_주소_또는_경로" alt="이미지 설정" />
             </td>
           </tr>
-        </thead>
-        <tbody>
-          {renderRows()}
         </tbody>
       </table>
       {/* 더 보기/감추기 버튼 */}
       <div className='moreButton' onClick={handleToggleShowMore}>
-        {showMore ? '▼ 더보기' : '▲ 감추기'}
+        {showMore ? '▲ 감추기' : '▼ 더보기'}
       </div>
     </div>
   );
