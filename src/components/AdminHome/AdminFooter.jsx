@@ -46,7 +46,7 @@ const AdminFooter = () => {
           <img src= {scheduleGrayIcon}></img>}
           <p className= {currentPath === '/ScheduleManagement'? 'black':'gray'}>일정 관리</p>
           </div>
-        <div onClick={()=>{nav('/AllActivityLog')}}>
+        <div onClick={()=>{nav('/AllActivitiLog')}}>
           {currentPath === '/AllActivitiLog'?
           <img src= {logIcon}></img>:
           <img src= {logGrayIcon}></img>}

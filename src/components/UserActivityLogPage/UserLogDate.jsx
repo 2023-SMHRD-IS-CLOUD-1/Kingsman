@@ -8,43 +8,43 @@ function UserLogDate() {
     console.log('Start Date:', startDate);
     console.log('End Date:', endDate);
   };
-return (
-  <div className='userLogDate'>
-  <div container spacing={2} alignItems="center" width={{width:"50%"}}>
-      <div item xs={6}>
+  return (
+    <div className='userLogDate'>
+      <Grid container spacing={2} alignItems="center">
+        <Grid item xs={5}>
           <TextField
-              id="start-date"
-              label="Start Date"
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              InputLabelProps={{
-                  shrink: true,
-              }}
-              fullWidth
+            id="start-date"
+            label="Start Date"
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            fullWidth
           />
-      </div>
-      <div item xs={6}>
+        </Grid>
+        <Grid item xs={5}>
           <TextField
-              id="end-date"
-              label="End Date"
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              InputLabelProps={{
-                  shrink: true,
-              }}
-              fullWidth
+            id="end-date"
+            label="End Date"
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            fullWidth
           />
-      </div>
-      <div item xs={12}>
-      <Button className='dateSearch' variant="contained" color="primary" onClick={handleSearch} size="small">
-    Search
-</Button>
-      </div>
-  </div>
-  </div>
-);
+        </Grid>
+        <Grid item xs={2}>
+          <Button className='dateSearch' variant="contained" color="primary" onClick={handleSearch} size="small">
+            검색
+          </Button>
+        </Grid>
+      </Grid>
+    </div>
+  );
 }
 
-export default UserLogDate
+export default UserLogDate;

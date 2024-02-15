@@ -11,7 +11,7 @@ const UserLogListEtc = () => {
       setIsView(true);
       setReadMoreExpression(
         <>
-          <h1>범석이형 너무 떨렸어요ㅠㅠㅠ</h1>
+          <h1>다봤음나와라</h1>
         </>
       );
     } else {
