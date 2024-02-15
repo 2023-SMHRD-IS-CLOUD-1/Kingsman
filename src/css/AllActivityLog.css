@@ -1,6 +1,6 @@
 /* AllActivityLog의 전체적인 화면*/
 .searchActivitiLog {
-  height: 128px;
+  height: 100px;
   background-color: blanchedalmond;
 }
 
@@ -34,6 +34,11 @@
 
 /* SearchActivitiLog.jsx css*/
 
+.searchDate{
+  margin-top: 16px;
+  height: px;
+  
+}
 
 
 /*                          */
@@ -79,4 +84,10 @@
   border-radius: 5px;
   max-height: 30px;
   line-height: 10px;
+}
+#start-date,#end-date
+{
+  height: 5px;
+  width: ;
+
 }
