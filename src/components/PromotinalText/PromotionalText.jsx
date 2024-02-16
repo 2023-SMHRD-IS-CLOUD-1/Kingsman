@@ -31,11 +31,9 @@ const PromotionalText = () => {
     useEffect(function () {
         fetch('https://api.openweathermap.org/data/2.5/weather?lat=37.564214&lon=127.001699&appid=b3bb290e3cf3e3f29e55972f489fe79a&units=metric')
             .then((res) => {
-                console.log(res)
                 return res.json();
             })
             .then((res) => {
-                console.log("s", res)
                 setCity(res.name)
                 setTemp(res.main.temp)
                 setDd(date.toLocaleDateString());
@@ -138,7 +136,19 @@ const PromotionalText = () => {
                 });
         }
     };
-
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const url = "http://localhost:8085/kingsman/Notilist";
+                const res = await axios.get(url);
+                console.log('알림', res.data[0].b_NOTIFICATION); // 응답 데이터를 콘솔에 출력합니다.
+            } catch (error) {
+                console.error(error);
+            }
+        };
+      
+        fetchData(); // fetchData 함수를 호출하여 데이터를 가져옵니다.
+    }, []);
 
 
     return (
