@@ -27,9 +27,9 @@ const UserLogListTable = () => {
   // 개별 행 렌더링 함수
   const renderRow = (row) => (
     <tr key={row.date}>
-      <td>{row.date}</td>
-      <td>{row.time}</td>
-      <td>{row.res}</td>
+      <td className='userLogListTd'>{row.date}</td>
+      <td className='userLogListTd'>{row.time}</td>
+      <td className='userLogListTd'>{row.res}</td>
 
     </tr>
   );
@@ -46,12 +46,12 @@ const UserLogListTable = () => {
 
   return (
     <div className='userLogListTable'>
-      <table className='activitiTable'>
+      <table className='userListTable'>
         <thead>
           <tr>
-            <th>날짜</th>
-            <th>시간</th>
-            <th>결과</th>
+            <th className='userLogListTh'>날짜</th>
+            <th className='userLogListTh'>시간</th>
+            <th className='userLogListTh'>결과</th>
 
           </tr>
         </thead>

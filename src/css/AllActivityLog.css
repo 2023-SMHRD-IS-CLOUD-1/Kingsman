@@ -1,7 +1,7 @@
 /* AllActivityLog의 전체 화면 쪽 */
 .searchActivitiLog {
   height: 128px;
-  background-color: blanchedalmond;
+  /* 화면 비율차 background-color: blanchedalmond; */
 }
 
 .userActivitiLog {
@@ -10,7 +10,7 @@
 }
 
 .activitiLogButtons {
-  height: 20%;
+  height: 12%;
   /* 화면 비율 차 background-color: paleturquoise; */
   display: flex;
   flex-direction: row;
@@ -25,11 +25,6 @@
 }
 
 /* SearchActivitiLog.jsx css */
-
-.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-  margin-right: 50%;
-}
-
 .searchButton {
   background-color: #A7DDA7;
   color: white;
@@ -40,9 +35,8 @@
   line-height: 10px;
 }
 
-#start-date,
-#end-date {
-  margin-top: 20px;
+.startAdminDate,
+.endAdminDate {
   width: 48%;
   justify-content: center; /* 수평 가운데 정렬합니다 */
   align-items: center; /* 수직 가운데 정렬합니다 */
@@ -63,7 +57,9 @@
 
 .userSearch {
   max-height: 10px;
-  margin-top: 22px;
+  margin-top: 12px;
+  justify-content: center; /* 수평 가운데 정렬합니다 */
+  align-items: center; /* 수직 가운데 정렬합니다 */
 }
 
 /* ActivitiLog.jsx css */
@@ -78,12 +74,11 @@
   border-collapse: collapse;
   border: 1px solid black;
   width: 100%;
-
   font-size: 15px;
 }
 
-th,
-td {
+.activitiLogTh,
+.activitiLogTd {
   border: 1px solid black;
   padding: 12px;
   text-align: center;
@@ -92,7 +87,7 @@ td {
 /* ActivitiLogButton.jsx css */
 .modifyLog,
 .deleteLog {
-  margin-top: 40px;
+  margin-top: 7px;
 }
 
 .modifyButton,

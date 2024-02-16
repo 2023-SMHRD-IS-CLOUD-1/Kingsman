@@ -27,10 +27,10 @@ const ActivitiLog = () => {
   // 개별 행 렌더링 함수
   const renderRow = (row) => (
     <tr key={row.date}>
-      <td>{row.date}</td>
-      <td>{row.name}</td>
-      <td>{row.pos}</td>
-      <td>{row.dep}</td>
+      <td className='activitiLogTd'>{row.date}</td>
+      <td className='activitiLogTd'>{row.name}</td>
+      <td className='activitiLogTd'>{row.pos}</td>
+      <td className='activitiLogTd'>{row.dep}</td>
 
     </tr>
   );
@@ -50,10 +50,10 @@ const ActivitiLog = () => {
       <table className='activitiTable'>
         <thead>
           <tr>
-            <th>날짜</th>
-            <th>이름</th>
-            <th>직급</th>
-            <th>부서</th>
+            <th className='activitiLogTh'>날짜</th>
+            <th className='activitiLogTh'>이름</th>
+            <th className='activitiLogTh'>직급</th>
+            <th className='activitiLogTh'>부서</th>
 
           </tr>
         </thead>

@@ -10,41 +10,39 @@ function UserLogDate() {
   };
   return (
     <div className='userLogDate'>
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={4}>
-          <TextField
-            id="start-date"
-            label="Start Date"
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            fullWidth
-          />
-        </Grid>
-        <div>~</div>
-        <Grid item xs={4}>
-          <TextField
-            id="end-date"
-            label="End Date"
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={2}>
-          <button className='dateSearch' variant="contained" color="primary" onClick={handleSearch} size="small">
+      <div className='searchDate' style={{marginLeft:"3px"}}>
+          <div >
+            <input
+              className='startUserDate'
+              label="Start Date"
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              fullWidth
+            />
+            ~
+            <input
+              className='endUserDate'
+              label="End Date"
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              fullWidth
+            />
+          </div>
+      </div>
+        <div item xs={2}>
+          <button className='dateSearch' onClick={handleSearch}>
             검색
           </button>
-        </Grid>
-      </Grid>
-    </div>
+        </div>
+      </div>
   );
 }
 

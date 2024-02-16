@@ -5,8 +5,8 @@
   justify-content: center;
   align-items: center;
   height: 92px;
-  margin-bottom: 25px;
-  background-color: aquamarine;
+  margin-bottom: 20px;
+  /* 화면 비율차 background-color: aquamarine; */
 }
 
 .userLogList {
@@ -25,6 +25,13 @@
   margin-top: 20px; /* 위쪽 간격을 더 크게 설정합니다. */
 }
 
+.startUserDate,
+.endUserDate {
+  width: 46%;
+  justify-content: center; /* 수평 가운데 정렬합니다 */
+  align-items: center; /* 수직 가운데 정렬합니다 */
+}
+
 .dateSearch {
   background-color: #A7DDA7;
   color: white;
@@ -36,14 +43,14 @@
 }
 
 /* UserLogListTable.jsx css 부분 */
-table {
+.userListTable {
   border-collapse: collapse;
   border: 1px solid black;
   width: 100%;
 }
 
-th,
-td {
+.userLogListTh,
+.userLogListTd {
   border: 1px solid black;
   padding: 12px;
   text-align: center;

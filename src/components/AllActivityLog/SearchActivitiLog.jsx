@@ -24,7 +24,7 @@ function SearchActivitiLog({ onSearch }) {
       <div className='searchDate' style={{marginLeft:"3px"}}>
           <div>
             <input
-              id="start-date"
+              className='startAdminDate'
               label="Start Date"
               type="date"
               value={startDate}
@@ -36,7 +36,7 @@ function SearchActivitiLog({ onSearch }) {
             />
             ~
             <input
-              id="end-date"
+              className='endAdminDate'
               label="End Date"
               type="date"
               value={endDate}
