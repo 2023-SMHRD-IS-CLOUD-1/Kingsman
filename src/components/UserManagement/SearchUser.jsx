@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const SearchUser = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('*');
+    const [selectedCategory, setSelectedCategory] = useState('b_name');
   
     const handleInputChange = (e) => {
       setSearchQuery(e.target.value);
@@ -16,6 +16,12 @@ const SearchUser = ({ onSearch }) => {
       onSearch(searchQuery, selectedCategory);
     };
 
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        onSearch(searchQuery, selectedCategory);
+      }
+    };
+    
   return (
     <div className='SearchUser'>
      <select onChange={handleCategoryChange} value={selectedCategory}>
@@ -24,7 +30,7 @@ const SearchUser = ({ onSearch }) => {
         <option value="b_deps">부서</option>
         
       </select>
-      <input type="text" value={searchQuery} onChange={handleInputChange} />
+      <input type="text" value={searchQuery} onChange={handleInputChange} onKeyDown={handleKeyDown} />
       <button onClick={handleSearch}>검색</button>
     </div>
   );
