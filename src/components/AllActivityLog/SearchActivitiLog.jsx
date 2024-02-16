@@ -64,7 +64,7 @@ function SearchActivitiLog({ onSearch }) {
           value={searchQuery}
           onChange={handleInputChange}
         />
-        <button onClick={handleSearch}>검색</button>
+        <button className='searchButton' onClick={handleSearch}>검색</button>
       </div>
     </div>
   );

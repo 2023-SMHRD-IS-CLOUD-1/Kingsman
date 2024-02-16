@@ -565,15 +565,17 @@
 
 .UserModify {
   height: 512px;
+  
 }
 
 .UserModify h2 {
-  margin-top: 20px;
+  margin-top: 40px;
   margin-left: 20px;
 }
 
 .UserModify table {
-  margin: 30px;
+  margin: 20px;
+  margin-left: 20px;
   width: 90%
 }
 .UserModify td {

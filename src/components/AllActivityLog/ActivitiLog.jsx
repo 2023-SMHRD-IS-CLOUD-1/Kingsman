@@ -46,7 +46,7 @@ const ActivitiLog = () => {
   };
 
   return (
-    <div className='userLogTable'>
+    <div className='activitiLog'>
       <table className='activitiTable'>
         <thead>
           <tr>

@@ -24,6 +24,7 @@ function UserLogDate() {
             fullWidth
           />
         </Grid>
+        <div>~</div>
         <Grid item xs={5}>
           <TextField
             id="end-date"
