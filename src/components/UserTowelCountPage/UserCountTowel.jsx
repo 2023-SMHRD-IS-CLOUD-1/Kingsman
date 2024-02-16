@@ -12,6 +12,8 @@ const UserCountTowel = () => {
 
   const [imageFile, setImageFile] = useState(null);
   const [imageSrc, setImageSrc] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
 
   const handlerUploadButton = () => {
     console.log("업로드버튼 클릭");
@@ -26,7 +28,10 @@ const UserCountTowel = () => {
     nav('/UserActivityLog')
   }
 
-
+  const handleImageUpload = (image) => {
+    // 여기에서 이미지 업로드를 서버에 요청하고, 성공 시에 state 업데이트
+    setUploadedImage(URL.createObjectURL(image));
+  };
 
 
   return (
@@ -36,7 +41,10 @@ const UserCountTowel = () => {
         handlerResultButton,
         handlerShowLog,
         imageFile, setImageFile,
-        imageSrc, setImageSrc
+        imageSrc, setImageSrc,
+        handleImageUpload,
+        uploadedImage, setUploadedImage,
+        imageUrl, setImageUrl
       }}>
       <div>
         <UserCountTowelHeader />
