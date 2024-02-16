@@ -6,6 +6,7 @@
   align-items: center;
   height: 92px;
   margin-bottom: 25px;
+  background-color: aquamarine;
 }
 
 .userLogList {
@@ -25,8 +26,13 @@
 }
 
 .dateSearch {
-  padding: 12px 24px; /* 패딩을 조금 더 넉넉하게 설정합니다. */
-  font-size: 12px; /* 폰트 크기를 조금 크게 설정합니다. */
+  background-color: #A7DDA7;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  max-height: 30px;
+  line-height: 10px;
 }
 
 /* UserLogListTable.jsx css 부분 */

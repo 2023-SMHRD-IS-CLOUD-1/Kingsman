@@ -16,16 +16,16 @@ function SearchActivitiLog({ onSearch }) {
   };
 
   const handleSearch = () => {
-    onSearch(startDate, endDate, selectedCategory, searchQuery); // 검색 결과를 부모 컴포넌트로 전달
+    onSearch(startDate, endDate, selectedCategory, searchQuery);
   };
 
   return (
     <div className='searchActivitiLog'>
-      <div className='searchDate'>
-        <Grid container spacing={2} alignItems="center">
-          <Grid item xs={4}>
-            <TextField
+      <div className='searchDate' style={{marginLeft:"3px"}}>
+          <div>
+            <input
               id="start-date"
+              label="Start Date"
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
@@ -34,11 +34,10 @@ function SearchActivitiLog({ onSearch }) {
               }}
               fullWidth
             />
-          </Grid>
-          <div>~</div>
-          <Grid item xs={4}>
-            <TextField
+            ~
+            <input
               id="end-date"
+              label="End Date"
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
@@ -47,10 +46,7 @@ function SearchActivitiLog({ onSearch }) {
               }}
               fullWidth
             />
-          </Grid>
-          <Grid item xs={2}>
-          </Grid>
-        </Grid>
+          </div>
       </div>
       <div className='userSearch'>
         <select className='userCategory' onChange={handleCategoryChange} value={selectedCategory}>

@@ -11,7 +11,7 @@ function UserLogDate() {
   return (
     <div className='userLogDate'>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={5}>
+        <Grid item xs={4}>
           <TextField
             id="start-date"
             label="Start Date"
@@ -25,7 +25,7 @@ function UserLogDate() {
           />
         </Grid>
         <div>~</div>
-        <Grid item xs={5}>
+        <Grid item xs={4}>
           <TextField
             id="end-date"
             label="End Date"
@@ -39,9 +39,9 @@ function UserLogDate() {
           />
         </Grid>
         <Grid item xs={2}>
-          <Button className='dateSearch' variant="contained" color="primary" onClick={handleSearch} size="small">
+          <button className='dateSearch' variant="contained" color="primary" onClick={handleSearch} size="small">
             검색
-          </Button>
+          </button>
         </Grid>
       </Grid>
     </div>
