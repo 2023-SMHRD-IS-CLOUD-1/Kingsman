@@ -141,6 +141,7 @@ const PromotionalText = () => {
             try {
                 const url = "http://localhost:8085/kingsman/Notilist";
                 const res = await axios.get(url);
+                console.log(res,"zzzzzzzzzzzzzzzzzzzzz")
                 console.log('알림', res.data[0].b_NOTIFICATION); // 응답 데이터를 콘솔에 출력합니다.
             } catch (error) {
                 console.error(error);
