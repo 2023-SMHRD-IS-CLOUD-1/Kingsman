@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import UserCountTowelHeader from './UserCountTowelHeader'
-import UserCountTowelResult from './UserCountTowelResult'
-import UserCountTowelButtons from './UserCountTowelButtons'
-import UserCountTowelLogCheck from './UserCountTowelLogCheck'
-import UserCountTowelMain from './UserCountTowelMain'
-import {UserCountTowelContext} from '../../context/UserCountTowelContext'
+import React, { useEffect, useState } from 'react';
+import UserCountTowelHeader from './UserCountTowelHeader';
+import UserCountTowelResult from './UserCountTowelResult';
+import UserCountTowelButtons from './UserCountTowelButtons';
+import UserCountTowelLogCheck from './UserCountTowelLogCheck';
+import UserCountTowelMain from './UserCountTowelMain';
+import { UserCountTowelContext } from '../../context/UserCountTowelContext';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
 const UserCountTowel = () => {
   const nav = useNavigate()
   const [countnoti,setCountNoti]=useState(0)
-  const handlerUploadButton=()=>{
+  const [imageFile, setImageFile] = useState(null);
+  const [imageSrc, setImageSrc] = useState(null);
+
+  const handlerUploadButton = () => {
     console.log("업로드버튼 클릭");
     setCountNoti(countnoti+1)
     console.log(countnoti)
@@ -18,11 +21,11 @@ const UserCountTowel = () => {
     
   }
 
-  const handlerResultButton=()=>{
+  const handlerResultButton = () => {
     console.log("분석하기버튼 클릭");
   }
 
-  const handlerShowLog=()=>{
+  const handlerShowLog = () => {
     console.log("나의 기록 보기");
     nav('/UserActivityLog')
   }
@@ -61,20 +64,22 @@ const data = {
 
 
   return (
-  <UserCountTowelContext.Provider
-  value={{
-    handlerUploadButton,
-    handlerResultButton,
-    handlerShowLog
-  }}>
-    <div>
+    <UserCountTowelContext.Provider
+      value={{
+        handlerUploadButton,
+        handlerResultButton,
+        handlerShowLog,
+        imageFile, setImageFile,
+        imageSrc, setImageSrc
+      }}>
+      <div>
         <UserCountTowelHeader />
         <UserCountTowelMain />
         <UserCountTowelResult />
         <UserCountTowelButtons />
         <UserCountTowelLogCheck />
-    </div>
-  </UserCountTowelContext.Provider>
+      </div>
+    </UserCountTowelContext.Provider>
   )
 }
 
