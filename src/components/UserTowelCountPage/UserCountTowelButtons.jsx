@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import uploading from '../../image/uploading.png'
 import resultImg from '../../image/resultImg.png'
 import { UserCountTowelContext } from '../../context/UserCountTowelContext'
 import UserCountTowelAwsS3 from './UserCountTowelAwsS3'
 import UserCountTowelS3Button from './UserCountTowelS3Button'
 import AWS from "aws-sdk";
+import axios from 'axios'
 
 
 const UserCountTowelButtons = () => {
@@ -12,6 +13,7 @@ const UserCountTowelButtons = () => {
 
   const { imageFile, setImageFile, imageSrc, setImageSrc } = useContext(UserCountTowelContext);
   const [files, setFiles] = useState([]);
+  const [countnoti,setCountNoti]=useState(0)
 
   const uploadS3 = async () => {
     const REGION = 'us-east-1';
@@ -55,10 +57,40 @@ const UserCountTowelButtons = () => {
 
   const handleUploadClick = () => {
     uploadS3();
-    handlerResultButton();
-
+    Upnoti();
+    
     console.log("s3에업로드");
   };
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const url = "http://localhost:8085/kingsman/Notilist";
+            const res = await axios.get(url);
+            console.log('알림', res.data[0].b_NOTIFICATION); 
+            setCountNoti(res.data[0].b_NOTIFICATION)
+          } catch (error) {
+            console.error(error);
+        }
+    };
+  
+    fetchData(); 
+}, []);
+const data = {
+  b_NOTIFICATION: countnoti
+};
+  const Upnoti=()=>{
+    axios
+  .post('http://localhost:8085/kingsman/Upnoti', data, { withCredentials: true })
+  .then((response) => {
+    console.log("말")
+    console.log('데이터 전송 성공:', response.data);
+    
+  })
+  .catch((error) => {
+    console.error('데이터 전송 중 오류:', error);
+  });
+
+  }
 
 
   const { handlerUploadButton, handlerResultButton } = useContext(UserCountTowelContext);
@@ -79,7 +111,7 @@ const UserCountTowelButtons = () => {
       </div>
       <div className='checkResultButton' onClick={handleUploadClick}>
         <img src={resultImg} style={{ height: "45px", marginRight: "10px", marginTop: "10px" }} />
-        <p onClick={handleUploadClick} style={{ margin: "0px" }}>분석하기</p>
+        <p style={{ margin: "0px" }}>분석하기</p>
       </div>
     </div>
   )

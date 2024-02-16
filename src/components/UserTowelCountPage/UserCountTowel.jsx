@@ -21,45 +21,45 @@ const UserCountTowel = () => {
 
   const handlerResultButton = () => {
     console.log("분석하기버튼 클릭");
-    setCountNoti(countnoti)
-    console.log(countnoti)
-    Upnoti();
+    // setCountNoti(countnoti)
+    // console.log(countnoti)
+    // Upnoti();
   }
 
   const handlerShowLog = () => {
     console.log("나의 기록 보기");
     nav('/UserActivityLog')
   }
-  useEffect(() => {
-    const fetchData = async () => {
-        try {
-            const url = "http://localhost:8085/kingsman/Notilist";
-            const res = await axios.get(url);
-            console.log('알림', res.data[0].b_NOTIFICATION); 
-            setCountNoti(res.data[0].b_NOTIFICATION)
-          } catch (error) {
-            console.error(error);
-        }
-    };
+//   useEffect(() => {
+//     const fetchData = async () => {
+//         try {
+//             const url = "http://localhost:8085/kingsman/Notilist";
+//             const res = await axios.get(url);
+//             console.log('알림', res.data[0].b_NOTIFICATION); 
+//             setCountNoti(res.data[0].b_NOTIFICATION)
+//           } catch (error) {
+//             console.error(error);
+//         }
+//     };
   
-    fetchData(); 
-}, []);
-const data = {
-  b_NOTIFICATION: countnoti
-};
-  const Upnoti=()=>{
-    axios
-  .post('http://localhost:8085/kingsman/Upnoti', data, { withCredentials: true })
-  .then((response) => {
-    console.log("말")
-    console.log('데이터 전송 성공:', response.data);
+//     fetchData(); 
+// }, []);
+// const data = {
+//   b_NOTIFICATION: countnoti
+// };
+//   const Upnoti=()=>{
+//     axios
+//   .post('http://localhost:8085/kingsman/Upnoti', data, { withCredentials: true })
+//   .then((response) => {
+//     console.log("말")
+//     console.log('데이터 전송 성공:', response.data);
     
-  })
-  .catch((error) => {
-    console.error('데이터 전송 중 오류:', error);
-  });
+//   })
+//   .catch((error) => {
+//     console.error('데이터 전송 중 오류:', error);
+//   });
 
-  }
+//   }
 
 
 
