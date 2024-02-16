@@ -13,12 +13,59 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: 'rgb(167, 221, 167);;', // 원하는 색상으로 변경
 }));
 
+
 export default function AdminHeader() {
+  React.useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const url = "http://localhost:8085/kingsman/Notilist";
+            const res = await axios.get(url);
+            console.log('알림', res.data[0].b_NOTIFICATION); 
+            setCountNoti(res.data[0].b_NOTIFICATION)
+          } catch (error) {
+            console.error(error);
+        }
+    };
+  
+    fetchData(); 
+}, []);
+  
+  const[countnoti,setCountNoti]=React.useState(0);
+  const resetgo=()=>{
+    setCountNoti(0)
+    Resetnoti();
+    console.log(countnoti)
+  }
+  
+  const data2 = {
+    b_NOTIFICATION: 0
+  };
+ 
+  const Resetnoti=()=>{
+      axios
+    .post('http://localhost:8085/kingsman/Resetnoti', data2, { withCredentials: true })
+    .then((response) => {
+      console.log("말")
+      console.log('데이터 전송 성공:', response.data);
+      
+    })
+    .catch((error) => {
+      console.error('데이터 전송 중 오류:', error);
+    });
+  
+    }
+  
+
+
+
+
+
+
   const nav = useNavigate();
   
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -84,29 +131,23 @@ export default function AdminHeader() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
+       <MenuItem onClick={() => { nav('/Dashboard') }}>
+        <p>대시보드</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
+      <MenuItem onClick={() => { nav('/PromotionalText') }}>
+        <p>홍보문구</p>
+      </MenuItem>
+      <MenuItem onClick={() => { nav('/UserManagement') }}>
+        <p>사용자관리</p>
+      </MenuItem>
+      <MenuItem onClick={() => { nav('/ScheduleManagement') }}>
+        <p>일정관리</p>
+      </MenuItem>
+      <MenuItem onClick={() => { nav('/AllActivitiLog') }}>
+        <p>활동기록</p>
+      </MenuItem>
+      <MenuItem onClick={() => { nav('/UserCountTowel') }}>
+        <p>수건수량확인</p>
       </MenuItem>
     </Menu>
   );
@@ -116,13 +157,14 @@ export default function AdminHeader() {
       <StyledAppBar position="static">
         <Toolbar>
           <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
+             size="large"
+             edge="start"
+             color="inherit"
+             aria-label="open drawer"
+             sx={{ mr: 2 }}
+             onClick={handleMobileMenuOpen} // 여기에 추가합니다.
+           >
+             <MenuIcon />
           </IconButton>
           <Toolbar sx={{ justifyContent: 'center', paddingLeft: '65px' }}>
             <Typography
@@ -139,8 +181,9 @@ export default function AdminHeader() {
             size="large"
             aria-label="show 17 new notifications"
             color="inherit"
+            onClick={resetgo}
           >
-            <Badge badgeContent={17} color="error">
+            <Badge badgeContent={countnoti} color="error">
               <NotificationsIcon />
             </Badge>
           </IconButton>

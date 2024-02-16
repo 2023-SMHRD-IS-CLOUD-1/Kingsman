@@ -46,7 +46,7 @@ const InputSchedule = () => {
       <div>
         <InputGroup>
           <Form.Control as="textarea" aria-label="With textarea" placeholder='특이사항을 입력해주세요' 
-          style={{height:"90px"}}/>
+          style={{height:"83px"}}/>
         </InputGroup>
       </div>
     </div>

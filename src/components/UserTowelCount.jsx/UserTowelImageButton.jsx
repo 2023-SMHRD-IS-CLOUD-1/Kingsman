@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useRef, useState } from 'react';
 
 const UserTowelImageButton = ({ onImageUpload }) => {
@@ -6,14 +7,14 @@ const UserTowelImageButton = ({ onImageUpload }) => {
 
   const handleButtonClick = () => {
     inputRef.current.click();
-  };
 
+  };
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
     onImageUpload(file);
   };
-
+  
   const handleImageCheck = () => {
     if (selectedFile) {
       const reader = new FileReader();

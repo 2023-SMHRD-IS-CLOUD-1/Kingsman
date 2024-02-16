@@ -1,17 +1,17 @@
-/* AllActivityLog의 전체적인 화면*/
+/* AllActivityLog의 전체 화면 쪽 */
 .searchActivitiLog {
-  height: 100px;
-  background-color: blanchedalmond;
+  height: 128px;
+  /* 화면 비율차 background-color: blanchedalmond; */
 }
 
 .userActivitiLog {
   height: 384px;
-  /* background-color: aqua; */
+  /* 화면 비율 차 background-color: aqua; */
 }
 
 .activitiLogButtons {
-  height: 20%;
-  background-color: paleturquoise;
+  height: 12%;
+  /* 화면 비율 차 background-color: paleturquoise; */
   display: flex;
   flex-direction: row;
   justify-content: right;
@@ -21,28 +21,33 @@
 
 .activitiLog {
   height: 80%;
-  background-color: greenyellow;
+  /* 화면 비율 차 background-color: greenyellow; */
 }
 
-/* ActivitiLog.jsx css*/
-.moreButton{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* SearchActivitiLog.jsx css */
+.searchButton {
+  background-color: #A7DDA7;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  max-height: 30px;
+  line-height: 10px;
 }
 
+.startAdminDate,
+.endAdminDate {
+  width: 48%;
+  justify-content: center; /* 수평 가운데 정렬합니다 */
+  align-items: center; /* 수직 가운데 정렬합니다 */
+}
 
-/* SearchActivitiLog.jsx css*/
-
-.searchDate{
+.searchDate {
   margin-top: 16px;
-  height: px;
-  
 }
 
-
-/*                          */
-.userCategory{
+/* SearchActivitiLog.jsx css */
+.userCategory {
   width: 10px;
 }
 
@@ -52,20 +57,43 @@
 
 .userSearch {
   max-height: 10px;
+  margin-top: 12px;
+  justify-content: center; /* 수평 가운데 정렬합니다 */
+  align-items: center; /* 수직 가운데 정렬합니다 */
+}
+
+/* ActivitiLog.jsx css */
+
+.moreButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .activitiTable {
-  font-size: 12px;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+  font-size: 15px;
 }
 
-.th,td {
-  max-height: 8px;
+.activitiLogTh,
+.activitiLogTd {
+  border: 1px solid black;
+  padding: 12px;
+  text-align: center;
 }
 
-/* ActivitiLogButton.jsx css*/
-.modifyLog{
-  /* background-color: #A7DDA7; */
-  background-color: limegreen;
+/* ActivitiLogButton.jsx css */
+.modifyLog,
+.deleteLog {
+  margin-top: 7px;
+}
+
+.modifyButton,
+.deleteButton {
+  background-color: #A7DDA7;
+  /* background-color: limegreen; */
   color: white;
   border: none;
   padding: 10px;
@@ -73,21 +101,4 @@
   border-radius: 5px;
   max-height: 30px;
   line-height: 10px;
-}
-
-.deleteLog{
-  background-color: limegreen;
-  color: white;
-  border: none;
-  padding: 10px;
-  margin-right: 5px;
-  border-radius: 5px;
-  max-height: 30px;
-  line-height: 10px;
-}
-#start-date,#end-date
-{
-  height: 5px;
-  width: ;
-
 }
