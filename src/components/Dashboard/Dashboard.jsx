@@ -11,7 +11,7 @@ import axios from 'axios'
 
 const Dashboard = () => {
     const [timeLine, setTimeLine] = useState("Week");
-    const [all, setAll] = useState("Today");
+    const [all, setAll] = useState("All");
     const [by, setBy] = useState("Day");
     const [currentDate, setCurrentDate] = useState(new Date());
     const [list,setList] = useState([]);
@@ -167,8 +167,8 @@ const Dashboard = () => {
 
             </div>
             <div className='setTime'> 
-                <div onClick={()=>{setAll("Today")}} className= {all === "Today"? 'black':'gray'}>Today</div>
                 <div onClick={()=>{setAll("All")}} className= {all === "All"? 'black':'gray'}>All</div>
+                <div onClick={()=>{setAll("Today")}} className= {all === "Today"? 'black':'gray'}>Today</div>
             </div>
             <div className='chart'>
             {all === "Today"?

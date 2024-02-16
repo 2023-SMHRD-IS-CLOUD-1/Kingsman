@@ -1,18 +1,18 @@
 /* 공통 스타일 */
 
 /* 테이블 스타일 */
-table {
+/*table {
   border-collapse: collapse;
   border: 1px solid black;
   width: 100%;
-}
+} */ 
 
-th,
+/* th,
 td {
   border: 1px solid black;
-  padding: 12px; /* 패딩을 조금 더 넉넉하게 설정합니다. */
+  padding: 12px;
   text-align: center;
-}
+} */
 
 /* 높이 및 스크롤 관련 스타일 */
 .UserLogTable {
