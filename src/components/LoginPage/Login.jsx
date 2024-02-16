@@ -31,7 +31,7 @@ const Login = () => {
                     if (res.data == "Admin") {
                         nav("/Dashboard")
                     } else {
-                        nav("/UserTowelCount")
+                        nav("/UserCountTowel")
                     }
                 } else {
                     console.log("null");

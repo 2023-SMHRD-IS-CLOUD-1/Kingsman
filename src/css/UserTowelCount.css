@@ -90,3 +90,18 @@
     align-items: center;
     text-align: center;
 }
+
+
+.uploadButton input[type="file"] {
+    border: none; /* 테두리 없애기 */
+    outline: none; /* 포커스 테두리 없애기 */
+    font-size: 0; /* 글자 크기를 0으로 설정하여 텍스트 숨기기 */
+  }
+  
+  .uploadButton input[type="file"]::-webkit-file-upload-button {
+    font-size: 0; /* 크롬 브라우저에서의 파일 업로드 버튼에 대한 스타일링 */
+  }
+  
+  .checkResultButton p {
+    margin: 0; /* 내부 여백 없애기 */
+  }
