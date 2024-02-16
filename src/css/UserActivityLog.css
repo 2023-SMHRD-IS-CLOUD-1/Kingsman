@@ -1,68 +1,62 @@
-/* 공통 스타일 */
-
-/* 테이블 스타일 */
-/*table {
-  border-collapse: collapse;
-  border: 1px solid black;
-  width: 100%;
-} */ 
-
-/* th,
-td {
-  border: 1px solid black;
-  padding: 12px;
-  text-align: center;
-} */
-
-/* 높이 및 스크롤 관련 스타일 */
-.UserLogTable {
-  overflow: auto;
-  scroll-snap-type: both mandatory;
-  height: 100%;
-}
-
-/* 헤더 스타일 */
-.userMainHeader {
-  height: 64px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: mediumseagreen;
-}
-
-/* 로그 날짜 선택 컴포넌트 스타일 */
+/* UserActivityLogPage 전체 화면 */
 .userLogDate {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 250px; /* 높이를 증가시켜 보다 많은 공간을 확보합니다. */
+  height: 92px;
+  margin-bottom: 20px;
+  /* 화면 비율차 background-color: aquamarine; */
 }
 
-.userLogDate > div {
-  margin-top: 20px; /* 위쪽 간격을 더 크게 설정합니다. */
-}
-
-/* 로그 리스트 스타일 */
 .userLogList {
   height: 512px;
 }
 
 .userLogListTable {
-  height: 70%;
+  overflow: auto;
+  scroll-snap-type: both mandatory;
+  height: 80%;
+  /* 화면 비율 차 background-color: aqua; */
 }
 
-.userLogListEtc {
-  height: 30%;
+/* UserLogDate.jsx css 부분 */
+.userLogDate > div {
+  margin-top: 20px; /* 위쪽 간격을 더 크게 설정합니다. */
 }
 
-/* 버튼 스타일 */
+.startUserDate,
+.endUserDate {
+  width: 46%;
+  justify-content: center; /* 수평 가운데 정렬합니다 */
+  align-items: center; /* 수직 가운데 정렬합니다 */
+}
+
 .dateSearch {
-  padding: 12px 24px; /* 패딩을 조금 더 넉넉하게 설정합니다. */
-  font-size: 16px; /* 폰트 크기를 조금 크게 설정합니다. */
+  background-color: #A7DDA7;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  max-height: 30px;
+  line-height: 10px;
 }
 
-/* 슬라이드 효과 스타일 */
+/* UserLogListTable.jsx css 부분 */
+.userListTable {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.userLogListTh,
+.userLogListTd {
+  border: 1px solid black;
+  padding: 12px;
+  text-align: center;
+}
+
+/* UserLogListTable 부분 */
 .slide-closed {
   height: 0;
   display: none;
@@ -73,3 +67,4 @@ td {
   height: auto;
   transition: height 0.3s ease-in;
 }
+

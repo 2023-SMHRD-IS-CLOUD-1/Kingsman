@@ -1,12 +1,12 @@
 import React from 'react'
 import UserLogDate from './UserLogDate'
-import UserMainHeader from './UserMainHeader'
+import AdminHeader from '../AdminHome/AdminHeader.tsx'
 import UserLogList from './UserLogList'
 
 const UserActivityLog = () => {
   return (
     <div>
-      <UserMainHeader />
+      <AdminHeader/>
       <UserLogDate />
       <UserLogList />
     </div>
