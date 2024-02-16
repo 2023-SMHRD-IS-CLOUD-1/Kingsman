@@ -36,10 +36,36 @@ export default function AdminHeader() {
 }, []);
   
   const[countnoti,setCountNoti]=React.useState(0);
-  const resetnoti=()=>{
+  const resetgo=()=>{
     setCountNoti(0)
+    Resetnoti();
     console.log(countnoti)
   }
+  
+  const data2 = {
+    b_NOTIFICATION: 0
+  };
+ 
+  const Resetnoti=()=>{
+      axios
+    .post('http://localhost:8085/kingsman/Resetnoti', data2, { withCredentials: true })
+    .then((response) => {
+      console.log("말")
+      console.log('데이터 전송 성공:', response.data);
+      
+    })
+    .catch((error) => {
+      console.error('데이터 전송 중 오류:', error);
+    });
+  
+    }
+  
+
+
+
+
+
+
   const nav = useNavigate();
   
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -155,7 +181,7 @@ export default function AdminHeader() {
             size="large"
             aria-label="show 17 new notifications"
             color="inherit"
-            onClick={resetnoti}
+            onClick={resetgo}
           >
             <Badge badgeContent={countnoti} color="error">
               <NotificationsIcon />

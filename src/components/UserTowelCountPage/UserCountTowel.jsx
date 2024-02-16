@@ -15,14 +15,15 @@ const UserCountTowel = () => {
 
   const handlerUploadButton = () => {
     console.log("업로드버튼 클릭");
-    setCountNoti(countnoti+1)
-    console.log(countnoti)
-    Upnoti();
+   
     
   }
 
   const handlerResultButton = () => {
     console.log("분석하기버튼 클릭");
+    setCountNoti(countnoti)
+    console.log(countnoti)
+    Upnoti();
   }
 
   const handlerShowLog = () => {
