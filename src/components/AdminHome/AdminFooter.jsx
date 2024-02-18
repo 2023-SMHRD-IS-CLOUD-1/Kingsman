@@ -28,7 +28,7 @@ const AdminFooter = () => {
           <p className= {currentPath === '/Dashboard'? 'black':'gray'}>대시보드</p>
         </div>
         <div onClick={()=>{nav('/PromotionalText')}}>
-           {currentPath === '/PromotionalText'?
+           {(currentPath === '/PromotionalText'||currentPath === '/PromotionalTextData')?
           <img src= {promotionIcon}></img>:
           <img src= {promotionGrayIcon}></img>}
           <p className= {currentPath === '/PromotionalText'? 'black':'gray'}>홍보 문구</p>

@@ -7,6 +7,7 @@ import AllActivitiLog from './components/AllActivityLog/AllActivitiLog';
 import Dashboard from './components/Dashboard/Dashboard';
 import AdminTowelCount from './components/AdminTowelCount/AdminTowelCount';
 import PromotionalText from './components/PromotinalText/PromotionalText';
+import PromotionalTextData from './components/PromotionalTextData/PromotionalTextData';
 import UserManagement from './components/UserManagement/UserManagement';
 import UserModify from './components/UserManagement/UserModify';
 import AdminModifyProfile from './components/AdminModifyProfile/AdminModifyProfile';
@@ -48,6 +49,7 @@ function App() {
             <Route path='/Dashboard' element={<Dashboard></Dashboard>}></Route>
             <Route path='/AdminTowelCount' element={<AdminTowelCount></AdminTowelCount>}></Route>
             <Route path='/PromotionalText' element={<PromotionalText></PromotionalText>}></Route>
+            <Route path='/PromotionalTextData' element={<PromotionalTextData></PromotionalTextData>}></Route>
             <Route path='/ScheduleManagement' element={<ScheduleManagement></ScheduleManagement>}></Route>
             <Route path='/UserManagement' element={<UserManagement></UserManagement>}></Route>
             <Route path='/UserModify' element={<UserModify></UserModify>}></Route>

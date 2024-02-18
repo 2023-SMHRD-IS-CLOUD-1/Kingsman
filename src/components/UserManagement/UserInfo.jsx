@@ -9,10 +9,12 @@ const UserInfo = ({ userList, setSelected}) => {
   const handleItemClick = (user) => {
     setSelectedUser(user);
   };
-
   const handleCloseInfo = () => {
       setSelectedUser(null);
 };
+useEffect(()=>{
+  handleCloseInfo();
+},[userList])
   return (
     <div className='UserInfo'>
       <h2>사용자 관리</h2>

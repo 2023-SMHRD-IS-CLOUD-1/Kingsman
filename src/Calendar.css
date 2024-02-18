@@ -70,3 +70,14 @@
     margin-left: 20px !important;
     margin-top: 5px !important;
 }
+
+.snsLoginButtons{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.loginButton{
+    width: 200px;
+}
