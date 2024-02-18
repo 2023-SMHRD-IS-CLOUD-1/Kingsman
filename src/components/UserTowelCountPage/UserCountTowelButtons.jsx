@@ -2,20 +2,15 @@ import React, { useContext, useEffect, useState } from 'react'
 import uploading from '../../image/uploading.png'
 import resultImg from '../../image/resultImg.png'
 import { UserCountTowelContext } from '../../context/UserCountTowelContext'
-import UserCountTowelAwsS3 from './UserCountTowelAwsS3'
-import UserCountTowelS3Button from './UserCountTowelS3Button'
 import AWS from "aws-sdk";
 import axios from 'axios'
 
-
 const UserCountTowelButtons = () => {
-
-
-  const { imageFile, setImageFile, imageSrc, setImageSrc } = useContext(UserCountTowelContext);
+  const { setImageUrl } = useContext(UserCountTowelContext);
   const [files, setFiles] = useState([]);
   const [countnoti,setCountNoti]=useState(0)
 
-  const uploadS3 = async () => {
+  const uploadS3 = async (file) => {
     const REGION = 'us-east-1';
     const ACCESS_KEY_ID = process.env.REACT_APP_ACCESS_KEY_ID;
     const SECRET_ACCESS_KEY_ID = process.env.REACT_APP_SECRET_ACCESS_KEY_ID;
@@ -28,38 +23,37 @@ const UserCountTowelButtons = () => {
 
     const s3 = new AWS.S3();
 
-    if (files.length === 0) return;
-
-    const uploadPromise = files.map(({ file }) => {
+    try {
       const params = {
         Bucket: 'kingsmanbucket',
         Key: `${Date.now()}.${file.name}`,
         Body: file
       };
-      return s3.upload(params).promise();
-    })
+      const result = await s3.upload(params).promise();
+      const imageUrl = result.Location; // 업로드된 파일의 URL을 가져옴
+      setImageUrl(imageUrl); // setImageUrl로 설정
+      console.log("파일을 s3에 업로드했습니다. URL:", imageUrl);
+    } catch (error) {
+      console.error("파일 업로드 중 오류가 발생했습니다:", error);
+    }
+  };
 
-    const results = await Promise.all(uploadPromise);
-    const locations = results.map(result => result.Location);
-    // 백엔드로 저장하는 요청 로케이션과 같이 보내주기
-  }
-
-  const onChangeFile = (e) => {
+  const onChangeFile = async (e) => {
     const fileList = e.target.files;
     if (fileList) {
       const filesArray = Array.from(fileList).map(file => ({
         file,
         preview: URL.createObjectURL(file),
       }));
-      setFiles(prevFiles => [...prevFiles, ...filesArray]);
+      setFiles(filesArray);
+      if (filesArray.length > 0) {
+        await uploadS3(filesArray[0].file); // 첫 번째 파일만 업로드
+      }
     }
   };
 
   const handleUploadClick = () => {
-    uploadS3();
     Upnoti();
-    
-    console.log("s3에업로드");
   };
   useEffect(() => {
     const fetchData = async () => {
@@ -96,12 +90,6 @@ const data = {
   const { handlerUploadButton, handlerResultButton } = useContext(UserCountTowelContext);
   return (
     <div className='UserCountTowelButtons'>
-      {/* <div className='uploadButton' onClick={onChangeFile} >
-        <img src={uploading} style={{ height: "25px", marginRight: "15px" }} />
-        <input type="file" onChange={onChangeFile} multiple />
-        <p style={{ margin: "0px" }}>UPLOAD
-        </p>
-      </div> */}
       <div className='uploadButton'>
         <label htmlFor="uploadInput" style={{ display: 'flex', alignItems: 'center' }}>
           <img src={uploading} style={{ height: "25px", marginRight: "15px" }} />
@@ -114,7 +102,7 @@ const data = {
         <p style={{ margin: "0px" }}>분석하기</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserCountTowelButtons
+export default UserCountTowelButtons;
