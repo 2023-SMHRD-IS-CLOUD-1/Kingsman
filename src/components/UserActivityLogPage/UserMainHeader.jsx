@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
-import { Avatar, Menu, MenuItem, IconButton } from '@mui/material'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Avatar, Menu, MenuItem, IconButton } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
 const UserCountTowelHeader = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -13,9 +15,15 @@ const UserCountTowelHeader = () => {
     setAnchorEl(null);
   };
 
+  const handleGoBack = () => {
+    navigate(-1); // 뒤로 가기 동작 처리
+  };
 
   return (
     <div className='userCountTowelHeader'>
+      <nav>
+        <button onClick={handleGoBack}>뒤로</button>
+      </nav>
       <div style={{ width: "25%" }}></div>
       <div style={{ width: "50%" }}>
         <h3 style={{ margin: "0px" }}>Let's Count</h3>
@@ -27,6 +35,7 @@ const UserCountTowelHeader = () => {
           aria-controls="menu-appbar"
           aria-haspopup="true"
           color="inherit"
+          onClick={handleClick}
         >
           <AccountCircle />
         </IconButton>
@@ -50,7 +59,7 @@ const UserCountTowelHeader = () => {
         </Menu>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserCountTowelHeader
+export default UserCountTowelHeader;
