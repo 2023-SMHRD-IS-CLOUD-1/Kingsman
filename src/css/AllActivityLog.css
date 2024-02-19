@@ -81,7 +81,7 @@
 .activitiTable {
   border-collapse: collapse;
   width: 100%;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .activitiLogTh,
@@ -124,13 +124,13 @@
   color: red;
 }
 
-.activitLog-slide-closed {
+.activitiLog-slide-closed {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
 
-.activitLog-slide-open {
+.activitiLog-slide-open {
   height: 300px;
   max-height: 300px; /* 원하는 크기로 설정하세요 */
   overflow: hidden;

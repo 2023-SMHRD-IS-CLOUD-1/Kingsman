@@ -5,6 +5,7 @@ import UploadPreview from './UploadPreview';
 
 const UserCountTowelS3Button = () => {
     const { imageFile, setImageFile, imageSrc, setImageSrc } = useContext(UserCountTowelContext);
+    const { setUploadClicked } = useContext(UploadButtonClickContext); // 컨텍스트에 접근합니다.
     const [files, setFiles] = useState([]);
 
     const uploadS3 = async () => {
@@ -48,6 +49,7 @@ const UserCountTowelS3Button = () => {
     };
 
     const handleUploadClick = () => {
+        setUploadClicked(true);
         uploadS3();
         console.log("s3에업로드");
     };
