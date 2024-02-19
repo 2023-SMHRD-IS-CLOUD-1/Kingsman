@@ -1,11 +1,9 @@
 import React from 'react'
-// import homeIcon from '../image/home.png'
 import graphIcon from '../../image/graph.png'
 import promotionIcon from '../../image/promotion.png'
 import editIcon from '../../image/edit.png'
 import scheduleIcon from '../../image/schedule.png'
 import logIcon from '../../image/log.png'
-// import uploadIcon from '../image/upload.png'
 import graphGrayIcon from '../../image/graphGray.png'
 import promotionGrayIcon from '../../image/promotionGray.png'
 import editGrayIcon from '../../image/editGray.png'
@@ -20,7 +18,7 @@ const AdminFooter = () => {
     const currentPath = location.pathname;
     
   return (
-    <div className='AdminFooter'>
+    <div className= {currentPath === '/PromotionalTextData'? 'AdminFooter blue':'AdminFooter'}>
         <div onClick={()=>{nav('/Dashboard')}}>
           {currentPath === '/Dashboard'?
           <img src= {graphIcon}></img>:
@@ -39,7 +37,6 @@ const AdminFooter = () => {
           <img src= {editGrayIcon}></img>}
           <p className= {currentPath === '/UserManagement'? 'black':'gray'}>사용자 관리</p>
           </div>
-        {/* <div onClick={()=>{nav('/AdminHome')}}><img src= {homeIcon}></img></div> */}
         <div onClick={()=>{nav('/ScheduleManagement')}}>
           {currentPath === '/ScheduleManagement'?
           <img src= {scheduleIcon}></img>:
@@ -52,7 +49,6 @@ const AdminFooter = () => {
           <img src= {logGrayIcon}></img>}
           <p className= {currentPath === '/AllActivitiLog'? 'black':'gray'}>활동 기록</p>
         </div>
-        {/* <div onClick={()=>{nav('/TowelCount')}}><img src= {uploadIcon}></img></div> */}
 
 
     </div>

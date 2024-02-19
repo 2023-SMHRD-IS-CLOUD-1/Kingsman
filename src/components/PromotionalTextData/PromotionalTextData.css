@@ -1,0 +1,38 @@
+
+.message p {
+    font-size: 12px;
+  }
+.message div:nth-child(2) {
+    margin-left: 20%;
+  }
+.message div:nth-child(4) {
+    margin-left: 70%;
+  }
+  
+.balloon {
+    background-color: #6495ed;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-left: 2%;
+    width: 80%;
+  }
+  
+.balloon2 {
+    background-color: #5cdb95;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-left: 18%;
+    width: 80%;
+  }
+  
+.chatRoom {
+    background-color: #ADD8E6;
+    height: 585px;
+    color: white;
+  }
+.chatRoom>p {
+    padding-top: 10px;
+    text-align: center;
+  }

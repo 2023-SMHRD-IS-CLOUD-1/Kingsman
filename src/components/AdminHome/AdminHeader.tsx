@@ -50,23 +50,15 @@ export default function AdminHeader() {
 
 //   fetchData2(); 
 // }, []);
-
+const [topFourData, setTopFourData] = React.useState([]); // topFourData 상태 선언
 React.useEffect(() => {
   const fetchData3 = async () => {
     try {
       const url = "http://localhost:8085/kingsman/Notiresultfinal";
       const res = await axios.get(url);
-      console.log("resresresres", res.data);
       const sortedData = res.data.sort((a, b) => b.t_INDEX - a.t_INDEX);
       const topFourData = sortedData.slice(0, 4);
-      console.log('가장 큰 숫자 4개의 데이터:', topFourData);
-
-      // 각 요소에서 이름과 직급을 순회하며 출력하고 날짜는 해당 요소의 t_DATE로 출력
-      topFourData.forEach(item => {
-        console.log('이름:', item.user.b_NAME);
-        console.log('직급:', item.user.b_POSITION);
-        console.log('날짜:', item.t_DATE);
-      });
+      setTopFourData(topFourData); // topFourData 상태 업데이트
     } catch (error) {
       console.error(error);
     }
@@ -207,16 +199,12 @@ React.useEffect(() => {
       </MenuItem>
     </Menu>
   );
-  const inboxContent = "박재욱/대리/2024.02.19"; // 기존 내용
+  const formatDate = (dateString) => {
+    // dateString에서 'T00:00:00.000+09:00' 부분을 잘라냅니다.
+    const formattedDate = dateString.slice(0, 10); // 'T00:00:00.000+09:00'의 길이가 10이므로 10까지 잘라냅니다.
+    return formattedDate;
+  };
 
-// 추가된 내용들
-const updatedInboxContent1 = "김동균/노예/시간1";
-const updatedInboxContent2 = "박범석/전여친/시간2";
-const [name1, position1, time1] = inboxContent.split('/');
-
-// 추가된 내용 파싱
-const [name2, position2, time2] = updatedInboxContent1.split('/');
-const [name3, position3, time3] = updatedInboxContent2.split('/');
 
 const handleAllLogs =()=>{
 
@@ -231,7 +219,7 @@ const handleAllLogs =()=>{
              color="inherit"
              aria-label="open drawer"
              sx={{ mr: 2 }}
-             onClick={handleMobileMenuOpen} // 여기에 추가합니다.
+             onClick={handleMobileMenuOpen} 
            >
              <MenuIcon />
           </IconButton>
@@ -275,37 +263,25 @@ const handleAllLogs =()=>{
       <table className="bordered-table">
         <thead></thead>
         <tbody>
-          <tr>
-            <td>{name1}</td>
-            <td>{position1}</td>
-            <td>{time1}</td>
-          </tr>
-          <tr>
-            <td>{name2}</td>
-            <td>{position2}</td>
-            <td>{time2}</td>
-          </tr>
-          <tr>
-            <td>{name3}</td>
-            <td>{position3}</td>
-            <td>{time3}</td>
-          </tr>
-          {/* <tr>
-            <td>{name4}</td>
-            <td>{position4}</td>
-            <td>{time4}</td>
-          </tr> */}
+        {topFourData.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.user.b_NAME}</td>
+                    <td>{item.user.b_POSITION}</td>
+                    <td>{formatDate(item.t_DATE)}</td> {/* formatDate 함수를 사용하여 시간 형식 변환 */}
+                  </tr>
+                ))}
+         
         </tbody>
       </table>
-      <div className="button-container">
-        <button className="all-logs-button" onClick={handleAllLogs}>
+      <div style={{textAlign:"center"}}>
+        <button className="all-logs-button" onClick={() => { nav('/AllActivitiLog') }} >
           전체로그
         </button>
-      </div>
+        </div>
     </div>
     {/* 닫기 버튼 */}
+    <Box sx={{ flexGrow: 1 }} />
     <IconButton onClick={handleCloseInbox} className="close-button">
-      <CloseIcon />
     </IconButton>
   </div>
 )}

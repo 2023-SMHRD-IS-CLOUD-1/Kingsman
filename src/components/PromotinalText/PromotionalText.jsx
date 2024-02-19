@@ -5,6 +5,7 @@ import AdminHeader from '../AdminHome/AdminHeader.tsx';
 import AdminFooter from '../AdminHome/AdminFooter';
 import { useEffect } from 'react';
 import ChatGPTImage from '../../image/ChatGPT.jpg';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -28,6 +29,7 @@ const PromotionalText = () => {
     const [humidity,setHumidity]=useState('')
     const [isLoading, setIsLoading] = useState(false);
     const [chatHistory, setChatHistory] = useState("");
+    const nav = useNavigate();
     useEffect(function () {
         fetch('https://api.openweathermap.org/data/2.5/weather?lat=37.564214&lon=127.001699&appid=b3bb290e3cf3e3f29e55972f489fe79a&units=metric')
             .then((res) => {
@@ -232,7 +234,7 @@ const PromotionalText = () => {
                 </div>
               <div style={{ textAlign: "center", margin: "10px;", height:"40px"}}><img src={`https://openweathermap.org/img/wn/${img}.png`}></img>
                      {temp}°C　습도:{humidity}%</div>
-                <div style={{ textAlign: 'center' }}><button onClick={apply} className='submit'>적용</button><button type="submit" onClick={reset} className='submit'>초기화</button><button type="submit" onClick={handleSubmit} className='submit'>홍보문구생성</button></div>
+                <div style={{ textAlign: 'center' }}><button onClick={()=>(nav("/PromotionalTextData"))} className='submit'>기록</button><button onClick={apply} className='submit'>적용</button><button type="submit" onClick={reset} className='submit'>초기화</button><button type="submit" onClick={handleSubmit} className='submit'>홍보문구생성</button></div>
                 <div style={{ textAlign: 'center', padding: "8PX" }}>
                     <textarea
                         value={text}
