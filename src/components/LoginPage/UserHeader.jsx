@@ -1,5 +1,5 @@
 import React from 'react'
-
+import towelLogo from '../../image/towelLogo.png'
 const UserHeader = () => {
   return (
     <div className='userHeader'>
