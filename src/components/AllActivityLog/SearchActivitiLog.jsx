@@ -21,33 +21,31 @@ function SearchActivitiLog({ onSearch }) {
 
   return (
     <div className='searchActivitiLog'>
-      <div className='searchDate' style={{marginLeft:"3px"}}>
-          <div>
-            <input
-              className='startAdminDate'
-              label="Start Date"
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              fullWidth
-            />
-            ~
-            <input
-              className='endAdminDate'
-              label="End Date"
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              fullWidth
-            />
-          </div>
-      </div>
+        <div className='startDateEndDate'>
+          <input
+            className='startAdminDate'
+            label="Start Date"
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            fullWidth
+          />
+          <p className='middleDateBar'>~</p>
+          <input
+            className='endAdminDate'
+            label="End Date"
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            fullWidth
+          />
+        </div>
       <div className='userSearch'>
         <select className='userCategory' onChange={handleCategoryChange} value={selectedCategory}>
           <option value="name">이름</option>

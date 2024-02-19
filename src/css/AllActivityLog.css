@@ -2,10 +2,17 @@
 .searchActivitiLog {
   height: 128px;
   /* 화면 비율차 background-color: blanchedalmond; */
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .userActivitiLog {
   height: 384px;
+  overflow-y: auto;
   /* 화면 비율 차 background-color: aqua; */
 }
 
@@ -14,8 +21,8 @@
   /* 화면 비율 차 background-color: paleturquoise; */
   display: flex;
   flex-direction: row;
-  justify-content: right;
-  align-items: right;
+  justify-content: center;
+  align-items: center;
   padding: row;
 }
 
@@ -31,13 +38,14 @@
   border: none;
   padding: 10px;
   border-radius: 5px;
-  max-height: 30px;
   line-height: 10px;
+  height: 40px;
 }
 
 .startAdminDate,
 .endAdminDate {
-  width: 48%;
+  height: 40px;
+  width: 160px;
   justify-content: center; /* 수평 가운데 정렬합니다 */
   align-items: center; /* 수직 가운데 정렬합니다 */
 }
@@ -49,15 +57,15 @@
 /* SearchActivitiLog.jsx css */
 .userCategory {
   width: 10px;
+  height: 40px;
 }
 
 .searchBar {
   width: 175px;
+  height: 40px;
 }
 
 .userSearch {
-  max-height: 10px;
-  margin-top: 12px;
   justify-content: center; /* 수평 가운데 정렬합니다 */
   align-items: center; /* 수직 가운데 정렬합니다 */
 }
@@ -72,14 +80,13 @@
 
 .activitiTable {
   border-collapse: collapse;
-  border: 1px solid black;
   width: 100%;
   font-size: 15px;
 }
 
 .activitiLogTh,
 .activitiLogTd {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 12px;
   text-align: center;
 }
@@ -101,4 +108,53 @@
   border-radius: 5px;
   max-height: 30px;
   line-height: 10px;
+}
+
+.activitiLogTh{
+  background-color: rgb(191, 245, 215);
+}
+
+/* 초록색 스타일 */
+.green {
+  color: rgb(24, 232, 24);
+}
+
+/* 빨간색 스타일 */
+.red {
+  color: red;
+}
+
+.activitLog-slide-closed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.activitLog-slide-open {
+  height: 300px;
+  max-height: 300px; /* 원하는 크기로 설정하세요 */
+  overflow: hidden;
+  transition: max-height 0.2s ease-in;
+}
+
+.startDateEndDate{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.middleDateBar{
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.toggleGreen{
+  border: 1px solid green;
+}
+
+.toggleRed{
+  border: 1px solid red;
 }
