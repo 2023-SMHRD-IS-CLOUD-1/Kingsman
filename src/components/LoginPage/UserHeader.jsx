@@ -1,9 +1,9 @@
 import React from 'react'
-import towelLogo from '../../image/towelLogo.png'
+import letsLogo from '../../image/LETSLOGO.png'
 const UserHeader = () => {
   return (
     <div className='userHeader'>
-      <h1>Let's Count</h1>
+    <img src={letsLogo} alt="" style={{height:"80%", marginTop:"15px", marginLeft:"10px"}}/>
     </div>
   )
 }
