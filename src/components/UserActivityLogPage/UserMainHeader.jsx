@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Avatar, Menu, MenuItem, IconButton } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import logo from '../../image/logo.png'
 
 const UserCountTowelHeader = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -26,7 +27,7 @@ const UserCountTowelHeader = () => {
       </nav>
       <div style={{ width: "25%" }}></div>
       <div style={{ width: "50%" }}>
-        <h3 style={{ margin: "0px" }}>Let's Count</h3>
+        <h3 style={{ margin: "0px" }}> <img src={logo} alt="Towel King Logo" style={{ width: '110px', height: '40px', marginTop: '5px' }} /></h3>
       </div>
       <div className="avatarLogo">
         <IconButton

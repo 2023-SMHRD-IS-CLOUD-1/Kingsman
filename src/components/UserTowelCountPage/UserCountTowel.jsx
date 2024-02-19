@@ -14,6 +14,7 @@ const UserCountTowel = () => {
   const [imageSrc, setImageSrc] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
+  const [results, setResults] = useState(null);
 
   const handlerUploadButton = () => {
     console.log("업로드버튼 클릭");
@@ -79,7 +80,8 @@ const UserCountTowel = () => {
         imageSrc, setImageSrc,
         handleImageUpload,
         uploadedImage, setUploadedImage,
-        imageUrl, setImageUrl
+        imageUrl, setImageUrl,
+        results, setResults
       }}>
       <div>
         <UserCountTowelHeader />

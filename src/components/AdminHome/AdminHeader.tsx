@@ -16,96 +16,96 @@ import axios from 'axios';
 import logo from '../../image/logo.png'
 import './AdminHeader.css';
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  backgroundColor: 'rgb(167, 221, 167);;', 
+  backgroundColor: 'rgb(167, 221, 167);;',
 }));
 
 
 export default function AdminHeader() {
   React.useEffect(() => {
     const fetchData = async () => {
-        try {
-            const url = "http://localhost:8085/kingsman/Notilist";
-            const res = await axios.get(url);
-            console.log('알림', res.data[0].b_NOTIFICATION); 
-            setCountNoti(res.data[0].b_NOTIFICATION)
-          } catch (error) {
-            console.error(error);
-        }
+      try {
+        const url = "http://localhost:8085/kingsman/Notilist";
+        const res = await axios.get(url);
+        console.log('알림', res.data[0].b_NOTIFICATION);
+        setCountNoti(res.data[0].b_NOTIFICATION)
+      } catch (error) {
+        console.error(error);
+      }
     };
-  
-    fetchData(); 
-}, []);
-// React.useEffect(() => {
-//   const fetchData2 = async () => {
-//       try {
-//           const url = "http://localhost:8085/kingsman/Notiresult";
-//           const res = await axios.get(url);
-//           console.log('알림2222',res.data); 
-//         } catch (error) {
-//           console.error(error);
-//       }
-//   };
 
-//   fetchData2(); 
-// }, []);
-const [topFourData, setTopFourData] = React.useState([]); // topFourData 상태 선언
-React.useEffect(() => {
-  const fetchData3 = async () => {
-    try {
-      const url = "http://localhost:8085/kingsman/Notiresultfinal";
-      const res = await axios.get(url);
-      const sortedData = res.data.sort((a, b) => b.t_INDEX - a.t_INDEX);
-      const topFourData = sortedData.slice(0, 4);
-      setTopFourData(topFourData); // topFourData 상태 업데이트
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    fetchData();
+  }, []);
+  // React.useEffect(() => {
+  //   const fetchData2 = async () => {
+  //       try {
+  //           const url = "http://localhost:8085/kingsman/Notiresult";
+  //           const res = await axios.get(url);
+  //           console.log('알림2222',res.data); 
+  //         } catch (error) {
+  //           console.error(error);
+  //       }
+  //   };
 
-  fetchData3();
-}, []);
-  const[countnoti,setCountNoti]=React.useState(0);
-  const resetgo=()=>{
+  //   fetchData2(); 
+  // }, []);
+  const [topFourData, setTopFourData] = React.useState([]); // topFourData 상태 선언
+  React.useEffect(() => {
+    const fetchData3 = async () => {
+      try {
+        const url = "http://localhost:8085/kingsman/Notiresultfinal";
+        const res = await axios.get(url);
+        const sortedData = res.data.sort((a, b) => b.t_INDEX - a.t_INDEX);
+        const topFourData = sortedData.slice(0, 4);
+        setTopFourData(topFourData); // topFourData 상태 업데이트
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData3();
+  }, []);
+  const [countnoti, setCountNoti] = React.useState(0);
+  const resetgo = () => {
     setCountNoti(0)
     Resetnoti();
     console.log(countnoti)
   }
-  
+
   const data2 = {
     b_NOTIFICATION: 0
   };
- 
-  const Resetnoti=()=>{
-      axios
-    .post('http://localhost:8085/kingsman/Resetnoti', data2, { withCredentials: true })
-    .then((response) => {
-      console.log("말")
-      console.log('데이터 전송 성공:', response.data);
-      
-    })
-    .catch((error) => {
-      console.error('데이터 전송 중 오류:', error);
-    });
-  
-    }
+
+  const Resetnoti = () => {
+    axios
+      .post('http://localhost:8085/kingsman/Resetnoti', data2, { withCredentials: true })
+      .then((response) => {
+        console.log("말")
+        console.log('데이터 전송 성공:', response.data);
+
+      })
+      .catch((error) => {
+        console.error('데이터 전송 중 오류:', error);
+      });
+
+  }
 
 
-    const toggleInbox = () => {
-      setShowInbox((prevShowInbox) => !prevShowInbox);
-    };
-  
-    const [showInbox, setShowInbox] = React.useState(false); // 인박스의 가시성을 관리합니다.
+  const toggleInbox = () => {
+    setShowInbox((prevShowInbox) => !prevShowInbox);
+  };
 
-    const handleNotificationClick = () => {
-      // 알림 아이콘이 클릭되면 인박스를 토글합니다.
-      resetgo();
-      toggleInbox();
-    };
+  const [showInbox, setShowInbox] = React.useState(false); // 인박스의 가시성을 관리합니다.
 
-    const handleCloseInbox = () => {
-      // 인박스를 닫습니다.
-      setShowInbox(false);
-    };
+  const handleNotificationClick = () => {
+    // 알림 아이콘이 클릭되면 인박스를 토글합니다.
+    resetgo();
+    toggleInbox();
+  };
+
+  const handleCloseInbox = () => {
+    // 인박스를 닫습니다.
+    setShowInbox(false);
+  };
 
 
 
@@ -113,7 +113,7 @@ React.useEffect(() => {
 
 
   const nav = useNavigate();
-  
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -159,7 +159,7 @@ React.useEffect(() => {
       <MenuItem onClick={() => { nav('/Login') }}>로그아웃</MenuItem>
     </Menu>
   );
-      
+
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
@@ -177,7 +177,7 @@ React.useEffect(() => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-       <MenuItem onClick={() => { nav('/Dashboard') }}>
+      <MenuItem onClick={() => { nav('/Dashboard') }}>
         <p>대시보드</p>
       </MenuItem>
       <MenuItem onClick={() => { nav('/PromotionalText') }}>
@@ -209,14 +209,14 @@ React.useEffect(() => {
       <StyledAppBar position="static">
         <Toolbar>
           <IconButton
-             size="large"
-             edge="start"
-             color="inherit"
-             aria-label="open drawer"
-             sx={{ mr: 2 }}
-             onClick={handleMobileMenuOpen} 
-           >
-             <MenuIcon />
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+            onClick={handleMobileMenuOpen}
+          >
+            <MenuIcon />
           </IconButton>
           <Toolbar sx={{ justifyContent: 'center', paddingLeft: '65px' }}>
             <Typography
@@ -224,7 +224,7 @@ React.useEffect(() => {
               noWrap
               component="div"
             >
-               <img src={logo} alt="Towel King Logo" style={{ width: '110px', height: '40px', marginTop:'5px'}} />
+              <img src={logo} alt="Towel King Logo" style={{ width: '110px', height: '40px', marginTop: '5px' }} />
             </Typography>
           </Toolbar>
           <Box sx={{ flexGrow: 1 }} />
@@ -249,37 +249,40 @@ React.useEffect(() => {
           >
             <AccountCircle />
           </IconButton>
-          
+
         </Toolbar>
       </StyledAppBar>
       {showInbox && (
-  <div className="inbox-container">
-    <div className="inbox-content">
-      <table className="bordered-table">
-        <thead></thead>
-        <tbody>
-        {topFourData.map((item, index) => (
+        <div className="inbox-container">
+          <div className="inbox-content">
+            <table className="bordered-table">
+              <thead></thead>
+              <tbody>
+                {topFourData.map((item, index) => (
                   <tr key={index}>
                     <td>{item.user.b_NAME}</td>
                     <td>{item.user.b_POSITION}</td>
-                    <td>{formatDate(item.t_DATE)}</td> {/* formatDate 함수를 사용하여 시간 형식 변환 */}
+                    <td>{formatDate(item.t_DATE)}</td> 
+                    <td style={{ color: item.t_RESULT === 'TRUE' ? 'green' : 'red' }}>
+                      {item.t_RESULT === 'TRUE' ? 'T' : 'F'}
+                    </td>
                   </tr>
                 ))}
-         
-        </tbody>
-      </table>
-      <div style={{textAlign:"center"}}>
-        <button className="all-logs-button" onClick={() => { nav('/AllActivitiLog') }} >
-          전체로그
-        </button>
+
+              </tbody>
+            </table>
+            <div style={{ textAlign: "center" }}>
+              <button className="all-logs-button" onClick={() => { nav('/AllActivitiLog') }} >
+                전체로그
+              </button>
+            </div>
+          </div>
+          {/* 닫기 버튼 */}
+          <Box sx={{ flexGrow: 1 }} />
+          <IconButton onClick={handleCloseInbox} className="close-button">
+          </IconButton>
         </div>
-    </div>
-    {/* 닫기 버튼 */}
-    <Box sx={{ flexGrow: 1 }} />
-    <IconButton onClick={handleCloseInbox} className="close-button">
-    </IconButton>
-  </div>
-)}
+      )}
       {renderMobileMenu}
       {renderMenu}
     </Box>

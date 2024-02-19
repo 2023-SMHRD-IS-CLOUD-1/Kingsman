@@ -4,12 +4,13 @@ import resultImg from '../../image/resultImg.png'
 import { UserCountTowelContext } from '../../context/UserCountTowelContext'
 import AWS from "aws-sdk";
 import axios from 'axios'
+import UserCountTowelResult from './UserCountTowelResult';
 
 const UserCountTowelButtons = () => {
-  const { setImageUrl } = useContext(UserCountTowelContext);
+  const { setImageUrl, results, setResults } = useContext(UserCountTowelContext);
   const [files, setFiles] = useState([]);
   const [countnoti,setCountNoti]=useState(0)
-
+  
   const uploadS3 = async (file) => {
     const REGION = 'us-east-1';
     const ACCESS_KEY_ID = process.env.REACT_APP_ACCESS_KEY_ID;
@@ -52,9 +53,28 @@ const UserCountTowelButtons = () => {
     }
   };
 
-  const handleUploadClick = () => {
+  const handleUploadClick = async () => {
+    // 이미지 업로드 및 결과 받아오기
+    const formData = new FormData();
+    formData.append('image', files[0].file); // 첫 번째 파일을 formData에 추가
+
+    try {
+      const res = await axios.post('http://localhost:5000', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      // 결과 출력
+      setResults(res.data);
+      console.log(res.data);
+    } catch (error) {
+      console.error('Failed to upload image and get result', error);
+    }
+
     Upnoti();
   };
+  
   useEffect(() => {
     const fetchData = async () => {
         try {
