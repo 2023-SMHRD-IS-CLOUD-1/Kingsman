@@ -23,9 +23,9 @@ const ActivitiLog = () => {
   //   { id: 12, date: '2024.02.06', name: '김동균', pos: '사원', dep: '마케팅', result: 'F' },
   // ];
 
-  const handleSlideToggle = (id) => {
+  const handleSlideToggle = (t_INDEX) => {
     setIsOpen(!isOpen);
-    setSelectedRow(id === selectedRow ? null : id);
+    setSelectedRow(t_INDEX === selectedRow ? null : t_INDEX);
   };
 
   // {topFourData.map((item, index) => (
@@ -42,14 +42,14 @@ const ActivitiLog = () => {
   const renderRows = () => {
     return activitiLogData.map((item, index) => (
       <React.Fragment key={index}>
-        <tr onClick={() => handleSlideToggle(item.id)}>
+        <tr onClick={() => handleSlideToggle(item.t_INDEX)}>
           <td className='activitiLogTd'>{formatDate(item.t_DATE)}</td>
           <td className='activitiLogTd'>{item.user.b_NAME}</td>
           <td className='activitiLogTd'>{item.user.b_POSITION}</td>
           <td className='activitiLogTd'>{item.user.b_DEPS}</td>
           <td className={`activitiLogTd ${item.t_RESULT === 'TRUE' ? 'green' : 'red' }`}>{item.t_RESULT}</td>
         </tr>
-        {selectedRow === item.id &&
+        {selectedRow === item.t_INDEX &&
           <tr className={`${isOpen ? 'activitiLog-slide-open' : 'activitiLog-slide-closed'} ${item.t_RESULT === 'TRUE' ? 'toggleGreen' : 'toggleRed'}`}>
             <td colSpan={5} style={{ position: 'relative', textAlign: 'center' }}>
               <img src={towelSample} alt="이미지 설정" style={{ height: "200px", marginBottom: "10px" }} />
