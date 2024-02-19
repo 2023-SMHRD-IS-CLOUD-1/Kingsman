@@ -1,3 +1,4 @@
+import './Dashboard.css'
 import React, { useEffect, useState } from 'react'
 import AdminFooter from '../AdminHome/AdminFooter'
 import AdminHeader from '../AdminHome/AdminHeader.tsx'
