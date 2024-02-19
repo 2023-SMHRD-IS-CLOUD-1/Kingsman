@@ -5,7 +5,7 @@ import { ScheduleContext } from '../../context/ScheduleContext';
 import interactionPlugin from '@fullcalendar/interaction';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-
+import axios from 'axios';
 const Calendar = () => {
     const { scheduleInput, selectedDate, setSelectedDate, setScheduleDate, setScheduleInput } = useContext(ScheduleContext);
     const [selectedEvent, setSelectedEvent] = useState(null); // 클릭된 이벤트 정보를 저장할 상태
@@ -23,20 +23,40 @@ const Calendar = () => {
     const handleEventClick = (clickInfo) => {
         setSelectedEvent(clickInfo.event); // 클릭된 이벤트 정보 저장
         setShowModal(true); // 모달 창 열기
+        console.log("이벤트클릭",clickInfo.event._def.publicId);
     };
 
     // 완료 버튼 클릭 시 이벤트 텍스트에 줄 추가
     const handleCompleteButtonClick = () => {
-        const eventId = selectedEvent.id; // 클릭된 이벤트의 id 가져오기
+        const eventId = selectedEvent._def.publicId; // 클릭된 이벤트의 id 가져오기
+        console.log(eventId);
         setScheduleInput(scheduleInput.map(event => {
             if (event.id === eventId) {
                 return {
                     ...event,
-                    title: <s>{event.title}</s> // 텍스트에 줄 추가
+                    extendedProps: {
+                        ...event.extendedProps,
+                        completed: 1 // completed 속성을 true로 변경
+                    }
                 };
             }
             return event;
         }));
+
+        const changeCompletedInfo = {
+            s_INDEX: eventId,
+            s_COMPLETED: 1
+        }
+        axios.post('http://localhost:8085/kingsman/changeCompleted',changeCompletedInfo,{ withCredentials: true } )
+        .then(response => {
+            console.log('컴플리트통신성공', response.data);
+        })
+        .catch(error => {
+            console.error('서버 요청 오류:', error);
+        });
+    
+
+
         setShowModal(false); // 모달 창 닫기
     };
 
