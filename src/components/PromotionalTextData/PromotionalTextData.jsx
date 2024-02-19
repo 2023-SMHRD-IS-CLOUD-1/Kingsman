@@ -1,3 +1,4 @@
+import './PromotionalTextData.css'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AdminHeader from '../AdminHome/AdminHeader.tsx';
