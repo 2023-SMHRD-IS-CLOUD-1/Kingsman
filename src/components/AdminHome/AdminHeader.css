@@ -1,0 +1,27 @@
+.bordered-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #f9f9f9; /* 옅은 회색 배경색 설정 */
+  }
+  
+  .bordered-table th,
+  .bordered-table td {
+    padding: 8px;
+    text-align: center;
+    line-height: 0.8; /* 간격 조정 */
+  }
+  
+  .inbox-container {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+  }
+  
+  .inbox-container table {
+    margin-bottom: 10px;
+  }
+  

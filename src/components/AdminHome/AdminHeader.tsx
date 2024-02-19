@@ -15,6 +15,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../../image/logo.png'
+import './AdminHeader.css';
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: 'rgb(167, 221, 167);;', 
 }));
@@ -35,20 +37,43 @@ export default function AdminHeader() {
   
     fetchData(); 
 }, []);
+// React.useEffect(() => {
+//   const fetchData2 = async () => {
+//       try {
+//           const url = "http://localhost:8085/kingsman/Notiresult";
+//           const res = await axios.get(url);
+//           console.log('알림2222',res.data); 
+//         } catch (error) {
+//           console.error(error);
+//       }
+//   };
+
+//   fetchData2(); 
+// }, []);
+
 React.useEffect(() => {
-  const fetchData2 = async () => {
-      try {
-          const url = "http://localhost:8085/kingsman/Notiresult";
-          const res = await axios.get(url);
-          console.log('알림2222',res.data[0]); 
-        } catch (error) {
-          console.error(error);
-      }
+  const fetchData3 = async () => {
+    try {
+      const url = "http://localhost:8085/kingsman/Notiresultfinal";
+      const res = await axios.get(url);
+      console.log("resresresres", res.data);
+      const sortedData = res.data.sort((a, b) => b.t_INDEX - a.t_INDEX);
+      const topFourData = sortedData.slice(0, 4);
+      console.log('가장 큰 숫자 4개의 데이터:', topFourData);
+
+      // 각 요소에서 이름과 직급을 순회하며 출력하고 날짜는 해당 요소의 t_DATE로 출력
+      topFourData.forEach(item => {
+        console.log('이름:', item.user.b_NAME);
+        console.log('직급:', item.user.b_POSITION);
+        console.log('날짜:', item.t_DATE);
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  fetchData2(); 
+  fetchData3();
 }, []);
-  
   const[countnoti,setCountNoti]=React.useState(0);
   const resetgo=()=>{
     setCountNoti(0)
@@ -182,8 +207,20 @@ React.useEffect(() => {
       </MenuItem>
     </Menu>
   );
-  const inboxContent = "박재욱/대리/2024.02.19";
+  const inboxContent = "박재욱/대리/2024.02.19"; // 기존 내용
 
+// 추가된 내용들
+const updatedInboxContent1 = "김동균/노예/시간1";
+const updatedInboxContent2 = "박범석/전여친/시간2";
+const [name1, position1, time1] = inboxContent.split('/');
+
+// 추가된 내용 파싱
+const [name2, position2, time2] = updatedInboxContent1.split('/');
+const [name3, position3, time3] = updatedInboxContent2.split('/');
+
+const handleAllLogs =()=>{
+
+}
   return (
     <Box sx={{ flexGrow: 1 }}>
       <StyledAppBar position="static">
@@ -204,7 +241,7 @@ React.useEffect(() => {
               noWrap
               component="div"
             >
-              TowelKing
+               <img src={logo} alt="Towel King Logo" style={{ width: '110px', height: '40px', marginTop:'5px'}} />
             </Typography>
           </Toolbar>
           <Box sx={{ flexGrow: 1 }} />
@@ -233,15 +270,45 @@ React.useEffect(() => {
         </Toolbar>
       </StyledAppBar>
       {showInbox && (
-      <div style={{ position: "absolute", top: 64, right: 0, backgroundColor: "#fff", padding: "10px", border: "1px solid #ccc", zIndex: 9999 }}> {/* zIndex 추가 */}
-        {/* 인박스 내용 */}
-        <Typography variant="body1">{inboxContent}</Typography>
-        {/* 닫기 버튼 */}
-        <IconButton onClick={handleCloseInbox}>
-          <CloseIcon />
-        </IconButton>
+  <div className="inbox-container">
+    <div className="inbox-content">
+      <table className="bordered-table">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td>{name1}</td>
+            <td>{position1}</td>
+            <td>{time1}</td>
+          </tr>
+          <tr>
+            <td>{name2}</td>
+            <td>{position2}</td>
+            <td>{time2}</td>
+          </tr>
+          <tr>
+            <td>{name3}</td>
+            <td>{position3}</td>
+            <td>{time3}</td>
+          </tr>
+          {/* <tr>
+            <td>{name4}</td>
+            <td>{position4}</td>
+            <td>{time4}</td>
+          </tr> */}
+        </tbody>
+      </table>
+      <div className="button-container">
+        <button className="all-logs-button" onClick={handleAllLogs}>
+          전체로그
+        </button>
       </div>
-    )}
+    </div>
+    {/* 닫기 버튼 */}
+    <IconButton onClick={handleCloseInbox} className="close-button">
+      <CloseIcon />
+    </IconButton>
+  </div>
+)}
       {renderMobileMenu}
       {renderMenu}
     </Box>
