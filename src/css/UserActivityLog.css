@@ -70,3 +70,7 @@
   overflow: hidden;
   transition: max-height 0.2s ease-in;
 }
+
+.backCamera{
+  margin-left: 25px;
+}

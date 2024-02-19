@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Avatar, Menu, MenuItem, IconButton } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import logo from '../../image/logo.png'
+import menuCamera from '../../image/menuCamera.png'
 
 const UserCountTowelHeader = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -23,10 +24,10 @@ const UserCountTowelHeader = () => {
   return (
     <div className='userCountTowelHeader'>
       <nav>
-        <button onClick={handleGoBack}>뒤로</button>
+      <button className='backCamera' onClick={handleGoBack} style={{ backgroundColor:'rgb(167, 221, 167)' ,backgroundImage: `url(${menuCamera})`, width: '25px', height: '25px', marginTop: '5px', border: 'none', backgroundSize: 'cover' }}></button>
       </nav>
-      <div style={{ width: "25%" }}></div>
-      <div style={{ width: "50%" }}>
+      <div style={{ width: "11%" }}></div>
+      <div style={{ width: "51%" }}>
         <h3 style={{ margin: "0px" }}> <img src={logo} alt="Towel King Logo" style={{ width: '110px', height: '40px', marginTop: '5px' }} /></h3>
       </div>
       <div className="avatarLogo">
