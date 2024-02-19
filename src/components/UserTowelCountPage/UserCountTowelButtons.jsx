@@ -66,8 +66,8 @@ const UserCountTowelButtons = () => {
       });
 
       // 결과 출력
-      setResults(res.data);
-      console.log(res.data);
+      setResults(res.data[0].message);
+      console.log("rrrr",res.data[0].message);
     } catch (error) {
       console.error('Failed to upload image and get result', error);
     }

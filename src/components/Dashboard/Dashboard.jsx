@@ -50,11 +50,7 @@ const Dashboard = () => {
         ]).then(([res1, res2]) => {
             const resData = res1.data;
             const userData = res2.data;
-            console.log(resData);
-            console.log(userData);
-    
             let sumAccuracy = 0;
-            // let daySum = 0;
             let weekSum = 0;
             let monthSum = 0;
             let count = 0;
@@ -119,7 +115,6 @@ const Dashboard = () => {
             setTf([tr, fa]);
             setList(resData);
             setBestAccuracy(accuracyBest);
-            // setSumDay(daySum);
             setSumWeek(weekSum);
             setSumMonth(monthSum);
             setMeanAccuracy(sumAccuracy / count);
@@ -137,11 +132,11 @@ const Dashboard = () => {
         <AdminHeader></AdminHeader>
         <div className='percent'>
             <div>
-                <div>주간 최고 예측률</div> 
+                <div>주간 최고 신뢰도</div> 
                 <div>{bestAccuracy}%</div>
             </div>
             <div>
-                <div>주간 평균 예측률</div>
+                <div>주간 평균 신뢰도</div>
                 <div>{meanAccuracy}%</div>
             </div>
             <div>
@@ -185,10 +180,10 @@ const Dashboard = () => {
             </div>
             <div className='chart'>
             {by === "Day"?
-                <><h3>일별 평균 예측률</h3>
+                <><h3>일별 평균 신뢰도</h3>
                 <AccuracyLine className='chart' date={currentDate} data ={list} /></>:
                 
-                <><h3>사용자별 평균 예측률</h3>
+                <><h3>사용자별 평균 신뢰도</h3>
                 <UserBar className='chart' data={list}  user={user} /></>}
 
             </div>
