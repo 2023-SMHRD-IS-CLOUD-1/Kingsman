@@ -9,7 +9,7 @@ const UserActivitiLog = () => {
 
   return (
     <div className='userActivitiLog'>
-      <ActivitiLogButtons/>
+      {/* <ActivitiLogButtons/> */}
       <ActivitiLog/>
 
     </div>
