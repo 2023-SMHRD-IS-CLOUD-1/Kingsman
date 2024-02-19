@@ -28,7 +28,7 @@ const ScheduleManagement = () => {
 
     setScheduleInput([
       ...scheduleInput,
-      { title: quantity + store, date: scheduleDate, color: scheduleColor }
+      { title: quantity + store, date: scheduleDate, color: scheduleColor, completed:scheCompleted }
     ])
 
     const scheduleInformation = {
@@ -61,7 +61,8 @@ const ScheduleManagement = () => {
         setScheduleInput(response.data.map(item=>({
           title: item.s_COUNTS + "개 " + item.s_IN_OUT,
           date: item.s_DATE.substring(0,10),
-          color: item.s_IN_OUT === '입고' ? 'blue' : 'red'
+          color: item.s_IN_OUT === '입고' ? 'blue' : 'red',
+          completed: item.s_COMPLETED === 0? false : true
         })));
       } catch(error){
         console.log(error);
