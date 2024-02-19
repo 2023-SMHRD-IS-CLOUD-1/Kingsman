@@ -1,0 +1,50 @@
+.bordered-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #f9f9f9; /* 옅은 회색 배경색 설정 */
+  }
+  
+  .bordered-table th,
+  .bordered-table td {
+    padding: 8px;
+    text-align: center;
+    line-height: 0.8; /* 간격 조정 */
+  }
+  
+  .inbox-container {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+  }
+  
+  .inbox-container table {
+    margin-bottom: 10px;
+  }
+  
+  .all-logs-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; /* 전체로그 버튼과 상위 요소 간의 간격 조절 */
+    margin-bottom: 10px; /* 전체로그 버튼과 하위 요소 간의 간격 조절 */
+  }
+  
+  .all-logs-button {
+    background-color: #2b8a3e; /* 회사적인 느낌의 색상 */
+    border: none;
+    color: white;
+    padding: 8px 16px; /* 위아래 패딩을 줄여서 버튼 크기를 조절 */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .all-logs-button:hover {
+    background-color: #1e6330; /* 호버 효과 색상 */
+  }

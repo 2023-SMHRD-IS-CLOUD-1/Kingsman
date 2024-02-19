@@ -1,3 +1,4 @@
+import './UserManagement.css'
 import React, { useEffect, useState } from 'react'
 import AdminHeader from '../AdminHome/AdminHeader.tsx'
 import AdminFooter from '../AdminHome/AdminFooter'
