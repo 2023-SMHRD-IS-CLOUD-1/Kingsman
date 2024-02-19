@@ -11,8 +11,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import CloseIcon from '@mui/icons-material/Close';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../../image/logo.png'
@@ -206,9 +204,6 @@ React.useEffect(() => {
   };
 
 
-const handleAllLogs =()=>{
-
-}
   return (
     <Box sx={{ flexGrow: 1 }}>
       <StyledAppBar position="static">
