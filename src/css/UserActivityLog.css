@@ -58,14 +58,19 @@
 }
 
 /* UserLogListTable 부분 */
-.slide-closed {
-  height: 0;
-  display: none;
-  transition: height 0.3s ease-out;
+.userActivity-slide-closed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
-.slide-open {
-  height: auto;
-  transition: height 0.3s ease-in;
+.userActivity-slide-open {
+  height: 300px;
+  max-height: 300px; /* 원하는 크기로 설정하세요 */
+  overflow: hidden;
+  transition: max-height 0.2s ease-in;
 }
 
+.backCamera{
+  margin-left: 25px;
+}
