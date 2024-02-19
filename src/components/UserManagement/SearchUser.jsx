@@ -24,14 +24,14 @@ const SearchUser = ({ onSearch }) => {
     
   return (
     <div className='SearchUser'>
-     <select onChange={handleCategoryChange} value={selectedCategory}>
+     <select className='userCategory' onChange={handleCategoryChange} value={selectedCategory}>
         <option value="b_name">이름</option>
         <option value="b_position">직급</option>
         <option value="b_deps">부서</option>
         
       </select>
-      <input type="text" value={searchQuery} onChange={handleInputChange} onKeyDown={handleKeyDown} />
-      <button onClick={handleSearch}>검색</button>
+      <input className='searchBar' type="text" value={searchQuery} onChange={handleInputChange} onKeyDown={handleKeyDown} />
+      <button className='searchButton' onClick={handleSearch}>검색</button>
     </div>
   );
 }

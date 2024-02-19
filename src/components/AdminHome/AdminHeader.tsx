@@ -194,7 +194,7 @@ React.useEffect(() => {
              color="inherit"
              aria-label="open drawer"
              sx={{ mr: 2 }}
-             onClick={handleMobileMenuOpen} // 여기에 추가합니다.
+             onClick={handleMobileMenuOpen} 
            >
              <MenuIcon />
           </IconButton>

@@ -111,6 +111,9 @@ const Dashboard = () => {
                 if (dbDate.getMonth === nowDate.getMonth && dbDate.getFullYear === nowDate.getFullYear) {
                     monthSum += item.t_COUNT;
                 }
+                if(count ===0){
+                    count =1
+                }
             });
     
             setTf([tr, fa]);
@@ -141,10 +144,6 @@ const Dashboard = () => {
                 <div>주간 평균 예측률</div>
                 <div>{meanAccuracy}%</div>
             </div>
-            {/* <div>
-                <div>일간 입고량</div>
-                <div>{sumDay}묶음</div> 
-            </div> */}
             <div>
                 <div>주간 입고량</div>
                 <div>{sumWeek}묶음</div> 
@@ -193,22 +192,6 @@ const Dashboard = () => {
                 <UserBar className='chart' data={list}  user={user} /></>}
 
             </div>
-            {/* <div className='chart'>
-                <h3>금일 T/F</h3>
-                <TfBar  data={tf}/>
-            </div>
-            <div className='chart'>
-                <h3>전체 T/F</h3>
-                <TfPie  data={list}/>
-            </div> */}
-            {/* <div className='chart'>
-                <h3>일별 평균 예측률</h3>
-                <AccuracyLine className='chart' date={currentDate} data ={list} />
-            </div>
-            <div className='chart'>
-                <h3>사용자별 평균 예측률</h3>
-                <UserBar className='chart' data={list}  user={user} />
-            </div> */}
         </div>
 
         <AdminFooter></AdminFooter>
