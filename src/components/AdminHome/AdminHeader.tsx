@@ -11,10 +11,10 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import CloseIcon from '@mui/icons-material/Close';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../../image/logo.png'
+import './AdminHeader.css';
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: 'rgb(167, 221, 167);;', 
 }));
@@ -35,20 +35,35 @@ export default function AdminHeader() {
   
     fetchData(); 
 }, []);
+// React.useEffect(() => {
+//   const fetchData2 = async () => {
+//       try {
+//           const url = "http://localhost:8085/kingsman/Notiresult";
+//           const res = await axios.get(url);
+//           console.log('알림2222',res.data); 
+//         } catch (error) {
+//           console.error(error);
+//       }
+//   };
+
+//   fetchData2(); 
+// }, []);
+const [topFourData, setTopFourData] = React.useState([]); // topFourData 상태 선언
 React.useEffect(() => {
-  const fetchData2 = async () => {
-      try {
-          const url = "http://localhost:8085/kingsman/Notiresult";
-          const res = await axios.get(url);
-          console.log('알림2222',res.data[0]); 
-        } catch (error) {
-          console.error(error);
-      }
+  const fetchData3 = async () => {
+    try {
+      const url = "http://localhost:8085/kingsman/Notiresultfinal";
+      const res = await axios.get(url);
+      const sortedData = res.data.sort((a, b) => b.t_INDEX - a.t_INDEX);
+      const topFourData = sortedData.slice(0, 4);
+      setTopFourData(topFourData); // topFourData 상태 업데이트
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  fetchData2(); 
+  fetchData3();
 }, []);
-  
   const[countnoti,setCountNoti]=React.useState(0);
   const resetgo=()=>{
     setCountNoti(0)
@@ -182,7 +197,12 @@ React.useEffect(() => {
       </MenuItem>
     </Menu>
   );
-  const inboxContent = "박재욱/대리/2024.02.19";
+  const formatDate = (dateString) => {
+    // dateString에서 'T00:00:00.000+09:00' 부분을 잘라냅니다.
+    const formattedDate = dateString.slice(0, 10); // 'T00:00:00.000+09:00'의 길이가 10이므로 10까지 잘라냅니다.
+    return formattedDate;
+  };
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -204,7 +224,7 @@ React.useEffect(() => {
               noWrap
               component="div"
             >
-              TowelKing
+               <img src={logo} alt="Towel King Logo" style={{ width: '110px', height: '40px', marginTop:'5px'}} />
             </Typography>
           </Toolbar>
           <Box sx={{ flexGrow: 1 }} />
@@ -233,15 +253,33 @@ React.useEffect(() => {
         </Toolbar>
       </StyledAppBar>
       {showInbox && (
-      <div style={{ position: "absolute", top: 64, right: 0, backgroundColor: "#fff", padding: "10px", border: "1px solid #ccc", zIndex: 9999 }}> {/* zIndex 추가 */}
-        {/* 인박스 내용 */}
-        <Typography variant="body1">{inboxContent}</Typography>
-        {/* 닫기 버튼 */}
-        <IconButton onClick={handleCloseInbox}>
-          <CloseIcon />
-        </IconButton>
-      </div>
-    )}
+  <div className="inbox-container">
+    <div className="inbox-content">
+      <table className="bordered-table">
+        <thead></thead>
+        <tbody>
+        {topFourData.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.user.b_NAME}</td>
+                    <td>{item.user.b_POSITION}</td>
+                    <td>{formatDate(item.t_DATE)}</td> {/* formatDate 함수를 사용하여 시간 형식 변환 */}
+                  </tr>
+                ))}
+         
+        </tbody>
+      </table>
+      <div style={{textAlign:"center"}}>
+        <button className="all-logs-button" onClick={() => { nav('/AllActivitiLog') }} >
+          전체로그
+        </button>
+        </div>
+    </div>
+    {/* 닫기 버튼 */}
+    <Box sx={{ flexGrow: 1 }} />
+    <IconButton onClick={handleCloseInbox} className="close-button">
+    </IconButton>
+  </div>
+)}
       {renderMobileMenu}
       {renderMenu}
     </Box>
