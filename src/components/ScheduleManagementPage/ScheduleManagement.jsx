@@ -9,8 +9,8 @@ import axios from 'axios'
 const ScheduleManagement = () => {
 
   const [scheduleInput, setScheduleInput] = useState([
-    { title: '프로젝트 시작', date: '2024-02-01', key: 1, color: "green" },
-    { title: '수건수량 분석', date: '2024-02-02', key: 2, color: "black" }
+    { title: '프로젝트 시작', date: '2024-02-01', key: 1, color: "green", completed:false },
+    { title: '수건수량 분석', date: '2024-02-02', key: 2, color: "black", completed:false }
   ]);
 
   const [scheduleDate, setScheduleDate] = useState();
@@ -59,6 +59,7 @@ const ScheduleManagement = () => {
         console.log(response.data.s_DATE);
 
         setScheduleInput(response.data.map(item=>({
+          id: item.s_INDEX,
           title: item.s_COUNTS + "개 " + item.s_IN_OUT,
           date: item.s_DATE.substring(0,10),
           color: item.s_IN_OUT === '입고' ? 'blue' : 'red',
