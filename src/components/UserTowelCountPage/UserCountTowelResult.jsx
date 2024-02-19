@@ -1,22 +1,28 @@
 import React from 'react'
 import analyzing from '../../image/analyzing.png'
 import { CircularProgress } from '@mui/material'
+import { useContext } from 'react'
+import { UserCountTowelContext } from '../../context/UserCountTowelContext'
 
-const UserCountTowelResult = ({ result }) => {
+const UserCountTowelResult = () => {
+
+  const { results, setResults } = useContext(UserCountTowelContext);
+
   return (
     <div className='UserCountTowelResult'>
-      {result !== undefined && result !== null ? (
+      {results !== undefined && results !== null ? (
         <>
-          {result ? (
-            <h3 className='green'>50개입니다.</h3>
+          {results === "50개 입니다." ? (
+            <h4 className='green' style={{margin:"0px"}}>50개 입니다.</h4>
           ) : (
-            <h3 className='red'>50개가 아닙니다.</h3>
+            <h4 className='red' style={{margin:"0px"}}>50개가 아닙니다.</h4>
           )}
-          <CircularProgress style={{ height: "40px", marginRight: "20px", color: "gray" }} />
-          <p style={{ margin: "0px", color: "gray" }}>분석중입니다....</p>
         </>
       ) : (
-        <p style={{ margin: "0px", color: "gray" }}>이미지를 올려주세요.</p>
+        <div style={{ display: "flex" }}>
+          <CircularProgress style={{ height: "40px", marginRight: "20px", color: "gray" }} />
+          <p style={{ margin: "0px", color: "gray" }}>분석중입니다....</p>
+        </div>
       )}
     </div>
   );

@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
-import { Avatar, Menu, MenuItem, IconButton } from '@mui/material'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Avatar, Menu, MenuItem, IconButton } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import logo from '../../image/logo.png'
+import menuCamera from '../../image/menuCamera.png'
 
 const UserCountTowelHeader = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -13,12 +17,18 @@ const UserCountTowelHeader = () => {
     setAnchorEl(null);
   };
 
+  const handleGoBack = () => {
+    navigate(-1); // 뒤로 가기 동작 처리
+  };
 
   return (
     <div className='userCountTowelHeader'>
-      <div style={{ width: "25%" }}></div>
-      <div style={{ width: "50%" }}>
-        <h3 style={{ margin: "0px" }}>Let's Count</h3>
+      <nav>
+      <button className='backCamera' onClick={handleGoBack} style={{ backgroundColor:'rgb(167, 221, 167)' ,backgroundImage: `url(${menuCamera})`, width: '25px', height: '25px', marginTop: '5px', border: 'none', backgroundSize: 'cover' }}></button>
+      </nav>
+      <div style={{ width: "11%" }}></div>
+      <div style={{ width: "51%" }}>
+        <h3 style={{ margin: "0px" }}> <img src={logo} alt="Towel King Logo" style={{ width: '110px', height: '40px', marginTop: '5px' }} /></h3>
       </div>
       <div className="avatarLogo">
         <IconButton
@@ -27,6 +37,7 @@ const UserCountTowelHeader = () => {
           aria-controls="menu-appbar"
           aria-haspopup="true"
           color="inherit"
+          onClick={handleClick}
         >
           <AccountCircle />
         </IconButton>
@@ -50,7 +61,7 @@ const UserCountTowelHeader = () => {
         </Menu>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserCountTowelHeader
+export default UserCountTowelHeader;

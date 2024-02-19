@@ -37,10 +37,10 @@ const UserActivityLog = () => {
           <td className={`activitiLogTd ${row.result === 'T' ? 'green' : 'red'}`}>{row.result}</td>
         </tr>
         {selectedRow === row.id &&
-          <tr className={isOpen ? 'activitLog-slide-open' : 'activitLog-slide-closed'}>
-            <td colSpan={5} style={{ position: 'relative', textAlign: 'center' }}>
-              <img src={towelSample} alt="이미지 설정" style={{ height: "250px", marginBottom: "10px" }} />
-              <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%' }}>
+           <tr className={`${isOpen ? 'userActivity-slide-open' : 'userActivity-slide-closed'} ${row.result === 'T' ? 'toggleGreen' : 'toggleRed'}`}>
+           <td colSpan={5} style={{ position: 'relative', textAlign: 'center' }}>
+             <img src={towelSample} alt="이미지 설정" style={{ height: "200px", marginBottom: "10px" }} />
+             <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', marginBottom:"10px" }}>
                 <ActivitiLogButtons />
               </div>
             </td>
