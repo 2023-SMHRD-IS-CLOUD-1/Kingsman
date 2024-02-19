@@ -47,12 +47,16 @@
   height: 10%;
   background-color: white;
 }
+.blue {
+  background-color: rgba( 255, 255, 255, 0 );
+}
 
 
 .menu-button {
   top: 0;
   height: 50%;
   margin-right: 110px;
+  opacity: 1;
 }
 
 .notification{
@@ -177,6 +181,7 @@
   height: 100%;
   box-sizing: border-box;
   border-radius: 10%;
+  
 }
 
 .AdminFooter img{
@@ -364,17 +369,6 @@
   position: fixed;
 }
 
-/* .uploadImage {
-  margin-left: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid black 10px;
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
-} */
-
 .uploadImage img {
   width: 280px;
   height: 280px;
@@ -422,6 +416,3 @@
   text-align: center;
   border-color: red;
 }
-
-/***************************************/
-/* 사용자 관리 */

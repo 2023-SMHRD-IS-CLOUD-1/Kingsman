@@ -4,26 +4,12 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    gap: 10px;
+  
   }
   .SearchUser *{
     margin-top: 20px;
   }
-  
-  .SearchUser select {
-    height: 36px;
-    width: 100px;
-  }
-  
-  .SearchUser input {
-    height: 34px;
-    width: 140px;
-  }
-  
-  .SearchUser button {
-    height: 32px;
-    width: 50px;
-  } 
+
   
   .UserInfo {
     margin-bottom: 100px;  
@@ -109,4 +95,5 @@
   
   .UserModify Button{
    margin-left: 15px;
+   
   }
