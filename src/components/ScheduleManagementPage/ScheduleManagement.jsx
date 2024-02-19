@@ -18,7 +18,7 @@ const ScheduleManagement = () => {
   const [store, setStore] = useState('입고');
   const [scheduleColor, setScheduleColor] = useState("blue");
   const [scheCompleted, setScheCompleted] = useState(0);
-
+  const [selectedDate, setSelectedDate] = useState("");
 
 
 
@@ -88,7 +88,8 @@ const ScheduleManagement = () => {
         scheduleDate, setScheduleDate,
         quantity, setQuantity,
         store, setStore,
-        scheduleColor, setScheduleColor
+        scheduleColor, setScheduleColor,
+        selectedDate, setSelectedDate
       }}>
 
       <div>

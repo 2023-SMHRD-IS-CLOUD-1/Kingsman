@@ -262,7 +262,7 @@ export default function AdminHeader() {
                   <tr key={index}>
                     <td>{item.user.b_NAME}</td>
                     <td>{item.user.b_POSITION}</td>
-                    <td>{formatDate(item.t_DATE)}</td> {/* formatDate 함수를 사용하여 시간 형식 변환 */}
+                    <td>{formatDate(item.t_DATE)}</td> 
                     <td style={{ color: item.t_RESULT === 'TRUE' ? 'green' : 'red' }}>
                       {item.t_RESULT === 'TRUE' ? 'T' : 'F'}
                     </td>
