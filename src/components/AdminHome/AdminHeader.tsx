@@ -11,11 +11,12 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import CloseIcon from '@mui/icons-material/Close';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  backgroundColor: 'rgb(167, 221, 167);;', // 원하는 색상으로 변경
+  backgroundColor: 'rgb(167, 221, 167);;', 
 }));
 
 
@@ -33,6 +34,19 @@ export default function AdminHeader() {
     };
   
     fetchData(); 
+}, []);
+React.useEffect(() => {
+  const fetchData2 = async () => {
+      try {
+          const url = "http://localhost:8085/kingsman/Notiresult";
+          const res = await axios.get(url);
+          console.log('알림2222',res.data[0]); 
+        } catch (error) {
+          console.error(error);
+      }
+  };
+
+  fetchData2(); 
 }, []);
   
   const[countnoti,setCountNoti]=React.useState(0);
@@ -59,7 +73,24 @@ export default function AdminHeader() {
     });
   
     }
+
+
+    const toggleInbox = () => {
+      setShowInbox((prevShowInbox) => !prevShowInbox);
+    };
   
+    const [showInbox, setShowInbox] = React.useState(false); // 인박스의 가시성을 관리합니다.
+
+    const handleNotificationClick = () => {
+      // 알림 아이콘이 클릭되면 인박스를 토글합니다.
+      resetgo();
+      toggleInbox();
+    };
+
+    const handleCloseInbox = () => {
+      // 인박스를 닫습니다.
+      setShowInbox(false);
+    };
 
 
 
@@ -151,6 +182,7 @@ export default function AdminHeader() {
       </MenuItem>
     </Menu>
   );
+  const inboxContent = "박재욱/대리/2024.02.19";
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -176,12 +208,11 @@ export default function AdminHeader() {
             </Typography>
           </Toolbar>
           <Box sx={{ flexGrow: 1 }} />
-         
           <IconButton
             size="large"
             aria-label="show 17 new notifications"
             color="inherit"
-            onClick={resetgo}
+            onClick={handleNotificationClick}
           >
             <Badge badgeContent={countnoti} color="error">
               <NotificationsIcon />
@@ -201,6 +232,16 @@ export default function AdminHeader() {
           
         </Toolbar>
       </StyledAppBar>
+      {showInbox && (
+      <div style={{ position: "absolute", top: 64, right: 0, backgroundColor: "#fff", padding: "10px", border: "1px solid #ccc", zIndex: 9999 }}> {/* zIndex 추가 */}
+        {/* 인박스 내용 */}
+        <Typography variant="body1">{inboxContent}</Typography>
+        {/* 닫기 버튼 */}
+        <IconButton onClick={handleCloseInbox}>
+          <CloseIcon />
+        </IconButton>
+      </div>
+    )}
       {renderMobileMenu}
       {renderMenu}
     </Box>
