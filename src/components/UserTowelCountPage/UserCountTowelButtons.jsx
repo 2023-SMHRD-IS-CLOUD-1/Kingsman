@@ -108,25 +108,36 @@ const data = {
   }
   const id  = sessionStorage.getItem("user")
   const sendCountData = () => {
-   
+    // 현재 시간을 가져와서 포맷팅
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0'); // 시
+    const minutes = now.getMinutes().toString().padStart(2, '0'); // 분
+    const seconds = now.getSeconds().toString().padStart(2, '0'); // 초
+
+    // 현재 시간을 '시:분:초' 형식의 문자열로 구성
+    const currentTime = `${hours}:${minutes}:${seconds}`;
+
     let t_COUNT = results === "50개 입니다." ? 50 : 0;
-    let reultgo=t_COUNT ===0?"FALSE":"TRUE";
-        const payload2 = {
-            t_IMAGE :imageUrl,
-            t_COUNT :t_COUNT ,
-            t_RESULT : reultgo,
-            t_ID : id
-        }; 
-               console.log('payload2 값 확인:', payload2);
-        axios
-            .post('http://localhost:8085/kingsman/CountTowel', payload2, { withCredentials: true })
-            .then((response) => {
-                console.log('데이터 전송 성공:', response.data);
-            })
-            .catch((error) => {
-                console.error('데이터 전송 중 오류:', error);
-            });
-    
+    let reultgo = t_COUNT === 0 ? "FALSE" : "TRUE";
+
+    const payload2 = {
+        t_IMAGE: imageUrl,
+        t_COUNT: t_COUNT,
+        t_RESULT: reultgo,
+        t_ID: id,
+        t_TIME: currentTime // Set the current time
+    };
+
+    console.log('payload2 값 확인:', payload2);
+
+    axios
+        .post('http://localhost:8085/kingsman/CountTowel', payload2, { withCredentials: true })
+        .then((response) => {
+            console.log('데이터 전송 성공:', response.data);
+        })
+        .catch((error) => {
+            console.error('데이터 전송 중 오류:', error);
+        });
 };
 
   const { handlerUploadButton, handlerResultButton } = useContext(UserCountTowelContext);
