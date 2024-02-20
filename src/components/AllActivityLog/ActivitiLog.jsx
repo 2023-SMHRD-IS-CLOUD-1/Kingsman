@@ -73,7 +73,7 @@ const ActivitiLog = () => {
   React.useEffect(() => {
     const fetchData2 = async () => {
       try {
-        const url = "http://localhost:8085/kingsman/Notiresult";
+        const url = "http://localhost:8085/kingsman/Notiresultfinal";
         const res = await axios.get(url);
         const activitiLogData = res.data
         console.log('알림2222', res.data);
@@ -86,18 +86,18 @@ const ActivitiLog = () => {
     fetchData2();
   }, []);
 
-  const [activitiLogData, setActivitiLogData] = useState([]); // topFourData 상태 선언
-  React.useEffect(() => {
-    const fetchData3 = async () => {
-      try {
-        const url = "http://localhost:8085/kingsman/Notiresultfinal";
-        const res = await axios.get(url);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData3();
-  }, []);
+ const [activitiLogData, setActivitiLogData] = useState([]); // topFourData 상태 선언
+  // React.useEffect(() => {
+  //   const fetchData3 = async () => {
+  //     try {
+  //       const url = "http://localhost:8085/kingsman/Notiresultfinal";
+  //       const res = await axios.get(url);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  //   fetchData3();
+  // }, []);
 
   return (
     <div className='activitiLog'>
