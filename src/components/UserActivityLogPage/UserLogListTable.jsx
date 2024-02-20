@@ -29,12 +29,21 @@ const UserActivityLog = () => {
     setSelectedRow(t_INDEX === selectedRow ? null : t_INDEX);
   };
 
+  const getTimeFromDateString = (dateString) => {
+    if (!dateString) return '';
+    const dateObject = new Date(dateString);
+    const hours = dateObject.getHours().toString().padStart(2, '0');
+    const minutes = dateObject.getMinutes().toString().padStart(2, '0');
+    const seconds = dateObject.getSeconds().toString().padStart(2, '0');
+    return `${hours}:${minutes}:${seconds}`;
+  };
+
   const renderRows = () => {
     return userLogData.map((item, index) => (
       <React.Fragment key={index}>
         <tr onClick={() => handleSlideToggle(item.t_INDEX)}>
           <td className='activitiLogTd'>{formatDate(item.t_DATE)}</td>
-          <td className='activitiLogTd'>{item.user.b_NAME}</td>
+          <td className='activitiLogTd'>{getTimeFromDateString(item.t_DATE)}</td>
           <td className={`activitiLogTd ${item.t_RESULT === 'TRUE' ? 'green' : 'red' }`}>{item.t_RESULT}</td>
         </tr>
         {selectedRow === item.t_INDEX &&
@@ -62,6 +71,9 @@ const UserActivityLog = () => {
         const url = "http://localhost:8085/kingsman/Notiresultfinal";
         const res = await axios.get(url);
         const userLogData = res.data
+
+        userLogData.sort((a, b) => new Date(b.t_DATE) - new Date(a.t_DATE));
+
         console.log('유저동균알림유저', res.data);
         setUserLogData(userLogData)
         console.log("유저하하하하하유저", userLogData)
