@@ -1,63 +1,40 @@
-import React, { useEffect, useRef } from "react";
-import { Chart, registerables } from "chart.js";
+import React, { useEffect, useState } from "react";
+import Chart from "react-apexcharts";
 
+const WeeklyLine = ({ dataIn, dataOut }) => {
+  const [chartOptions, setChartOptions] = useState({
+    chart: {
+      id: "basic-line",
+      toolbar: { show: false },
+      background: "transparent",
+      height: 300,
+      width: 500
+    },
+    xaxis: {
+      categories: ["일", "월", "화", "수", "목", "금", "토"],
+      labels: { 
+        show: true
+      },
+      axisTicks: { show: false },
+      axisBorder: { show: false },
+    },
+    yaxis: {
+      show: true,
+      min: 0,
+      max: 300,
+      tickAmount: 10
+    },
+    stroke: { curve: "smooth", width: 4 },
+    fill: {
+      type: "gradient",
+      gradient: { gradientToColors: ["blue"], stops: [0, 100] },
+    },
+    tooltip: {
+      y: { formatter: (value) => `${value}묶음` },
+    },
+  });
 
-
-const WeeklyLine =  ({ dataIn, dataOut }) => {
-  const chartRef = useRef(null);
-  let chartInstance = null;
-  
-  useEffect(() => {
-    const createChart = () => {
-      if (chartInstance) {
-        chartInstance.destroy();
-      }
-    
-      const ctx = chartRef.current.getContext("2d");
-      Chart.register(...registerables); // 여기에 추가
-      chartInstance = new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: ["일", "월", "화", "수", "목", "금", "토"],
-          datasets: [
-            {
-              label: "이번 주 입고량",
-              data: fillData(dataIn),
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgba(255, 99, 132, 1)",
-              borderWidth: 1,
-            },
-            {
-              label: "이번 주 출고량",
-              data: fillData(dataOut),
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          responsive: false,
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 500,
-            },
-          },
-        },
-      });
-    };
-    
-
-    createChart();
-
-    return () => {
-      if (chartInstance) {
-        chartInstance.destroy();
-        chartInstance = null;
-      }
-    };
-  }, [dataIn, dataOut]);
+  const [chartSeries, setChartSeries] = useState([]);
 
   const fillData = (data) => {
     const filledData = [];
@@ -67,7 +44,33 @@ const WeeklyLine =  ({ dataIn, dataOut }) => {
     return filledData;
   };
 
-  return <canvas ref={chartRef} />;
+  useEffect(() => {
+    setChartSeries([
+      {
+        name: "이번 주 입고량",
+        data: fillData(dataIn),
+        markers: {
+          colors: "blue"
+        }
+      },
+      {
+        name: "이번 주 출고량",
+        data: fillData(dataOut),
+        markers: {
+          colors: "red"
+        }
+      }
+    ]);
+  }, [dataIn, dataOut]);
+
+  return (
+    <Chart
+      options={chartOptions}
+      series={chartSeries}
+      type="line"
+      width={300}
+    />
+  );
 };
 
 export default WeeklyLine;

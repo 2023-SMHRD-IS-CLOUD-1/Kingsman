@@ -1,8 +1,11 @@
 .chartTable{
     top: 240px;
-    left: 40px;
+    left: 30px;
     position :absolute;
     padding-bottom: 100px;
+  }
+.chartTable h3{
+    margin-left: 20px;
   }
   
   .percent {
@@ -39,7 +42,7 @@
   
   .setTime {
     display:flex;
-    margin-left: 180px;
+    margin-left: 190px;
      
   }
   .setTime *{

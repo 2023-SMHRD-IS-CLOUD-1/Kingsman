@@ -1,80 +1,88 @@
-import React, { useEffect, useRef } from "react";
-import { Chart, registerables } from "chart.js";
+import React, { useEffect, useState } from "react";
+import Chart from "react-apexcharts";
 
 const MonthlyLine = ({ date, inData, outData }) => {
-  const chartRef = useRef(null);
-  let chartInstance = null;
+  const generateLabels = (date) => {
+    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    return Array.from({ length: lastDay }, (_, index) => index + 1);
+  };
+
+  const [chartOptions, setChartOptions] = useState({
+    chart: {
+      id: "basic-line",
+      toolbar: { show: false },
+      background: "transparent",
+      height: 300,
+      width: 500
+    },
+    xaxis: {
+      categories: generateLabels(date),
+      labels: { 
+        show: true,
+        offsetY: -8,
+        style: {
+          fontSize: '6px'
+        }
+      },
+      axisTicks: { show: false },
+      axisBorder: { show: false },
+    },
+    yaxis: {
+      show: true,
+      beginAtZero: true,
+      min: 0,
+      max: 300,
+      tickAmount: 10,
+    },
+    stroke: { curve: "smooth", width: 4 },
+    fill: {
+      type: "gradient",
+      gradient: { gradientToColors: ["blue"], stops: [0, 100] },
+    },
+    tooltip: {
+      y: { formatter: (value) => `${value}묶음` },
+    },
+  });
+
+  const [chartSeries, setChartSeries] = useState([]);
 
   useEffect(() => {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const lastDay = new Date(year, month, 0).getDate();
-    const labels = Array.from({ length: lastDay }, (_, index) => index + 1);
-    const ctx = chartRef.current.getContext("2d");
-
-    const createChart = () => {
-      Chart.register(...registerables);
-      chartInstance = new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: "이번 달 입고량",
-              data: fillData(inData, labels),
-              borderColor: "rgba(255, 99, 132, 1)",
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderWidth: 1,
-            },
-            {
-              label: "이번 달 출고량",
-              data: fillData(outData, labels),
-              borderColor: "rgba(54, 162, 235, 1)",
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          responsive: false,
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 500,
-            },
-          },
-        },
-      });
+    const inColor = "blue";
+    const outColor = "red";
+    const inSeries = {
+      name: "이번 달 입고량",
+      data: fillData(inData, date),
+      color: inColor
     };
-
-    const destroyChart = () => {
-      if (chartInstance) {
-        chartInstance.destroy();
-        chartInstance = null;
-      }
+    const outSeries = {
+      name: "이번 달 출고량",
+      data: fillData(outData, date),
+      color: outColor
     };
-
-    destroyChart(); // 기존 차트 파괴
-    createChart(); // 새로운 차트 생성
-
-    return () => {
-      destroyChart(); // 컴포넌트가 unmount될 때 차트 파괴
-    };
+    setChartSeries([inSeries, outSeries]);
   }, [date, inData, outData]);
 
-  const fillData = (data, labels) => {
-    const monthData = new Array(labels.length).fill(0);
+  const fillData = (data, date) => {
+    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    const monthData = new Array(lastDay).fill(0);
     data.forEach((item) => {
       const day = new Date(item.s_DATE).getDate();
-      const index = labels.indexOf(day);
-      if (index !== -1) {
+      const index = day - 1;
+      if (index !== -1 && index < lastDay) {
         monthData[index] += item.s_COUNTS;
       }
     });
     return monthData;
   };
 
-  return <canvas ref={chartRef} />;
+  return (
+    <Chart
+      options={chartOptions}
+      series={chartSeries.map(series => ({...series, markers: { colors: series.color }}))}
+      type="line"
+      width={300}
+    />
+  );
 };
 
 export default MonthlyLine;
