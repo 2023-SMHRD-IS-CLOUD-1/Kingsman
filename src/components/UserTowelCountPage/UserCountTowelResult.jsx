@@ -7,18 +7,18 @@ import axios from 'axios'
 
 const UserCountTowelResult = () => {
 
-  const { results, setResults } = useContext(UserCountTowelContext);
+  const { results, setResults ,imageUrl} = useContext(UserCountTowelContext);
   const id  = sessionStorage.getItem("user")
-  const sendPromotionalData = () => {
+  const sendCountData = () => {
    
     let t_COUNT = results === "50개 입니다." ? 50 : 0;
         const payload2 = {
-          
+            t_IMAGE :imageUrl,
             t_COUNT :t_COUNT ,
             t_RESULT : results,
             t_ID : id
-        };
-        console.log('payload2 값 확인:', payload2);
+        }; 
+               console.log('payload2 값 확인:', payload2);
         axios
             .post('http://localhost:8085/kingsman/CountTowel', payload2, { withCredentials: true })
             .then((response) => {
