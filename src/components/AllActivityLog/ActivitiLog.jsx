@@ -46,7 +46,7 @@ const ActivitiLog = () => {
         {selectedRow === item.t_INDEX &&
           <tr className={`${isOpen ? 'activitiLog-slide-open' : 'activitiLog-slide-closed'} ${item.t_RESULT === 'TRUE' ? 'toggleGreen' : 'toggleRed'}`}>
             <td colSpan={5} style={{ position: 'relative', textAlign: 'center' }}>
-              <img src={item.imageUrl || towelSample} alt="이미지 설정" style={{ height: "200px", marginBottom: "10px" }} />
+              <img src={item.t_IMAGE} alt="이미지 설정" style={{ height: "200px", marginBottom: "10px" }} />
               <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', marginBottom: "10px" }}>
                 <ActivitiLogButtons />
               </div>

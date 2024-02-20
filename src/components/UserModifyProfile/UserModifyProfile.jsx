@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AdminHeader from '../AdminHome/AdminHeader.tsx';
+import AdminHeader from '../UserTowelCountPage/UserCountTowelHeader';
 import './UserModifyProfile.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // useNavigate로 수정
@@ -25,7 +25,7 @@ const UserModifyProfile = () => {
       alert('제대로 입력해주세요');
       return;
     } else if (!passwordMatch) {
-      alert('새 비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+      alert('새 비밀번호와 비밀번호 확인이 일a치하지 않습니다.');
       return;
     } else {
       const data = {

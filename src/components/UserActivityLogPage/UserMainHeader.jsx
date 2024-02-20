@@ -54,8 +54,18 @@ const UserCountTowelHeader = () => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <MenuItem onClick={() => { 
+  handleClose();
+  nav('/Usermodifyprofile');
+}}>
+  회원정보수정
+</MenuItem>
+          <MenuItem onClick={() => { 
+    sessionStorage.removeItem("user");
+    nav('/');
+}}>
+    로그아웃
+</MenuItem>
         </Menu>
       </div>
     </div>
