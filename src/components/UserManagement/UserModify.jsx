@@ -81,6 +81,8 @@ const UserModify = () => {
                       <option value= "생산관리">생산관리</option>
                       <option value= "구매관리">구매관리</option>
                       <option value= "품질관리">품질관리</option>
+                      <option value= "재고관리">재고관리</option>
+                      <option value= "멘탈관리">맨탈관리</option>
                   </select>
                 </td>
               </tr>

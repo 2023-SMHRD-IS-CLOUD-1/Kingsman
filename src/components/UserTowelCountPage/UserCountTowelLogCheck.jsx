@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import log from '../../image/log.png'
+import log from '../../image/logBlack.png'
 import { UserCountTowelContext } from '../../context/UserCountTowelContext'
 
 const UserCountTowelLogCheck = () => {

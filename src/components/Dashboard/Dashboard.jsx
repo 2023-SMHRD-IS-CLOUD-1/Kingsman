@@ -10,6 +10,7 @@ import WeeklyLine from './WeeklyLine'
 import MonthlyLine from './MonthlyLine'
 import axios from 'axios'
 
+
 const Dashboard = () => {
     const [timeLine, setTimeLine] = useState("Week");
     const [all, setAll] = useState("All");
@@ -18,14 +19,15 @@ const Dashboard = () => {
     const [list,setList] = useState([]);
     const [bestAccuracy, setBestAccuracy] = useState(0);
     const [meanAccuracy, setMeanAccuracy] = useState(0);
-    // const [sumDay, setSumDay] = useState(0);
     const [sumWeek, setSumWeek] = useState(0);
     const [sumMonth, setSumMonth] = useState(0);
-    const [currentWeek, setCurrentWeek] = useState();
+    const [currentWeekIn, setCurrentWeekIn] = useState();
+    const [currentWeekOut, setCurrentWeekOut] = useState();
     const [tf, setTf]= useState([0,0]);
     const [user, setUser] = useState();
+    const [scheduleIn, setScheduleIn] = useState();
+    const [scheduleOut, setScheduleOut] = useState();
     
-    // 같은 달인지 확인하는 함수들
     function getWeek(date) {
         const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
         const pastDaysOfYear = (date - firstDayOfYear) / 86400000; 
@@ -46,22 +48,34 @@ const Dashboard = () => {
             axios.post('http://localhost:8085/kingsman/Dashboard2', null, {
                 withCredentials: true,
                 headers: { 'Content-type': 'application/json' },
+            }),
+            axios.post('http://localhost:8085/kingsman/Dashboard3', null, {
+                withCredentials: true,
+                headers: { 'Content-type': 'application/json' },
             })
-        ]).then(([res1, res2]) => {
+        ]).then(([res1, res2, res3]) => {
             const resData = res1.data;
             const userData = res2.data;
+            const scheduleData = res3.data;
             let sumAccuracy = 0;
             let weekSum = 0;
             let monthSum = 0;
             let count = 0;
             let accuracyBest = 0;
-            let sun = 0;
-            let mon = 0;
-            let tue = 0;
-            let wed = 0;
-            let thu = 0;
-            let fri = 0;
-            let sat = 0;
+            let inSun = 0;
+            let inMon = 0;
+            let inTue = 0;
+            let inWed = 0;
+            let inThu = 0;
+            let inFri = 0;
+            let inSat = 0;
+            let outSun = 0;
+            let outMon = 0;
+            let outTue = 0;
+            let outWed = 0;
+            let outThu = 0;
+            let outFri = 0;
+            let outSat = 0;
             let tr = 0;
             let fa = 0;
     
@@ -72,7 +86,6 @@ const Dashboard = () => {
                 dbDate.setHours(0, 0, 0, 0);
                 nowDate.setHours(0, 0, 0, 0);
                 if (dbDate.getTime() === nowDate.getTime()) {
-                    // daySum += item.t_COUNT;
                     if (item.t_RESULT === "TRUE") {
                         tr += 1;
                     } else {
@@ -84,31 +97,60 @@ const Dashboard = () => {
                         if (accuracyBest < item.t_ACCURACY) {
                             accuracyBest = item.t_ACCURACY;
                         }
-                        weekSum += item.t_COUNT;
                         sumAccuracy += item.t_ACCURACY;
                         count += 1;
                     }
-                    if (day === 0) {
-                        sun += item.t_COUNT;
-                    } else if (day === 1) {
-                        mon += item.t_COUNT;
-                    } else if (day === 2) {
-                        tue += item.t_COUNT;
-                    } else if (day === 3) {
-                        wed += item.t_COUNT;
-                    } else if (day === 4) {
-                        thu += item.t_COUNT;
-                    } else if (day === 5) {
-                        fri += item.t_COUNT;
-                    } else {
-                        sat += item.t_COUNT;
-                    }
-                }
-                if (dbDate.getMonth === nowDate.getMonth && dbDate.getFullYear === nowDate.getFullYear) {
-                    monthSum += item.t_COUNT;
                 }
                 if(count ===0){
                     count =1
+                }
+            });
+            scheduleData.forEach(item => {
+                let dbDate = new Date(item.s_DATE);
+                let nowDate = currentDate;
+                let day = dbDate.getDay();
+                dbDate.setHours(0, 0, 0, 0);
+                nowDate.setHours(0, 0, 0, 0);
+                if(item.s_IN_OUT === "입고"){
+                    if (isSameWeek(dbDate, nowDate)) {
+                        weekSum += item.s_COUNTS;
+                        if (day === 0) {
+                            inSun += item.s_COUNTS;
+                        } else if (day === 1) {
+                            inMon += item.s_COUNTS;
+                        } else if (day === 2) {
+                            inTue += item.s_COUNTS;
+                        } else if (day === 3) {
+                            inWed += item.s_COUNTS;
+                        } else if (day === 4) {
+                            inThu += item.s_COUNTS;
+                        } else if (day === 5) {
+                            inFri += item.s_COUNTS;
+                        } else {
+                            inSat += item.s_COUNTS;
+                        }
+                    }
+                    if (dbDate.getMonth === nowDate.getMonth && dbDate.getFullYear === nowDate.getFullYear) {
+                        monthSum += item.s_COUNTS;
+                    }
+                }else{
+                    if (isSameWeek(dbDate, nowDate)) {
+                        if (day === 0) {
+                            outSun += item.s_COUNTS;
+                        } else if (day === 1) {
+                            outMon += item.s_COUNTS;
+                        } else if (day === 2) {
+                            outTue += item.s_COUNTS;
+                        } else if (day === 3) {
+                            outWed += item.s_COUNTS;
+                        } else if (day === 4) {
+                            outThu += item.s_COUNTS;
+                        } else if (day === 5) {
+                            outFri += item.s_COUNTS;
+                        } else {
+                            outSat += item.s_COUNTS;
+                        }
+                    }
                 }
             });
     
@@ -118,11 +160,15 @@ const Dashboard = () => {
             setSumWeek(weekSum);
             setSumMonth(monthSum);
             setMeanAccuracy(sumAccuracy / count);
-            setCurrentWeek([sun, mon, tue, wed, thu, fri, sat]);
+            setCurrentWeekIn([inSun, inMon, inTue, inWed, inThu, inFri, inSat]);
+            setCurrentWeekOut([outSun, outMon, outTue, outWed, outThu, outFri, outSat]);
             setUser(userData);
+            setScheduleIn(scheduleData.filter(item => item.s_IN_OUT === "입고"));
+            setScheduleOut(scheduleData.filter(item => item.s_IN_OUT === "출고"));
         }).catch(error => {
             console.error("Error fetching data:", error);
         });
+        setCurrentDate(new Date());
     }, []);
     
     
@@ -149,16 +195,15 @@ const Dashboard = () => {
             </div>
         </div>
         <div  className='chartTable'>
-            
             <div className='setTime'> 
                 <div onClick={()=>{setTimeLine("Week")}} className= {timeLine === "Week"? 'black':'gray'}>Week</div>
                 <div onClick={()=>{setTimeLine("Month")}} className= {timeLine === "Month"? 'black':'gray'}>Month</div>
             </div>
             <div className='chart'>
             {timeLine === "Week"?
-                <><h3>이번 주 입고량</h3><WeeklyLine data={currentWeek} /></>:
+                <><h3>이번 주 입·출고</h3><WeeklyLine dataIn={currentWeekIn} dataOut={currentWeekOut} /></>:
                 
-                <><h3>이번 달 입고량</h3><MonthlyLine  date={currentDate} data ={list} /></>}
+                <><h3>이번 달 입·출고</h3><MonthlyLine date={currentDate} inData={scheduleIn} outData={scheduleOut} /></>}
 
             </div>
             <div className='setTime'> 
