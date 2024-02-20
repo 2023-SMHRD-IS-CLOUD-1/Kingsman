@@ -78,8 +78,7 @@ const PromotionalText = () => {
 
         fetchData();
     }, []);
-
-    const openaiApiKey = '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';
+    const openaiApiKey=process.env.REACT_APP_CHATGPT_KEY
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${openaiApiKey}`,
