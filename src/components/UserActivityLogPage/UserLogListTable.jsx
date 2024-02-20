@@ -29,23 +29,27 @@ const UserActivityLog = () => {
     setSelectedRow(t_INDEX === selectedRow ? null : t_INDEX);
   };
 
-  const getTimeFromDateString = (dateString) => {
-    if (!dateString) return '';
-    const dateObject = new Date(dateString);
-    const hours = dateObject.getHours().toString().padStart(2, '0');
-    const minutes = dateObject.getMinutes().toString().padStart(2, '0');
-    const seconds = dateObject.getSeconds().toString().padStart(2, '0');
-    return `${hours}:${minutes}:${seconds}`;
-  };
+  // const getTimeFromDateString = (dateString) => {
+  //   if (!dateString) return '';
+  //   const dateObject = new Date(dateString);
+  //   const hours = dateObject.getHours().toString().padStart(2, '0');
+  //   const minutes = dateObject.getMinutes().toString().padStart(2, '0');
+  //   const seconds = dateObject.getSeconds().toString().padStart(2, '0');
+  //   return `${hours}:${minutes}:${seconds}`;
+  // };
 
   const renderRows = () => {
     return userLogData.map((item, index) => (
+      
       <React.Fragment key={index}>
+        
         <tr onClick={() => handleSlideToggle(item.t_INDEX)}>
           <td className='activitiLogTd'>{formatDate(item.t_DATE)}</td>
-          <td className='activitiLogTd'>{getTimeFromDateString(item.t_DATE)}</td>
+          <td className='activitiLogTd'>{item.t_TIME}</td>
+          
           <td className={`activitiLogTd ${item.t_RESULT === 'TRUE' ? 'green' : 'red' }`}>{item.t_RESULT}</td>
         </tr>
+       
         {selectedRow === item.t_INDEX &&
           <tr className={`${isOpen ? 'activitiLog-slide-open' : 'activitiLog-slide-closed'} ${item.t_RESULT === 'TRUE' ? 'toggleGreen' : 'toggleRed'}`}>
             <td colSpan={5} style={{ position: 'relative', textAlign: 'center' }}>

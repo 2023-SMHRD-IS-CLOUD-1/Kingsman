@@ -108,7 +108,20 @@ export default function AdminHeader() {
   };
 
 
-
+  // 이름 중간 문자를 별표로 대체하는 함수
+const maskName = (name) => {
+  // 이름이 최소 3자 이상인지 확인합니다.
+  if (name.length >= 3) {
+    // 첫 글자와 마지막 글자를 변수에 저장합니다.
+    const firstChar = name.charAt(0);
+    const lastChar = name.charAt(name.length - 1);
+    // 첫 글자와 마지막 글자를 제외한 나머지를 별표로 대체합니다.
+    const maskedName = firstChar + '*'.repeat(name.length - 2) + lastChar;
+    return maskedName;
+  } else {
+    return name; // 이름이 3자 미만이면 원래 이름을 반환합니다.
+  }
+};
 
 
 
@@ -156,7 +169,12 @@ export default function AdminHeader() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={() => { nav('/AdminModifyProfile') }}>회원 정보 수정</MenuItem>
-      <MenuItem onClick={() => { nav('/Login') }}>로그아웃</MenuItem>
+      <MenuItem onClick={() => { 
+    sessionStorage.removeItem("user");
+    nav('/');
+}}>
+    로그아웃
+</MenuItem>
     </Menu>
   );
 
@@ -260,7 +278,7 @@ export default function AdminHeader() {
               <tbody>
                 {topFourData.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.user.b_NAME}</td>
+                    <td><td>{maskName(item.user.b_NAME)}</td></td>
                     <td>{item.user.b_POSITION}</td>
                     <td>{formatDate(item.t_DATE)}</td> 
                     <td style={{ color: item.t_RESULT === 'TRUE' ? 'green' : 'red' }}>

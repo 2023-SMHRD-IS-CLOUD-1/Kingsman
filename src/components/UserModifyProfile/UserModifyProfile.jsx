@@ -38,7 +38,7 @@ const UserModifyProfile = () => {
         .then((response) => {
           console.log('데이터 전송 성공:', response.data);
           // 데이터 전송 후 페이지 새로고침
-          window.location.reload();
+          navigate("/UserCountTowel");
         })
         .catch((error) => {
           console.error('데이터 전송 중 오류:', error);
