@@ -168,8 +168,12 @@ const maskName = (name) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() => { nav('/AdminModifyProfile') }}>회원 정보 수정</MenuItem>
-      <MenuItem onClick={() => { nav('/Login') }}>로그아웃</MenuItem>
+      <MenuItem onClick={() => { 
+    sessionStorage.removeItem("user");
+    nav('/');
+}}>
+    로그아웃
+</MenuItem>
     </Menu>
   );
 

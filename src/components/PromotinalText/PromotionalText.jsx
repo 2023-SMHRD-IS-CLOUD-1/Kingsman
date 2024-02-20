@@ -177,7 +177,7 @@ const PromotionalText = () => {
                 <hr />
 
                 <div style={{ textAlign: 'center', padding: "2px" }}>
-                    <select onChange={(e) => setProduct(e.target.value)}>
+                    <select className="select-style" onChange={(e) => setProduct(e.target.value)}>
                         <option value="" disabled selected>
                             제품군
                         </option>
@@ -187,7 +187,7 @@ const PromotionalText = () => {
                             </option>
                         ))}
                     </select>
-                    <select onChange={(e) => setName(e.target.value)}>
+                    <select className="select-style" onChange={(e) => setName(e.target.value)}>
                         <option value="" disabled selected>
                             제품명
                         </option>
@@ -207,7 +207,7 @@ const PromotionalText = () => {
                     </select>
                 </div>
                 <div style={{ textAlign: 'center', padding: "2px" }}>
-                    <div style={{ textAlign: 'center' }}><select onChange={(e) => setColor(e.target.value)}>
+                    <div style={{ textAlign: 'center' }}><select className="select-style" onChange={(e) => setColor(e.target.value)}>
                         <option value="" disabled selected>
                             색상
                         </option>
@@ -217,7 +217,7 @@ const PromotionalText = () => {
                             </option>
                         ))}
                     </select>
-                        <select onChange={(e) => setMaterial(e.target.value)}>
+                        <select className="select-style" onChange={(e) => setMaterial(e.target.value)}>
                             <option value="" disabled selected>
                                 소재
                             </option>
