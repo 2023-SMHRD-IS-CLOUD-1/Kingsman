@@ -23,7 +23,7 @@ const Calendar = () => {
     const handleEventClick = (clickInfo) => {
         setSelectedEvent(clickInfo.event); // 클릭된 이벤트 정보 저장
         setShowModal(true); // 모달 창 열기
-        console.log("이벤트클릭",clickInfo.event._def.publicId);
+        console.log("이벤트클릭", clickInfo.event);
     };
 
     // 완료 버튼 클릭 시 이벤트 텍스트에 줄 추가
@@ -47,14 +47,15 @@ const Calendar = () => {
             s_INDEX: eventId,
             s_COMPLETED: 1
         }
-        axios.post('http://localhost:8085/kingsman/changeCompleted',changeCompletedInfo,{ withCredentials: true } )
-        .then(response => {
-            console.log('컴플리트통신성공', response.data);
-        })
-        .catch(error => {
-            console.error('서버 요청 오류:', error);
-        });
-    
+        axios.post('http://localhost:8085/kingsman/changeCompleted', changeCompletedInfo, { withCredentials: true })
+            .then(response => {
+                console.log('컴플리트통신성공', response.data);
+                window.location.reload(); // 완료 후 새로고침
+            })
+            .catch(error => {
+                console.error('서버 요청 오류:', error);
+            });
+
 
 
         setShowModal(false); // 모달 창 닫기
@@ -79,7 +80,18 @@ const Calendar = () => {
                 events={scheduleInput}
                 dateClick={(arg) => { setSelectedDate(arg.dateStr); setScheduleDate(arg.dateStr) }} // 날짜 클릭 이벤트 핸들러 설정
                 dayCellClassNames={dayCellClassNames} // 날짜의 셀 클래스 이름을 변경하는 함수 설정
+                eventDisplay='auto' // 이벤트의 디스플레이 방식을 설정
                 eventClick={handleEventClick} // 이벤트 클릭 핸들러 설정
+                eventContent={(arg) => {
+                    const isCompleted = arg.event.extendedProps.completed;
+                    const eventContent = document.createElement('div');
+                    eventContent.innerText = arg.event.title;
+                    if (isCompleted) {
+                        eventContent.style.textDecoration = 'line-through';
+                        eventContent.style.color = 'black';
+                    }
+                    return { domNodes: [eventContent] };
+                }}
             />
             {/* 모달 창 */}
             <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -87,7 +99,11 @@ const Calendar = () => {
                     <Modal.Title>이벤트 완료</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>이벤트를 완료하시겠습니까?</p>
+                    <p>
+                        {selectedEvent && `${selectedEvent.startStr}`}<br />
+                        {selectedEvent && `${selectedEvent._def.title}`}<br />
+                        이벤트를 완료하시겠습니까?
+                    </p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={() => setShowModal(false)}>
