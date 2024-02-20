@@ -6,11 +6,11 @@ import AWS from "aws-sdk";
 import axios from 'axios'
 import UserCountTowelResult from './UserCountTowelResult';
 
+
 const UserCountTowelButtons = () => {
-  const { setImageUrl, results, setResults } = useContext(UserCountTowelContext);
+  const { setImageUrl, results, setResults ,imageUrl } = useContext(UserCountTowelContext);
   const [files, setFiles] = useState([]);
   const [countnoti,setCountNoti]=useState(0)
-  
   const uploadS3 = async (file) => {
     const REGION = 'us-east-1';
     const ACCESS_KEY_ID = process.env.REACT_APP_ACCESS_KEY_ID;
@@ -73,6 +73,7 @@ const UserCountTowelButtons = () => {
     }
 
     Upnoti();
+    sendCountData();
   };
   
   useEffect(() => {
@@ -105,7 +106,28 @@ const data = {
   });
 
   }
-
+  const id  = sessionStorage.getItem("user")
+  const sendCountData = () => {
+   
+    let t_COUNT = results === "50개 입니다." ? 50 : 0;
+    let reultgo=t_COUNT ===0?"FALSE":"TRUE";
+        const payload2 = {
+            t_IMAGE :imageUrl,
+            t_COUNT :t_COUNT ,
+            t_RESULT : reultgo,
+            t_ID : id
+        }; 
+               console.log('payload2 값 확인:', payload2);
+        axios
+            .post('http://localhost:8085/kingsman/CountTowel', payload2, { withCredentials: true })
+            .then((response) => {
+                console.log('데이터 전송 성공:', response.data);
+            })
+            .catch((error) => {
+                console.error('데이터 전송 중 오류:', error);
+            });
+    
+};
 
   const { handlerUploadButton, handlerResultButton } = useContext(UserCountTowelContext);
   return (
@@ -120,6 +142,7 @@ const data = {
       <div className='checkResultButton' onClick={handleUploadClick}>
         <img src={resultImg} style={{ height: "45px", marginRight: "10px", marginTop: "10px" }} />
         <p style={{ margin: "0px" }}>분석하기</p>
+        
       </div>
     </div>
   );
