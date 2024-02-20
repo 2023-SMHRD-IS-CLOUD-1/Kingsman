@@ -21,13 +21,13 @@
   }
   
 
-  select {
+   select {
     min-width: 130px;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
     height: 37px;
-  }
+  } 
   .PTT {
     background-color: #ffffff; /* 배경색을 흰색으로 설정 */
     border: 1px solid #000000; /* 테두리를 검은색으로 설정 */
@@ -66,7 +66,7 @@
 .container {
     margin-bottom: 20px;
   }
-  
+   
   select {
     width: 80px;
     padding: 8px;
@@ -74,7 +74,7 @@
     border: 1px solid #ccc;
     margin: 2px;
   }
-  
+   
   
   .AdminHeader {
     height: 64px; 
