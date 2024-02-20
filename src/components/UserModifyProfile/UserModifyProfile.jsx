@@ -48,7 +48,7 @@ const UserModifyProfile = () => {
 
   // 취소 버튼 클릭 시 처리
   const handleCancel = () => {
-    navigate("/UserTowelCount"); // "/UserTowelCount" 경로로 이동
+    navigate("/UserCountTowel"); // "/UserTowelCount" 경로로 이동
   };
 
   return (
