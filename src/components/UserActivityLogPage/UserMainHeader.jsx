@@ -17,14 +17,12 @@ const UserCountTowelHeader = () => {
     setAnchorEl(null);
   };
 
-  const handleGoBack = () => {
-    navigate(-1); // 뒤로 가기 동작 처리
-  };
+  const nav = useNavigate();
 
   return (
     <div className='userCountTowelHeader'>
       <nav>
-      <button className='backCamera' onClick={handleGoBack} style={{ backgroundColor:'rgb(167, 221, 167)' ,backgroundImage: `url(${menuCamera})`, width: '25px', height: '25px', marginTop: '5px', border: 'none', backgroundSize: 'cover' }}></button>
+      <button className='backCamera' onClick={() => { nav('/usercounttowel') }} style={{ backgroundColor:'rgb(167, 221, 167)' ,backgroundImage: `url(${menuCamera})`, width: '25px', height: '25px', marginTop: '5px', border: 'none', backgroundSize: 'cover' }}></button>
       </nav>
       <div style={{ width: "11%" }}></div>
       <div style={{ width: "51%" }}>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ActivitiLogButtons from './ActivitiLogButtons';
 import towelSample from '../../image/sampleTowel.jpg';
 import axios from 'axios';
-
+import AWS from "aws-sdk";
 
 const ActivitiLog = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,9 +76,12 @@ const ActivitiLog = () => {
         const url = "http://localhost:8085/kingsman/Notiresultfinal";
         const res = await axios.get(url);
         const activitiLogData = res.data
-        console.log('알림2222', res.data);
+
+        activitiLogData.sort((a, b) => new Date(b.t_DATE) - new Date(a.t_DATE));
+
+        console.log('관리자동균알림관리자', res.data);
         setActivitiLogData(activitiLogData)
-        console.log("zzzzzzzzzzzz", activitiLogData)
+        console.log("롸롸롸롸롸롸롸롸", activitiLogData)
       } catch (error) {
         console.error(error);
       }
