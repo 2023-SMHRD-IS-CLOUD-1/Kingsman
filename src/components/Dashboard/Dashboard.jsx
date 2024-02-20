@@ -183,7 +183,7 @@ const Dashboard = () => {
             </div>
             <div>
                 <div>주간 평균 신뢰도</div>
-                <div>{meanAccuracy}%</div>
+                <div>{Math.floor(meanAccuracy)}%</div>
             </div>
             <div>
                 <div>주간 입고량</div>

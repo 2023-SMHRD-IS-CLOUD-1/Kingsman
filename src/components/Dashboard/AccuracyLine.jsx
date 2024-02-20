@@ -27,7 +27,7 @@ const AccuracyLine = ({date, data}) => {
       if (count === 0) {
         monthData.push(0);
       } else {
-        monthData.push(sum / count);
+        monthData.push(Math.floor(sum / count));
       }
     }
 
