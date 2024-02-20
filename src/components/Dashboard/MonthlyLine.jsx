@@ -63,8 +63,11 @@ const MonthlyLine = ({ date, inData, outData }) => {
   }, [date, inData, outData]);
 
   const fillData = (data, date) => {
+    if (!data) return []; // 데이터가 없는 경우 빈 배열 반환
+    
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     const monthData = new Array(lastDay).fill(0);
+    
     data.forEach((item) => {
       const day = new Date(item.s_DATE).getDate();
       const index = day - 1;
@@ -72,13 +75,21 @@ const MonthlyLine = ({ date, inData, outData }) => {
         monthData[index] += item.s_COUNTS;
       }
     });
+    
     return monthData;
   };
+  
 
   return (
     <Chart
       options={chartOptions}
-      series={chartSeries.map(series => ({...series, markers: { colors: series.color }}))}
+      series={chartSeries.map(series => ({
+        ...series,
+        markers: {
+          size: 6, // 마커 크기 조정
+          colors: Array(chartSeries.length).fill(series.color) // 각 시리즈에 해당하는 마커 색상 설정
+        }
+      }))}
       type="line"
       width={300}
     />
