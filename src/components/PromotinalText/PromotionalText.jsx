@@ -30,7 +30,7 @@ const PromotionalText = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [chatHistory, setChatHistory] = useState("");
     const nav = useNavigate();
-    useEffect(function () {
+    useEffect(() => {
         fetch('https://api.openweathermap.org/data/2.5/weather?lat=37.564214&lon=127.001699&appid=b3bb290e3cf3e3f29e55972f489fe79a&units=metric')
             .then((res) => {
                 return res.json();
@@ -43,7 +43,7 @@ const PromotionalText = () => {
                 setHumidity(res.main.humidity)
                 console.log(humidity)
             })
-    })
+    }, []);
     
 
     const apply = () => {
@@ -79,7 +79,7 @@ const PromotionalText = () => {
         fetchData();
     }, []);
 
-    const openaiApiKey = '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';
+    const openaiApiKey = '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';
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${openaiApiKey}`,
@@ -92,7 +92,7 @@ const PromotionalText = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-
+    
         try {
             const response = await axios.post(
                 'https://api.openai.com/v1/chat/completions',
@@ -103,55 +103,56 @@ const PromotionalText = () => {
                 { headers }
             );
             const chatResponse = response.data.choices[0].message.content;
-            setChatHistory(chatResponse);
+            setChatHistory(chatResponse); // chatHistory 상태를 설정합니다.
             console.log(chatResponse + "dddddddddddddddddd")
-            console.log(chatHistory+"콘솔콘솔콘솔")
-            
+            console.log(chatHistory+"콘솔콘솔콘솔");
+            const sendPromotionalData = () => {
+                console.log("chatHistory:", chatHistory); // chatHistory 상태를 콘솔에 출력합니다.
+                if (product === null || name === null || material === null || color === null) {
+                    alert('제대로 입력해라');
+                    return;
+                } else {
+                    const payload2 = {
+                        pr_QUESTION: fixedQuestion,
+                        pr_PRODUCT: product,
+                        pr_NAME: name,
+                        pr_TEXT: chatResponse
+                    };
+                    console.log('payload2 값 확인:', payload2);
+                    axios
+                        .post('http://localhost:8085/kingsman/MemberPromotional', payload2, { withCredentials: true })
+                        .then((response) => {
+                            console.log('데이터 전송 성공:', response.data);
+                        })
+                        .catch((error) => {
+                            console.error('데이터 전송 중 오류:', error);
+                        });
+                }
+            };
+            sendPromotionalData(); // sendPromotionalData 함수를 호출합니다.
         } catch (error) {
             console.error('Error:', error);
         }
         finally {
             setIsLoading(false); // 로딩 종료
-            sendPromotionalData();
         }
     };
-    const sendPromotionalData = () => {
-        console.log("--------------------" + chatHistory)
-        if (product === null || name === null || material === null || color === null) {
-            alert('제대로 입력해라');
-            return;
-        } else {
-            const payload2 = {
-                pr_QUESTION: fixedQuestion,
-                pr_PRODUCT: product,
-                pr_NAME: name,
-                pr_TEXT: chatHistory
-            };
-            console.log('payload2 값 확인:', payload2);
-            axios
-                .post('http://localhost:8085/kingsman/MemberPromotional', payload2, { withCredentials: true })
-                .then((response) => {
-                    console.log('데이터 전송 성공:', response.data);
-                })
-                .catch((error) => {
-                    console.error('데이터 전송 중 오류:', error);
-                });
-        }
-    };
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const url = "http://localhost:8085/kingsman/Notilist";
-                const res = await axios.get(url);
-                console.log(res,"zzzzzzzzzzzzzzzzzzzzz")
-                console.log('알림', res.data[0].b_NOTIFICATION); // 응답 데이터를 콘솔에 출력합니다.
-            } catch (error) {
-                console.error(error);
-            }
-        };
+    
+    
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const url = "http://localhost:8085/kingsman/Notilist";
+    //             const res = await axios.get(url);
+    //             console.log(res,"zzzzzzzzzzzzzzzzzzzzz")
+    //             console.log('알림', res.data[0].b_NOTIFICATION); // 응답 데이터를 콘솔에 출력합니다.
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     };
       
-        fetchData(); // fetchData 함수를 호출하여 데이터를 가져옵니다.
-    }, []);
+    //     fetchData(); // fetchData 함수를 호출하여 데이터를 가져옵니다.
+    // }, []);
 
 
     return (
