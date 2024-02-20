@@ -63,7 +63,9 @@ const ScheduleManagement = () => {
           title: item.s_COUNTS + "개 " + item.s_IN_OUT,
           date: item.s_DATE.substring(0,10),
           color: item.s_IN_OUT === '입고' ? 'blue' : 'red',
-          completed: item.s_COMPLETED === 0? false : true
+          extendedProps: {
+            completed: item.s_COMPLETED === 1 ? true : false // 1일 때는 true, 그 외에는 false
+        }
         })));
       } catch(error){
         console.log(error);
