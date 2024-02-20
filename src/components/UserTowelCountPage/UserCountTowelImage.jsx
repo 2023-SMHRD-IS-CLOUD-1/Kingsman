@@ -65,7 +65,7 @@ const UserCountTowelImage = () => {
           !uploadClicked && (
             <div>
               {cameraStarted && <UsesrCountTowelCamera />}
-              <video ref={videoRef} autoPlay muted style={{ width: '500px', minHeight: "350px", marginBottom: "120px", display: imageUrl ? 'none' : 'block' }} />
+              <video ref={videoRef} autoPlay muted style={{ maxWidth: '364px', minHeight: "350px", marginBottom: "120px", display: imageUrl ? 'none' : 'block' }} />
             </div>
           )
         )}
