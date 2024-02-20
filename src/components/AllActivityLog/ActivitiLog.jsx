@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ActivitiLogButtons from './ActivitiLogButtons';
 import towelSample from '../../image/sampleTowel.jpg';
 import axios from 'axios';
-import AWS from 'aws-skd';
 
 const ActivitiLog = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,6 +97,8 @@ const ActivitiLog = () => {
   //   };
   //   fetchData3();
   // }, []);
+
+  
 
   return (
     <div className='activitiLog'>
