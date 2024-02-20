@@ -20,8 +20,8 @@ const UserCountTowelResult = () => {
         </>
       ) : (
         <div style={{ display: "flex" }}>
-          <CircularProgress style={{ height: "40px", marginRight: "20px", color: "gray" }} />
-          <p style={{ margin: "0px", color: "gray" }}>분석중입니다....</p>
+          <CircularProgress style={{ height: "40px", marginRight: "20px",marginBottom:"3px", color: "gray" }} />
+          <p style={{ margin: "0px",marginTop:"5px", color: "gray" }}>분석중입니다....</p>
         </div>
       )}
     </div>
