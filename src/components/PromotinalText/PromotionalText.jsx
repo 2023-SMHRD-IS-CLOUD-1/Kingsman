@@ -41,7 +41,6 @@ const PromotionalText = () => {
                 setDd(date.toLocaleDateString());
                 setImg(res.weather[0].icon)
                 setHumidity(res.main.humidity)
-                console.log(humidity)
             })
     }, []);
     
@@ -103,10 +102,7 @@ const PromotionalText = () => {
             );
             const chatResponse = response.data.choices[0].message.content;
             setChatHistory(chatResponse); // chatHistory 상태를 설정합니다.
-            console.log(chatResponse + "dddddddddddddddddd")
-            console.log(chatHistory+"콘솔콘솔콘솔");
             const sendPromotionalData = () => {
-                console.log("chatHistory:", chatHistory); // chatHistory 상태를 콘솔에 출력합니다.
                 if (product === null || name === null || material === null || color === null) {
                     alert('제대로 입력해라');
                     return;
