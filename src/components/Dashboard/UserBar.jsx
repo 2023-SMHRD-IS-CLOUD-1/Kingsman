@@ -6,7 +6,8 @@ const BarChart = ({data, user}) => {
   let chartInstance = null;
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
-    const id = data.map(item => item.t_ID);
+    const idSet = new Set(data.map(item => item.t_ID)); 
+    const id = [...idSet];
     let datas = [];
     let names = [];
 
@@ -19,7 +20,7 @@ const BarChart = ({data, user}) => {
           sum+= item2.t_ACCURACY;
         }
       })
-      datas.push(sum/count);
+      datas.push(Math.floor(sum/count));
       user.map(item2 => {
         if(item === item2.b_ID){
           names.push(item2.b_NAME);
