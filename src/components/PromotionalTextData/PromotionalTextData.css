@@ -29,10 +29,10 @@
   
 .chatRoom {
     background-color: #ADD8E6;
-    height: 585px;
+    height: 100%;
     color: white;
   }
-.chatRoom>p {
+.chatRoom>div>p {
     padding-top: 10px;
     text-align: center;
   }

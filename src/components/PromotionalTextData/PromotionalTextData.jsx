@@ -26,8 +26,9 @@ const PromotionalTextData = () => {
     <div>
        <AdminHeader />
         <div className="message-container">
+            <div className='chatRoom'>
             {list && list.map((item, index) => (
-                 <div className='chatRoom' key={index}>
+                 <div  key={index}>
                  {index === 0 || item.pr_DATE.slice(0,10) !== list[index - 1].pr_DATE.slice(0,10) ? (
                    <p>{item.pr_DATE.slice(0,10)}</p>
                  ) : null}
@@ -39,6 +40,7 @@ const PromotionalTextData = () => {
                     </div>
                 </div>
             ))}
+            </div>
         </div>
         <AdminFooter />
     </div>

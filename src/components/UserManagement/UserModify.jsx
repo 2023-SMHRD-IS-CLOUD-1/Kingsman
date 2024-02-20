@@ -98,8 +98,8 @@ const UserModify = () => {
               </tr>
             </table>
             <div>
-              <Button variant='success' onClick={()=>{setCount(count+1)}}>저장</Button>
-              <Button variant='success' onClick={() => { nav('/UserManagement')}} >취소</Button>
+              <button className='searchButton' onClick={()=>{setCount(count+1)}}>저장</button>
+              <button className='searchButton' onClick={() => { nav('/UserManagement')}} >취소</button>
             </div>
           </div>
     
