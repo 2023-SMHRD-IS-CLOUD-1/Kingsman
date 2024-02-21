@@ -2,18 +2,42 @@ import React, { useEffect, useRef, useState } from "react";
 import Chart from "react-apexcharts";
 
 const BarChart = ({ data, user }) => {
-  const fillData = (data) => {
-    if (!data) return []; // 데이터가 존재하지 않을 때 빈 배열 반환
-  
-    const filledData = [];
-    for (let i = 0; i < 7; i++) {
-      filledData.push(data[i] || 0); // data[i]가 존재하지 않을 때 0으로 대체
+  const [userNames, setUserNames] = useState([]);
+  const [chartSeries, setChartSeries] = useState([]);
+
+  useEffect(() => {
+    if (!data || !user) {
+      console.log("데이터가 없습니다.");
+      return;
     }
-    return filledData;
-  };
-  
-  const chartRef = useRef(null);
-  const [chartOptions, setChartOptions] = useState({
+
+    const idSet = new Set(data.map(item => item.t_ID));
+    const ids = [...idSet];
+    console.log("IDs:", ids);
+
+    const datas = ids.map(id => {
+      const userData = user.find(userItem => userItem.b_ID === id);
+      if (!userData) {
+        console.log(`ID ${id}에 해당하는 사용자 데이터를 찾을 수 없습니다.`);
+        return 0;
+      }
+      console.log(data)
+      const relevantData = data.filter(dataItem => dataItem.t_ID === id);
+      if (relevantData.length === 0) {
+        console.log(`ID ${id}에 해당하는 데이터가 없습니다.`);
+        return 0;
+      }
+
+      const accuracySum = relevantData.reduce((sum, dataItem) => sum + dataItem.t_ACCURACY, 0);
+      const averageAccuracy = Math.floor(accuracySum / relevantData.length);
+      return averageAccuracy;
+    });
+
+    setUserNames(ids.map(id => user.find(userItem => userItem.b_ID === id).b_NAME));
+    setChartSeries([{ data: datas }]);
+  }, [data, user]);
+
+  const chartOptions = {
     chart: {
       id: "bar-chart",
       toolbar: { show: false },
@@ -22,7 +46,7 @@ const BarChart = ({ data, user }) => {
       width: 500
     },
     xaxis: {
-      categories: user ? user.map(item => item.b_NAME) : [], // Check if user exists
+      categories: userNames,
       labels: { 
         show: true,
         offsetY: -8,
@@ -46,41 +70,11 @@ const BarChart = ({ data, user }) => {
         endingShape: "rounded"
       }
     },
-    colors: user ? user.map(() => `#${Math.floor(Math.random()*16777215).toString(16)}`) : [], // Check if user exists
+    colors: user ? user.map(() => `#${Math.floor(Math.random()*16777215).toString(16)}`) : [],
     tooltip: {
       y: { formatter: (value) => `${value}%` }
     }
-  });
-
-  const [chartSeries, setChartSeries] = useState([]);
-
-  useEffect(() => {
-    if (data && user) {
-      const idSet = new Set(data.map(item => item.t_ID)); 
-      const id = [...idSet];
-      const datas = [];
-      const names = [];
-
-      id.forEach(item => {
-        let sum = 0;
-        let count = 0;
-        data.forEach(item2 => {
-          if(item === item2.t_ID){
-            count += 1;
-            sum += item2.t_ACCURACY;
-          }
-        })
-        datas.push(Math.floor(sum/count));
-        user.forEach(item2 => {
-          if(item === item2.b_ID){
-            names.push(item2.b_NAME);
-          }
-        })
-      });
-
-      setChartSeries([{ data: datas }]);
-    }
-  }, [data, user]);
+  };
 
   return (
     <Chart
