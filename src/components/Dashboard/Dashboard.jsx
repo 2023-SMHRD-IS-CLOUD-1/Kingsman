@@ -13,7 +13,7 @@ import axios from 'axios'
 
 const Dashboard = () => {
     const [timeLine, setTimeLine] = useState("Month");
-    const [all, setAll] = useState("Today");
+    const [all, setAll] = useState("All");
     const [by, setBy] = useState("Day");
     const [currentDate, setCurrentDate] = useState(new Date());
     const [list,setList] = useState([]);
@@ -196,8 +196,8 @@ const Dashboard = () => {
         </div>
         <div  className='chartTable'>
             <div className='setTime'> 
-                <div onClick={()=>{setTimeLine("Week")}} className= {timeLine === "Week"? 'black':'gray'}>Week</div>
                 <div onClick={()=>{setTimeLine("Month")}} className= {timeLine === "Month"? 'black':'gray'}>Month</div>
+                <div onClick={()=>{setTimeLine("Week")}} className= {timeLine === "Week"? 'black':'gray'}>Week</div>
             </div>
             <div className='chart'>
             {timeLine === "Week"?
@@ -220,8 +220,8 @@ const Dashboard = () => {
 
             </div>
             <div className='setTime'> 
-                <div onClick={()=>{setBy("User")}} className= {by === "User"? 'black':'gray'}>User</div>
                 <div onClick={()=>{setBy("Day")}} className= {by === "Day"? 'black':'gray'}>Day</div>
+                <div onClick={()=>{setBy("User")}} className= {by === "User"? 'black':'gray'}>User</div>
             </div>
             <div className='chart'>
             {by === "Day"?
