@@ -17,7 +17,7 @@ const ActivitiLog = () => {
         const data = res.data;
         // 이미지 URL 가져오기
         for (const item of data) {
-          const imageUrl = await getImg(item.company, item.store); // 이미지 가져오기
+          const imageUrl = await getImg(item.t_IMAGE); // 이미지 가져오기
           item.imageUrl = imageUrl; // 가져온 이미지 URL을 데이터에 추가
         }
         setActivitiLogData(data);
