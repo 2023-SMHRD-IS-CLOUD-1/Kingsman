@@ -13,7 +13,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import logo from '../../image/logo.png'
+//@ts-ignore
+import logo from '../../image/logo.png';
 import './AdminHeader.css';
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: 'rgb(167, 221, 167);;',
@@ -48,7 +49,16 @@ export default function AdminHeader() {
 
   //   fetchData2(); 
   // }, []);
-  const [topFourData, setTopFourData] = React.useState([]); // topFourData 상태 선언
+  interface DataItem {
+    user: {
+      b_NAME: string;
+      b_POSITION: string;
+    };
+    t_DATE: string;
+    t_RESULT: string;
+  }
+  
+  const [topFourData, setTopFourData] = React.useState<DataItem[]>([]);
   React.useEffect(() => {
     const fetchData3 = async () => {
       try {
@@ -65,6 +75,7 @@ export default function AdminHeader() {
     fetchData3();
   }, []);
   const [countnoti, setCountNoti] = React.useState(0);
+  
   const resetgo = () => {
     setCountNoti(0)
     Resetnoti();
@@ -269,6 +280,7 @@ const maskName = (name) => {
 
         </Toolbar>
       </StyledAppBar>
+      
       {showInbox && (
         <div className="inbox-container">
           <div className="inbox-content">

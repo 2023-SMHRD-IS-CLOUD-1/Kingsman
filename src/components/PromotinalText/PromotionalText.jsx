@@ -20,7 +20,7 @@ const PromotionalText = () => {
     const materiallist = ["면", "대나무", "리넨 ", "바스티크 ", "폴리에스테르 "]
     const [namelist1, setNamelist1] = useState([]);
     const [namelist2, setNamelist2] = useState([]);
-    const [text, setText] = useState();
+    const [text, setText] = useState(null);
     const date = new Date();
     const [temp, setTemp] = useState('');
     const [city, setCity] = useState('');
@@ -49,7 +49,8 @@ const PromotionalText = () => {
         setText("제품군 : " + product + " 제품명 : " + name + " 색상 : " + color + " 소재 : " + material);
     };
     const reset = () => {
-        setText("")
+        setText(null)
+        
     }
 
 
@@ -88,14 +89,17 @@ const PromotionalText = () => {
    
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        if(text===null){
+            alert('홍보문구질문을 입력해주세요');
+        }
+       else{e.preventDefault();
         setIsLoading(true);
     
         try {
             const response = await axios.post(
                 'https://api.openai.com/v1/chat/completions',
                 {
-                    model: 'gpt-3.5-turbo',
+                    model: 'gpt-3.5-turbo-0613',
                     messages: [{ role: 'user', content: fixedQuestion }],
                 },
                 { headers }
@@ -103,10 +107,8 @@ const PromotionalText = () => {
             const chatResponse = response.data.choices[0].message.content;
             setChatHistory(chatResponse); // chatHistory 상태를 설정합니다.
             const sendPromotionalData = () => {
-                if (product === null || name === null || material === null || color === null) {
-                    alert('제대로 입력해라');
-                    return;
-                } else {
+               
+                 {
                     const payload2 = {
                         pr_QUESTION: fixedQuestion,
                         pr_PRODUCT: product,
@@ -132,7 +134,7 @@ const PromotionalText = () => {
             setIsLoading(false); // 로딩 종료
         }
     };
-    
+} 
     
     // useEffect(() => {
     //     const fetchData = async () => {
