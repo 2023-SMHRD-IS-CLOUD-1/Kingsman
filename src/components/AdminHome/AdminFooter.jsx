@@ -29,25 +29,25 @@ const AdminFooter = () => {
            {(currentPath === '/PromotionalText'||currentPath === '/PromotionalTextData')?
           <img src= {promotionIcon}></img>:
           <img src= {promotionGrayIcon}></img>}
-          <p className= {currentPath === '/PromotionalText'? 'black':'gray'}>홍보 문구</p>
+          <p className= {currentPath === '/PromotionalText'? 'black':'gray'}>홍보문구</p>
           </div>
         <div onClick={()=>{nav('/UserManagement')}}>
           {(currentPath === '/UserManagement'|| currentPath ==='/UserModify')?
           <img src= {editIcon}></img>:
           <img src= {editGrayIcon}></img>}
-          <p className= {currentPath === '/UserManagement'? 'black':'gray'}>사용자 관리</p>
+          <p className= {currentPath === '/UserManagement'? 'black':'gray'}>사용자관리</p>
           </div>
         <div onClick={()=>{nav('/ScheduleManagement')}}>
           {currentPath === '/ScheduleManagement'?
           <img src= {scheduleIcon}></img>:
           <img src= {scheduleGrayIcon}></img>}
-          <p className= {currentPath === '/ScheduleManagement'? 'black':'gray'}>일정 관리</p>
+          <p className= {currentPath === '/ScheduleManagement'? 'black':'gray'}>일정관리</p>
           </div>
         <div onClick={()=>{nav('/AllActivitiLog')}}>
           {currentPath === '/AllActivitiLog'?
           <img src= {logIcon}></img>:
           <img src= {logGrayIcon}></img>}
-          <p className= {currentPath === '/AllActivitiLog'? 'black':'gray'}>활동 기록</p>
+          <p className= {currentPath === '/AllActivitiLog'? 'black':'gray'}>활동기록</p>
         </div>
 
 
