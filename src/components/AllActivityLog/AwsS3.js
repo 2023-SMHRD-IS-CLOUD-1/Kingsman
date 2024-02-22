@@ -15,11 +15,11 @@ AWS.config.update({
 
 const s3 = new AWS.S3();
 
-const getImg = async (company, store) => {
+const getImg = async (t_IMAGE) => {
   try {
     const data = await s3
       .getObject({
-        Key: `qr_img/${company}/${store}.jpg`,
+        Key: `other_folder/${t_IMAGE}.jpg`,
         Bucket: "kingsmanbucket", // 버킷 이름
       })
       .promise();

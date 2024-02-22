@@ -56,8 +56,11 @@
 
 /* SearchActivitiLog.jsx css */
 .userCategory {
-  width: 10px;
-  height: 40px;
+  min-width: 130px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 37px;
 }
 
 .searchBar {
