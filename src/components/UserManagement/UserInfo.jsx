@@ -57,7 +57,7 @@ const UserInfo = ({ userList, setSelected}) => {
           <table>
             <tr>
               <td>이름</td>
-              <td>{selectedUser.b_NAME}</td>
+              <td>{selectedUser.b_NAME.substring(0, Math.floor(selectedUser.b_NAME.length / 2)) + "*".repeat(selectedUser.b_NAME.length % 2) + selectedUser.b_NAME.substring(Math.floor(selectedUser.b_NAME.length / 2) + (selectedUser.b_NAME.length % 2))}</td>
               <td>직급</td>
               <td>{selectedUser.b_POSITION}</td>
             </tr>
@@ -69,7 +69,7 @@ const UserInfo = ({ userList, setSelected}) => {
             </tr>
             <tr>
               <td>연락처</td>
-              <td>{selectedUser.b_PHONE}</td>
+              <td>{selectedUser.b_PHONE.substring(0, Math.floor(selectedUser.b_PHONE.length / 2)) + "*".repeat(selectedUser.b_PHONE.length % 2) + selectedUser.b_PHONE.substring(Math.floor(selectedUser.b_PHONE.length / 2) + (selectedUser.b_PHONE.length % 2))}</td>
               <td>가입 일자</td>
               <td>{selectedUser.b_DATE.slice(0, 10)}</td>
             </tr>
