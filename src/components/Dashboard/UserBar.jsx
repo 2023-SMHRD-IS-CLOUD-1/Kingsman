@@ -1,95 +1,83 @@
-import React, { useEffect, useRef, useState } from "react";
-import Chart from "react-apexcharts";
+import React, { useEffect, useState } from "react";
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
 
 const BarChart = ({ data, user }) => {
-  const fillData = (data) => {
-    if (!data) return []; // 데이터가 존재하지 않을 때 빈 배열 반환
-  
-    const filledData = [];
-    for (let i = 0; i < 7; i++) {
-      filledData.push(data[i] || 0); // data[i]가 존재하지 않을 때 0으로 대체
-    }
-    return filledData;
-  };
-  
-  const chartRef = useRef(null);
-  const [chartOptions, setChartOptions] = useState({
-    chart: {
-      id: "bar-chart",
-      toolbar: { show: false },
-      background: "transparent",
-      height: 300,
-      width: 500
-    },
-    xaxis: {
-      categories: user ? user.map(item => item.b_NAME) : [], // Check if user exists
-      labels: { 
-        show: true,
-        offsetY: -8,
-        style: {
-          fontSize: '8px'
-        }
-      }
-    },
-    yaxis: {
-      labels: {
-        formatter: (value) => `${value}%`
-      },
-      min: 0,
-      max: 100,
-      tickAmount: 5
-    },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        columnWidth: "50%",
-        endingShape: "rounded"
-      }
-    },
-    colors: user ? user.map(() => `#${Math.floor(Math.random()*16777215).toString(16)}`) : [], // Check if user exists
-    tooltip: {
-      y: { formatter: (value) => `${value}%` }
-    }
-  });
-
-  const [chartSeries, setChartSeries] = useState([]);
+  const [chartOptions, setChartOptions] = useState({});
 
   useEffect(() => {
-    if (data && user) {
-      const idSet = new Set(data.map(item => item.t_ID)); 
-      const id = [...idSet];
-      const datas = [];
-      const names = [];
-
-      id.forEach(item => {
-        let sum = 0;
-        let count = 0;
-        data.forEach(item2 => {
-          if(item === item2.t_ID){
-            count += 1;
-            sum += item2.t_ACCURACY;
-          }
-        })
-        datas.push(Math.floor(sum/count));
-        user.forEach(item2 => {
-          if(item === item2.b_ID){
-            names.push(item2.b_NAME);
-          }
-        })
-      });
-
-      setChartSeries([{ data: datas }]);
+    if (!data || !user) {
+      console.log("데이터가 없습니다.");
+      return;
     }
+
+    const idSet = new Set(data.map(item => item.t_ID));
+    const ids = [...idSet];
+
+    const seriesData = ids.map(id => {
+      const userData = user.find(userItem => userItem.b_ID === id);
+      if (!userData) {
+        console.log(`ID ${id}에 해당하는 사용자 데이터를 찾을 수 없습니다.`);
+        return 0;
+      }
+
+      const relevantData = data.filter(dataItem => dataItem.t_ID === id);
+      if (relevantData.length === 0) {
+        console.log(`ID ${id}에 해당하는 데이터가 없습니다.`);
+        return 0;
+      }
+
+      const accuracySum = relevantData.reduce((sum, dataItem) => sum + dataItem.t_ACCURACY, 0);
+      const averageAccuracy = Math.floor(accuracySum / relevantData.length);
+      return averageAccuracy;
+    });
+
+    // 각 사용자에 대해 새로운 시리즈를 생성하고 랜덤한 색상 할당
+    const series = ids.map((id, index) => ({
+      name: user.find(userItem => userItem.b_ID === id).b_NAME,
+      data: [seriesData[index]],
+      color: `#${Math.floor(Math.random()*16777215).toString(16)}`
+    }));
+
+    setChartOptions({
+      chart: {
+        type: 'bar',
+        height: 300,
+        width: 300
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        visible: false
+      },
+      yAxis: {
+        title: {
+          text: null
+        },
+        min: 0,
+        max: 100,
+        tickAmount: 5
+      },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            enabled: true,
+            formatter: function () {
+              return this.y + '%';
+            }
+          },
+          tooltip: {
+            headerFormat: '',
+            pointFormat: '<span style="color:{point.color}">\u25CF</span> {series.name}: <b>{point.y}%</b><br/>'
+          }
+        }
+      },
+      series: series
+    });
   }, [data, user]);
 
-  return (
-    <Chart
-      options={chartOptions}
-      series={chartSeries}
-      type="bar"
-      width={300}
-    />
-  );
+  return <HighchartsReact highcharts={Highcharts} options={chartOptions} />;
 };
 
 export default BarChart;
