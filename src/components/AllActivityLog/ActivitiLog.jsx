@@ -8,6 +8,7 @@ const ActivitiLog = () => {
   const [activitiLogData, setActivitiLogData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // 초기에는 로딩 중으로 설정
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +24,8 @@ const ActivitiLog = () => {
         setActivitiLogData(data);
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false); // 데이터를 모두 받은 후 로딩 중 상태 해제
       }
     };
     fetchData();
@@ -76,7 +79,9 @@ const ActivitiLog = () => {
           </tr>
         </thead>
         <tbody>
-          {renderRows()}
+        {isLoading ? ( // 로딩 중일 때 "Loading..." 표시
+        <div>Loading...</div>
+      ) :renderRows()}
         </tbody>
       </table>
     </div>

@@ -5,12 +5,13 @@ import UploadButtonClickContext from './UploadButtonClickContext'; // UploadButt
 import cameraImage from '../../image/camera2.png';
 
 const UserCountTowelImage = () => {
-  const { imageUrl, result } = useContext(UserCountTowelContext);
+  const { imageUrl, results } = useContext(UserCountTowelContext);
   const videoRef = useRef(null);
   const { uploadClicked } = useContext(UploadButtonClickContext);
   const [stream, setStream] = useState(null);
   const [cameraStarted, setCameraStarted] = useState(false);
   const [marginTop, setMarginTop] = useState(155);
+  const [borderColor, setBorderColor] = useState(''); // 테두리 색상 상태 추가
 
   const startCamera = async () => {
     try {
@@ -50,22 +51,39 @@ const UserCountTowelImage = () => {
 
   useEffect(() => {
     if (imageUrl) {
+      // 결과에 따라 테두리 색상 설정
+      if (results === "50개가 아닙니다.") {
+        setBorderColor('red');
+      } else if (results === "50개 입니다.") {
+        setBorderColor('green'); // "50개 입니다."일 때는 초록색으로 설정
+      } else {
+        setBorderColor('black'); // 그 외의 경우에는 검은색으로 설정
+      }
       setMarginTop(150); // 이미지가 업로드된 후 marginTop 변경
+      console.log(results)
     }
-  }, [imageUrl]);
+  }, [imageUrl, results]);
+
 
   return (
     <div className='UserCountTowelImage' style={{ marginTop: `${marginTop}px`, maxHeight: "100px" }}>
       <div className='UserCountTowelImage'>
         {imageUrl ? (
-          <div className={`uploadImage ${result === undefined || result === null ? null : result ? 'green' : 'red'}`}>
-            <img src={imageUrl} alt="Uploaded" style={{ maxWidth: '100%' }} />
+          <div className={`uploadImage ${borderColor}`} style={{ borderWidth: '2px', borderStyle: 'solid' }}>
+            <img
+              src={imageUrl}
+              alt="Uploaded"
+              style={{
+                maxWidth: '100%',
+                border: `2px solid ${borderColor}` // borderColor 변수에 따라 테두리 색상을 변경
+              }}
+            />
           </div>
         ) : (
           !uploadClicked && (
             <div>
               {cameraStarted && <UsesrCountTowelCamera />}
-              <video ref={videoRef} autoPlay muted style={{ maxWidth: '364px', minHeight: "350px", marginBottom: "120px", display: imageUrl ? 'none' : 'block' }} />
+              <video ref={videoRef} autoPlay muted style={{ width: '502px', minHeight: "350px", marginBottom: "120px", display: imageUrl ? 'none' : 'block' }} />
             </div>
           )
         )}
@@ -80,7 +98,7 @@ export default UserCountTowelImage;
 const UsesrCountTowelCamera = () => {
   return (
     <div className='UsesrCountTowelCamera' >
-    <img src={cameraImage} className='cameraImage' style={{ marginTop: "750px" ,zIndex: 1}} />
-</div>
+      <img src={cameraImage} className='cameraImage' style={{ marginTop: "750px", zIndex: 1 }} />
+    </div>
   )
 }
