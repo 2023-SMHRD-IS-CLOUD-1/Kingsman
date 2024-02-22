@@ -139,7 +139,7 @@
     height: auto; /* 이미지의 높이를 자동으로 조정합니다. */
   }
   .chatimg{
-    width: 430px;
+    width: 360px;
     height: 190px;
     opacity: 0.85; /* 0부터 1까지의 값을 가질 수 있으며, 1은 완전 불투명을 의미합니다. */
 }

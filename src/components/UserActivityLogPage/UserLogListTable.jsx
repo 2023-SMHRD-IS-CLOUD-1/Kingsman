@@ -68,12 +68,16 @@ const UserActivityLog = () => {
     const formattedDate = dateString.slice(0, 10);
     return formattedDate;
   };
-
+  const id = sessionStorage.getItem("user")
+  
   React.useEffect(() => {
     const fetchData2 = async () => {
       try {
-        const url = "http://localhost:8085/kingsman/Notiresultfinal";
-        const res = await axios.get(url);
+        const payload2 = {
+          t_ID: id
+        };
+        const url = "http://localhost:8085/kingsman/Notiresultme";
+        const res = await axios.post(url, payload2); // POST 요청으로 변경
         const userLogData = res.data
 
         userLogData.sort((a, b) => new Date(b.t_DATE) - new Date(a.t_DATE));
