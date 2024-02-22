@@ -53,7 +53,7 @@ const UserInfo = ({ userList, setSelected}) => {
       )}
       {selectedUser && (
         <div className="user-info-popup">
-          <p>{selectedUser.b_NAME} 님에 대한 정보</p>
+          <p>{selectedUser.b_NAME.substring(0, Math.floor(selectedUser.b_NAME.length / 2)) + "*".repeat(selectedUser.b_NAME.length % 2) + selectedUser.b_NAME.substring(Math.floor(selectedUser.b_NAME.length / 2) + (selectedUser.b_NAME.length % 2))} 님에 대한 정보</p>
           <table>
             <tr>
               <td>이름</td>
@@ -69,7 +69,14 @@ const UserInfo = ({ userList, setSelected}) => {
             </tr>
             <tr>
               <td>연락처</td>
-              <td>{selectedUser.b_PHONE.substring(0, Math.floor(selectedUser.b_PHONE.length / 2)) + "*".repeat(selectedUser.b_PHONE.length % 2) + selectedUser.b_PHONE.substring(Math.floor(selectedUser.b_PHONE.length / 2) + (selectedUser.b_PHONE.length % 2))}</td>
+              <td>
+                {selectedUser.b_PHONE.substring(0, Math.floor(selectedUser.b_PHONE.length / 2) - 2) +
+                  "*".repeat(4) +
+                  selectedUser.b_PHONE.substring(
+                    Math.floor(selectedUser.b_PHONE.length / 2) + 2,
+                    selectedUser.b_PHONE.length
+                  )}
+              </td>
               <td>가입 일자</td>
               <td>{selectedUser.b_DATE.slice(0, 10)}</td>
             </tr>
