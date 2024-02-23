@@ -5,7 +5,6 @@ import AdminFooter from '../AdminHome/AdminFooter'
 import { useLocation } from "react-router";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
 
 const UserModify = () => {
   const location = useLocation();
