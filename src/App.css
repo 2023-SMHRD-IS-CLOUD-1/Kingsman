@@ -310,10 +310,10 @@
   margin-bottom: 10px;
 }
 #employeeNumber{
-  width: 200px;
+  width: 228px;
 }
 #authbtn {
-  background-color: #007bff;
+  background-color: rgba(167,221,167);
   border: none;
   color: white;
   padding: 8px 16px; /* 크기 조정 */
@@ -326,14 +326,15 @@
   border-radius: 4px;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 11px;
 }
 
 #authbtn:hover {
-  background-color: #0056b3;
+  background-color: rgba(167,221,167);
 }
 
 #authbtn:active {
-  background-color: #004080;
+  background-color: rgba(167,221,167);
 }
 
 #authbtn:focus {
@@ -341,7 +342,8 @@
 }
 
 #authbtn:disabled {
-  background-color: #bfbfbf;
+  background-color: rgba(100, 150, 100); /* 어두운 녹색 */
+    color: rgba(255, 255, 255, 0.5); /* 회색으로 텍스트 색상 조절 */
   cursor: not-allowed;
 }
 
