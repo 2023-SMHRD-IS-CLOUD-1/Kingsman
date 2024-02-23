@@ -48,7 +48,12 @@ const UserModifyProfile = () => {
 
   // 취소 버튼 클릭 시 처리
   const handleCancel = () => {
-    navigate("/UserCountTowel"); // "/UserTowelCount" 경로로 이동
+    const userType = sessionStorage.getItem("user");
+    if (userType === "Admin") {
+      navigate("/dashboard");
+    } else {
+      navigate("/UserCountTowel");
+    }
   };
 
   return (

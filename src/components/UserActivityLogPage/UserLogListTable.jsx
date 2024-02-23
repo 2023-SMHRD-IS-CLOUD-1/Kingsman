@@ -40,16 +40,16 @@ const UserActivityLog = () => {
 
   const renderRows = () => {
     return userLogData.map((item, index) => (
-      
+
       <React.Fragment key={index}>
-        
+
         <tr onClick={() => handleSlideToggle(item.t_INDEX)}>
           <td className='activitiLogTd'>{formatDate(item.t_DATE)}</td>
           <td className='activitiLogTd'>{item.t_TIME}</td>
-          
-          <td className={`activitiLogTd ${item.t_RESULT === 'TRUE' ? 'green' : 'red' }`}>{item.t_RESULT}</td>
+
+          <td className={`activitiLogTd ${item.t_RESULT === 'TRUE' ? 'green' : 'red'}`}>{item.t_RESULT}</td>
         </tr>
-       
+
         {selectedRow === item.t_INDEX &&
           <tr className={`${isOpen ? 'activitiLog-slide-open' : 'activitiLog-slide-closed'} ${item.t_RESULT === 'TRUE' ? 'toggleGreen' : 'toggleRed'}`}>
             <td colSpan={5} style={{ position: 'relative', textAlign: 'center' }}>
@@ -68,8 +68,12 @@ const UserActivityLog = () => {
     const formattedDate = dateString.slice(0, 10);
     return formattedDate;
   };
+
+
+
+
   const id = sessionStorage.getItem("user")
-  
+
   React.useEffect(() => {
     const fetchData2 = async () => {
       try {
@@ -81,6 +85,7 @@ const UserActivityLog = () => {
         const userLogData = res.data
 
         userLogData.sort((a, b) => new Date(b.t_DATE) - new Date(a.t_DATE));
+        userLogData.sort((a, b) => new Date(b.t_TIME) - new Date(a.t_TIME));
 
         console.log('유저동균알림유저', res.data);
         setUserLogData(userLogData)
@@ -92,7 +97,7 @@ const UserActivityLog = () => {
     fetchData2();
   }, []);
 
- const [userLogData, setUserLogData] = useState([]);
+  const [userLogData, setUserLogData] = useState([]);
 
 
   return (

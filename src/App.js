@@ -38,7 +38,6 @@ function App() {
             <Route path='/AdminHome' element={<AdminHome></AdminHome>}></Route>
             <Route path='/AllActivitiLog' element={<AllActivitiLog onSearch={onSearch}></AllActivitiLog>}></Route>
             <Route path='/Dashboard' element={<Dashboard></Dashboard>}></Route>
-            <Route path='/AdminTowelCount' element={<AdminTowelCount></AdminTowelCount>}></Route>
             <Route path='/PromotionalText' element={<PromotionalText></PromotionalText>}></Route>
             <Route path='/PromotionalTextData' element={<PromotionalTextData></PromotionalTextData>}></Route>
             <Route path='/ScheduleManagement' element={<ScheduleManagement></ScheduleManagement>}></Route>
@@ -47,7 +46,6 @@ function App() {
             <Route path='/AdminModifyProfile' element={<AdminModifyProfile></AdminModifyProfile>}></Route>
             <Route path='/UserModifyProfile' element={<UserModifyProfile></UserModifyProfile>}></Route>
             <Route path='/UserActivityLog' element={<UserActivityLog></UserActivityLog>}></Route>
-            <Route path='/UserTowelCount' element={<UserTowelCount></UserTowelCount>}></Route>
             <Route path='/' element={<Login></Login>}></Route>
             <Route path='/signUp' element={<SignUp />} />
             <Route path='/UserCountTowel' element={<UserCountTowel/>}/>
