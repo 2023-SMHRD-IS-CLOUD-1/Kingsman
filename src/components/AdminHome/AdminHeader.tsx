@@ -180,11 +180,17 @@ const maskName = (name) => {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={() => { 
+    nav('/UserModifyProfile');
+}}>
+    <p  style={{textAlign:'center', margin:"0px"}}>관리자정보수정</p>
+</MenuItem>
+      <MenuItem onClick={() => { 
     sessionStorage.removeItem("user");
     nav('/');
 }}>
-    로그아웃
+     <p  style={{textAlign:'center', margin:"0px"}}>로그아웃</p>
 </MenuItem>
+
     </Menu>
   );
 
@@ -206,22 +212,22 @@ const maskName = (name) => {
       onClose={handleMobileMenuClose}
     >
       <MenuItem onClick={() => { nav('/Dashboard') }}>
-        <p>대시보드</p>
+        <p  style={{textAlign:'center', margin:"0px"}}>대시보드</p>
       </MenuItem>
       <MenuItem onClick={() => { nav('/PromotionalText') }}>
-        <p>홍보문구</p>
+        <p  style={{textAlign:'center', margin:"0px"}}>홍보문구</p>
       </MenuItem>
       <MenuItem onClick={() => { nav('/UserManagement') }}>
-        <p>사용자관리</p>
+        <p  style={{textAlign:'center', margin:"0px"}}>사용자관리</p>
       </MenuItem>
       <MenuItem onClick={() => { nav('/ScheduleManagement') }}>
-        <p>일정관리</p>
+        <p  style={{textAlign:'center', margin:"0px"}}>일정관리</p>
       </MenuItem>
       <MenuItem onClick={() => { nav('/AllActivitiLog') }}>
-        <p>활동기록</p>
+        <p  style={{textAlign:'center', margin:"0px"}}>활동기록</p>
       </MenuItem>
       <MenuItem onClick={() => { nav('/UserCountTowel') }}>
-        <p>수건수량확인</p>
+        <p  style={{textAlign:'center', margin:"0px"}}>수건수량확인</p>
       </MenuItem>
     </Menu>
   );

@@ -49,3 +49,7 @@
   .all-logs-button:hover {
     background-color: #A7DDA7; /* 호버 효과 색상 */
   }
+  .divider {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin: 1px 0;
+  }
