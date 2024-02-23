@@ -309,6 +309,41 @@
   /*입력 필드 위 여백 조절 */
   margin-bottom: 10px;
 }
+#employeeNumber{
+  width: 200px;
+}
+#authbtn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 8px 16px; /* 크기 조정 */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px; /* 크기 조정 */
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#authbtn:hover {
+  background-color: #0056b3;
+}
+
+#authbtn:active {
+  background-color: #004080;
+}
+
+#authbtn:focus {
+  outline: none;
+}
+
+#authbtn:disabled {
+  background-color: #bfbfbf;
+  cursor: not-allowed;
+}
 
 .departPosition {
   display: flex;
@@ -317,6 +352,7 @@
 
   
 .signUpButton {
+  margin-bottom: 10px;
   height: 15%;
   text-align: center;
 }
