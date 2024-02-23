@@ -174,66 +174,65 @@ const Dashboard = () => {
     
    
   return (
-    <div className>
+    <div>
         <AdminHeader></AdminHeader>
-        <div className='percent'>
-            <div>
-                <div>주간 최고 신뢰도</div> 
-                <div>{bestAccuracy}%</div>
+            <div className='percent'>
+                <div>
+                    <div>주간 최고 신뢰도</div> 
+                    <div>{bestAccuracy}%</div>
+                </div>
+                <div>
+                    <div>주간 평균 신뢰도</div>
+                    <div>{Math.floor(meanAccuracy)}%</div>
+                </div>
+                <div>
+                    <div>주간 입고량</div>
+                    <div>{sumWeek}묶음</div> 
+                </div>
+                <div>
+                    <div>월간 입고량</div>
+                    <div>{sumMonth}묶음</div> 
+                </div>
             </div>
-            <div>
-                <div>주간 평균 신뢰도</div>
-                <div>{Math.floor(meanAccuracy)}%</div>
-            </div>
-            <div>
-                <div>주간 입고량</div>
-                <div>{sumWeek}묶음</div> 
-            </div>
-            <div>
-                <div>월간 입고량</div>
-                <div>{sumMonth}묶음</div> 
-            </div>
-        </div>
-        <div  className='chartTable'>
-            <div className='setTime'> 
-                <div onClick={()=>{setTimeLine("Month")}} className= {timeLine === "Month"? 'black':'gray'}>Month</div>
-                <div onClick={()=>{setTimeLine("Week")}} className= {timeLine === "Week"? 'black':'gray'}>Week</div>
-            </div>
-            <div className='chart'>
-            {timeLine === "Week"?
-                <><h3>이번 주 입·출고</h3><WeeklyLine dataIn={currentWeekIn} dataOut={currentWeekOut} /></>:
-                
-                <><h3>이번 달 입·출고</h3><MonthlyLine date={currentDate} inData={scheduleIn} outData={scheduleOut} /></>}
+            <div  className='chartTable'>
+                <div className='setTime'> 
+                    <div onClick={()=>{setTimeLine("Month")}} className= {timeLine === "Month"? 'black':'gray'}>Month</div>
+                    <div onClick={()=>{setTimeLine("Week")}} className= {timeLine === "Week"? 'black':'gray'}>Week</div>
+                </div>
+                <div className='chart'>
+                {timeLine === "Week"?
+                    <><h3>이번 주 입·출고</h3><WeeklyLine dataIn={currentWeekIn} dataOut={currentWeekOut} /></>:
+                    
+                    <><h3>이번 달 입·출고</h3><MonthlyLine date={currentDate} inData={scheduleIn} outData={scheduleOut} /></>}
 
-            </div>
-            <div className='setTime'> 
-                <div onClick={()=>{setAll("All")}} className= {all === "All"? 'black':'gray'}>All</div>
-                <div onClick={()=>{setAll("Today")}} className= {all === "Today"? 'black':'gray'}>Today</div>
-            </div>
-            <div className='chart'>
-            {all === "Today"?
-                <><h3>금일 T/F</h3>
-                <TfBar  data={tf}/></>:
-                
-                <><h3>전체 T/F</h3>
-                <TfPie  data={list}/></>}
+                </div>
+                <div className='setTime'> 
+                    <div onClick={()=>{setAll("All")}} className= {all === "All"? 'black':'gray'}>All</div>
+                    <div onClick={()=>{setAll("Today")}} className= {all === "Today"? 'black':'gray'}>Today</div>
+                </div>
+                <div className='chart'>
+                {all === "Today"?
+                    <><h3>금일 T/F</h3>
+                    <TfBar  data={tf}/></>:
+                    
+                    <><h3>전체 T/F</h3>
+                    <TfPie  data={list}/></>}
 
-            </div>
-            <div className='setTime'> 
-                <div onClick={()=>{setBy("Day")}} className= {by === "Day"? 'black':'gray'}>Day</div>
-                <div onClick={()=>{setBy("User")}} className= {by === "User"? 'black':'gray'}>User</div>
-            </div>
-            <div className='chart'>
-            {by === "Day"?
-                <><h3>일별 평균 신뢰도</h3>
-                <AccuracyLine className='chart' date={currentDate} data ={list} /></>:
-                
-                <><h3>사용자별 평균 신뢰도</h3>
-                <UserBar className='chart' data={list}  user={user} /></>}
+                </div>
+                <div className='setTime'> 
+                    <div onClick={()=>{setBy("Day")}} className= {by === "Day"? 'black':'gray'}>Day</div>
+                    <div onClick={()=>{setBy("User")}} className= {by === "User"? 'black':'gray'}>User</div>
+                </div>
+                <div className='chart'>
+                {by === "Day"?
+                    <><h3>일별 평균 신뢰도</h3>
+                    <AccuracyLine className='chart' date={currentDate} data ={list} /></>:
+                    
+                    <><h3>사용자별 평균 신뢰도</h3>
+                    <UserBar className='chart' data={list}  user={user} /></>}
 
+                </div>
             </div>
-        </div>
-
         <AdminFooter></AdminFooter>
     </div>
   )
