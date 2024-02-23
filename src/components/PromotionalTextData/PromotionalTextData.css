@@ -36,3 +36,8 @@
     padding-top: 10px;
     text-align: center;
   }
+  .message-container {
+    overflow-y: scroll; 
+    max-height: 640px;
+  }
+  

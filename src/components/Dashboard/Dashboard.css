@@ -1,8 +1,12 @@
+.dashboard{
+  height: 576px;
+}
 .chartTable{
     top: 240px;
     left: 20px;
     position :absolute;
-    padding-bottom: 100px;
+    overflow-y: scroll; 
+    max-height: 300px;
   }
 .chartTable h3{
     margin-left: 20px;
