@@ -119,6 +119,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 로그인
 - 아이디 또는 비밀번호가 맞지 않을 경우 '로그인 실패'라는 문구가 표시된다
+- 아래 아이콘을 클릭 시 소셜 로그인이 가능하다.
 
 회원가입
 - 비밀번호 불일치 시 '비밀번호가 일치하지 않습니다.'라는 문구가 표시된다.
@@ -127,8 +128,12 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 <br>
 
-### 게시판
-![제목을 입력해주세요_-001 (1)](https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/assets/142488105/c09a3e48-7c8b-46d5-8774-cf5f09bba857)
+### 수건 수량 분석
+![사용자수건분석](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/3844b736-314a-429f-83ad-9a6a3d10a33e)
+![사용자-활동기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/5dc56436-5e2e-4034-bcef-e98afcc0fb77)
+![수건분석결과](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/6045f6bb-ae53-4650-a8f7-e2117c316a6a)
+![수건분석이미지업로드](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/17812144-361a-4379-8122-0314ad2992f8)
+
 
 게시글
 - 로그인 되어 있지 않은 경우 : 등록 버튼이 비활성화 되어있고 글 내용 칸에 로그인 시 이용 가능하다는 문구가 표시된다. 
