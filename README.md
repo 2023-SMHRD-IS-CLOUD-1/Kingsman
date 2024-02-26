@@ -134,6 +134,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 ![수건분석이미지업로드](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/17812144-361a-4379-8122-0314ad2992f8)
 ![수건분석결과](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/6045f6bb-ae53-4650-a8f7-e2117c316a6a)
 ![사용자-활동기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/5dc56436-5e2e-4034-bcef-e98afcc0fb77)
+![관리자-전체활동기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/4bfd7cd7-f8c9-4c7c-8a88-c5ad1fc4309e)
 
 
 수건수량분석
@@ -144,6 +145,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 활동기록
 - 현재까지의 수건 수량 분석 결과를 확인할 수 있다.
+- 관리자는 모든 사용자의 수건 수량 분석 결과를 확인할 수 있다.
 - 원하는 날짜를 입력하면 해당하는 날짜에 대한 기록만 조회 가능하다.
 - 클릭 시, 수건 이미지 확인 및 해당 기록 수정, 삭제 가능하다.
 
