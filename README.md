@@ -8,11 +8,11 @@
 <br>
 
 * 서비스 목표
-  - 마약범죄 예방을 위한 서비스를 개발, 마약 관련 범죄 발생 하락을 기대
-  - 마약사범의 저연령화 현상의 심각성에 초점을 두어 청소년을 위한 교육용 콘텐츠 개발
-  - 마약 관련 통계를 제공
-  - 마약 투약 후 변화된 사용자의 얼굴 이미지를 보여주는 참여 형식의 필터 서비스를 제공함으로써 경각심과 흥미를 유발
-  - 수집, 분석한 데이터를 다른 기관과 공유
+- 이미지 AI 분석 기술을 활용하여 쉽고 편리하게 수건 수량 계산을 할 수 있게 함으로써 인력 및 시간, 비용 절약. 
+- 초거대 AI 서비스를 활용하여 수건 홍보 문구 생성 기능 개발을 통해 다양한 홍보 효과 및 매출 상승에 기여.
+- 대시보드로 실시간 재고 현황 및 판매 추이 파악 가능.
+- 관리자 페이지 개발로 관리자의 용이한 시스템 관리 가능.
+- AWS를 활용하여 서비스 배포.
 <br>
 
 ## 프로젝트 기간
@@ -20,53 +20,18 @@
 <br>
 
 ## 주요 기능
-* 마약 필터
+* 수건 수량 분석
   <details>
     
-  - upload_and_receive 함수:
-  
-    - 역할: 클라이언트로부터 이미지를 업로드 받고, 해당 이미지를 변형한 후 변형된 이미지를 응답으로 전송합니다.
-    - 동작 순서:
-      - 클라이언트에서 POST 요청으로 이미지를 전송합니다.
-      - 전송된 이미지를 받아 transform_image 함수를 호출하여 이미지를 변형합니다.
-      - 변형된 이미지를 저장하고 클라이언트에게 응답으로 전송합니다.
-      - https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/blob/6653d60388746d631272d773d24645387017eda9/Strong1team2/drug_filter/face_distort%20-%20%EC%B5%9C%EC%A2%85%EB%B3%B8.ipynb#L141
-  - transform_image 함수:
-  
-    - 역할: 이미지를 얼굴 변형 함수를 통해 변형하고, 변형된 이미지를 반환합니다.
-    - 동작 순서:
-      - 클라이언트로부터 받은 이미지를 face_thin 함수를 사용하여 얼굴을 얇게 만듭니다.
-      - face_morph 함수를 사용하여 얼굴을 변형하고, 최종적으로 merge_img 함수를 사용하여 이미지를 합성합니다.
-      - 합성된 이미지를 반환합니다.
-      - https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/blob/6653d60388746d631272d773d24645387017eda9/Strong1team2/drug_filter/face_distort%20-%20%EC%B5%9C%EC%A2%85%EB%B3%B8.ipynb#L166
-  - face_thin 함수:
-  
-    - 역할: 얼굴을 얇게 만드는 함수입니다.
-    - 동작 순서:
-      - get_face_68_landmarks 함수를 사용하여 이미지의 얼굴 Landmark를 얻습니다.
-      - local_translation_warp 함수를 사용하여 지역적으로 이미지를 변형합니다.
-      - https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/blob/6653d60388746d631272d773d24645387017eda9/Strong1team2/drug_filter/face_distort%20-%20%EC%B5%9C%EC%A2%85%EB%B3%B8.ipynb#L312
-  - face_morph 함수:
-  
-    - 역할: 두 이미지의 얼굴을 혼합하는 함수입니다.
-    - 동작 순서:
-      - affine_transform_and_change_shape 함수를 사용하여 두 얼굴의 형태를 일치시킵니다.
-      - triangle_face_morph 함수를 사용하여 삼각형 단위로 얼굴을 혼합합니다.
-      - merge_img 함수를 사용하여 최종 이미지를 생성합니다.
-      - https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/blob/6653d60388746d631272d773d24645387017eda9/Strong1team2/drug_filter/face_distort%20-%20%EC%B5%9C%EC%A2%85%EB%B3%B8.ipynb#L545
-  - 기타 함수들 (local_translation_warp, BilinearInsert, detect_face_and_cut 등):
-  
-      - 다양한 기능을 수행하는 보조 함수들입니다. 주로 이미지 변형에 사용됩니다.
-  - Flask 관련 설정:
-  
-      - app.run을 통해 Flask 애플리케이션을 실행합니다.
-      - 서버는 127.0.0.1 주소와 9000 포트에서 실행되며, 디버그 모드를 사용하고 자동 리로딩을 비활성화합니다.
   </details>
 * 대시보드
-* 사례 퀴즈
-* 현상 체험
-* 지식 채널
-* 게시판
+* 홍보 문구 생성
+  <details>
+    
+  </details>
+* 사용자 관리
+* 일정 관리
+* 활동 기록 확인
 <br>
 
 ## 기술스택
