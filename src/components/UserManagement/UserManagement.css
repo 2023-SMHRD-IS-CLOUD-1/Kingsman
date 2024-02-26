@@ -11,8 +11,9 @@
   }
 
   
-  .UserInfo {
-    margin-bottom: 100px;  
+  .UserInfo { 
+    max-height: 55%;
+    overflow-y: scroll;
   }
   .UserInfo h2 {
     margin-top: 20px;
@@ -97,3 +98,4 @@
    margin-left: 20px;
    
   }
+  
