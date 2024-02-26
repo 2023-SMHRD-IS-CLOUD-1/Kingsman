@@ -96,15 +96,16 @@
 
 
 ## 시스템 아키텍처(구조) 
-![image](https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/assets/142488262/f334cf23-22f0-481e-9894-9811c1af3715)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/28885b2d-58dd-44fa-9e6c-7e5be456040b)
 <br>
 
 ## 서비스 흐름도
-![image](https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/assets/142488262/a4a7a8d8-7052-47eb-8d43-72e7079cc20a)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/e5cc9dda-b640-48dd-870b-ff68d56bcbbd)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/2cf7e35b-f025-4b16-b221-6d22aac3509c)
 <br>
 
 ## ER다이어그램
-![image](https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/assets/142488262/7a109e35-a5b8-4cb1-b73b-f17f5521b1ed)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/56ac40d2-0482-4491-81e9-4e6651e6e6ad)
 
 
 ## 화면 구성
