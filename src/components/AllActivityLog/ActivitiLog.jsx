@@ -6,44 +6,19 @@ import axios from 'axios';
 const ActivitiLog = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
-
-  // const rows = [
-  //   { id: 1, date: '2024.02.01', name: '박범석', pos: '사장', dep: '경영', result: 'T' },
-  //   { id: 2, date: '2024.02.02', name: '한명훈', pos: '이사', dep: '회계', result: 'T' },
-  //   { id: 3, date: '2024.02.03', name: '박재욱', pos: '부장', dep: '법인', result: 'F' },
-  //   { id: 4, date: '2024.02.04', name: '박준', pos: '과장', dep: '인사', result: 'T' },
-  //   { id: 5, date: '2024.02.05', name: '김동균', pos: '사원', dep: '마케팅', result: 'T' },
-  //   { id: 6, date: '2024.02.06', name: '김동균', pos: '사원', dep: '마케팅', result: 'F' },
-  //   { id: 7, date: '2024.02.01', name: '박범석', pos: '사장', dep: '경영', result: 'T' },
-  //   { id: 8, date: '2024.02.02', name: '한명훈', pos: '이사', dep: '회계', result: 'T' },
-  //   { id: 9, date: '2024.02.03', name: '박재욱', pos: '부장', dep: '법인', result: 'F' },
-  //   { id: 10, date: '2024.02.04', name: '박준', pos: '과장', dep: '인사', result: 'T' },
-  //   { id: 11, date: '2024.02.05', name: '김동균', pos: '사원', dep: '마케팅', result: 'T' },
-  //   { id: 12, date: '2024.02.06', name: '김동균', pos: '사원', dep: '마케팅', result: 'F' },
-  // ];
+  const [activitiLogData, setActivitiLogData] = useState([]);
 
   const handleSlideToggle = (t_INDEX) => {
     setIsOpen(!isOpen);
     setSelectedRow(t_INDEX === selectedRow ? null : t_INDEX);
   };
 
-  // {topFourData.map((item, index) => (
-  //   <tr key={index}>
-  //    <td>{item.user.b_NAME}</td>
-  //   <td>{item.user.b_POSITION}</td>
-  //    <td>{formatDate(item.t_DATE)}</td> 
-  //   <td style={{ color: item.t_RESULT === 'TRUE' ? 'green' : 'red' }}>
-  //    {item.t_RESULT === 'TRUE' ? 'T' : 'F'}
-  //   </td>
-  //  </tr>
-  //  ))}
-
   const renderRows = () => {
     return activitiLogData.map((item, index) => (
       <React.Fragment key={index}>
         <tr onClick={() => handleSlideToggle(item.t_INDEX)}>
           <td className='activitiLogTd'>{formatDate(item.t_DATE)}</td>
-          <td className='activitiLogTd'>{item.user.b_NAME}</td>
+          <td className='activitiLogTd'>{maskName(item.user.b_NAME)}</td>
           <td className='activitiLogTd'>{item.user.b_POSITION}</td>
           <td className='activitiLogTd'>{item.user.b_DEPS}</td>
           <td className={`activitiLogTd ${item.t_RESULT === 'TRUE' ? 'green' : 'red' }`}>{item.t_RESULT}</td>
@@ -62,10 +37,16 @@ const ActivitiLog = () => {
     ));
   };
 
+  const maskName = (name) => {
+    if (!name) return '';
+    const lengthToMask = Math.floor(name.length / 2); // 가운데 * 처리할 문자열 길이 계산
+    const maskedName = name.substring(0, lengthToMask) + '*'.repeat(name.length - lengthToMask * 2) + name.substring(name.length - lengthToMask); // 가운데 *로 비식별화
+    return maskedName;
+  };
+
   const formatDate = (dateString) => {
-    if (!dateString) return ''; // dateString이 없는 경우 빈 문자열 반환
-    // dateString에서 'T00:00:00.000+09:00' 부분을 잘라냅니다.
-    const formattedDate = dateString.slice(0, 10); // 'T00:00:00.000+09:00'의 길이가 10이므로 10까지 잘라냅니다.
+    if (!dateString) return '';
+    const formattedDate = dateString.slice(0, 10);
     return formattedDate;
   };
 
@@ -88,19 +69,6 @@ const ActivitiLog = () => {
     fetchData2();
   }, []);
 
- const [activitiLogData, setActivitiLogData] = useState([]); // topFourData 상태 선언
-  // React.useEffect(() => {
-  //   const fetchData3 = async () => {
-  //     try {
-  //       const url = "http://localhost:8085/kingsman/Notiresultfinal";
-  //       const res = await axios.get(url);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-  //   fetchData3();
-  // }, []);
-
   return (
     <div className='activitiLog'>
       <table className='activitiTable'>
@@ -114,7 +82,7 @@ const ActivitiLog = () => {
           </tr>
         </thead>
         <tbody>
-          {renderRows()};
+          {renderRows()}
         </tbody>
       </table>
     </div>
