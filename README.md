@@ -143,7 +143,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 <br>
 
-### 활동기록
+### 활동기록(사용자/관리자)
 
 ![사용자-활동기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/5dc56436-5e2e-4034-bcef-e98afcc0fb77)
 ![관리자-전체활동기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/4bfd7cd7-f8c9-4c7c-8a88-c5ad1fc4309e)
