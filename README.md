@@ -146,8 +146,9 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 <br>
 
-### 지식채널/사례퀴즈
-![제목을 입력해주세요_-001 (2)](https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/assets/142488105/096627c4-6073-4d9c-8ad4-e2a3ed11839a)
+### 대시보드
+![관리자-대시보드 알람](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/59475879-ab25-452f-9c11-ddf416166532)
+![관리자대시보드2](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/ec50fadf-0b40-49ed-be14-0bbe8df02e58)
 
 <br>
 
