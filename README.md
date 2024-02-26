@@ -170,23 +170,17 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
     <td align="center"><img src="https://mb.ntdtv.kr/assets/uploads/2019/01/Screen-Shot-2019-01-08-at-4.31.55-PM-e1546932545978.png" width="100" height="100"/></td>
     <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
     <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
-    <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
-    <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
   </tr>
   <tr>
     <td align="center"><strong>박범석</strong></td>
-    <td align="center"><strong>조원제</strong></td>
-    <td align="center"><strong>함수연</strong></td>
     <td align="center"><strong>한명훈</strong></td>
-    <td align="center"><strong>임혜지</strong></td>
-    <td align="center"><strong>하동철</strong></td>
+    <td align="center"><strong>박재욱</strong></td>
+    <td align="center"><strong>김동균</strong></td>
   </tr>
   <tr>
     <td align="center"><b>Project Manager</b></td>
     <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>
   </tr>
   <tr>
@@ -194,8 +188,6 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
     <td align="center"><a href="https://github.com/jaewon07/sample" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/ahhasueyon/sample" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/hanmyeonghun/sample" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/Limmaji/sample" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/hadongcher/sample" target='_blank'>github</a></td>
   </tr>
 </table>
 
