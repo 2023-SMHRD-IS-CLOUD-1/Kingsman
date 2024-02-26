@@ -1,10 +1,10 @@
 # Let Towels (팀명: Kingsman)
-![image](https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/assets/142488262/921c791e-0e8f-4e35-8c21-e23a3cdbf3f3)
+
 
 
 
 ## 서비스 소개
-* 서비스명: openCV기반 10대 청소년 대상 마약 예방 교육 자료 및 체험 서비스
+* 서비스명: YOLOv8 기반 수건 수량 분석 및 재고 관리 서비스
 <br>
 
 * 서비스 목표
