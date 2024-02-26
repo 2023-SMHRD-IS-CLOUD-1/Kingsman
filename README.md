@@ -177,7 +177,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 ![관리자-사용자관리](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/a0202e9e-45b3-4c35-b9bc-3e8ee2caa92e)
 ![개인정보관리디테일](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/35ce71c8-7701-4697-adea-2f40eb939355)
 ![관리자-일정관리](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/360caf51-d385-4686-9a40-ace90c7e5b6b)
-![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/d977ea67-2489-4678-8457-da1887d912b8)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/fd583a04-f00d-498c-aa4c-25499a5b69e5)
 
 사용자관리
 - 사용자 검색 및 정보 수정, 삭제할 수 있다.
