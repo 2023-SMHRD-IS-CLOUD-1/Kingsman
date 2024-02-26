@@ -129,12 +129,10 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 <br>
 
-### 수건수량분석/활동기록
+### 수건수량분석
 ![사용자수건분석](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/3844b736-314a-429f-83ad-9a6a3d10a33e)
 ![수건분석이미지업로드](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/17812144-361a-4379-8122-0314ad2992f8)
 ![수건분석결과](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/6045f6bb-ae53-4650-a8f7-e2117c316a6a)
-![사용자-활동기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/5dc56436-5e2e-4034-bcef-e98afcc0fb77)
-![관리자-전체활동기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/4bfd7cd7-f8c9-4c7c-8a88-c5ad1fc4309e)
 
 
 수건수량분석
@@ -142,6 +140,13 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 - 관리자는 메뉴의 수건수량분석 버튼을 클릭 시, 수건수량분석 페이지로 이동할 수 있다.
 - 이미지를 업로드하여, 수건 개수를 확인할 수 있다.
 - 결과값에 따라 '50개입니다.', '50개가 아닙니다.'로 결과가 띄워진다.
+
+<br>
+
+### 활동기록
+
+![사용자-활동기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/5dc56436-5e2e-4034-bcef-e98afcc0fb77)
+![관리자-전체활동기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/4bfd7cd7-f8c9-4c7c-8a88-c5ad1fc4309e)
 
 활동기록
 - 현재까지의 수건 수량 분석 결과를 확인할 수 있다.
