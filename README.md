@@ -209,5 +209,5 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/blob/f51b476fa0b838710623dbf
   - 해결: 비동기 통신 정보 전송 성공 시 실행되는 success: 문 안쪽에 window.location.reload(); 해당 실행되어서 창을 새로고침 해주는 코드를 넣어줌으로써 삭제 버튼 클릭 시 삭제 된 후 새로고침 되어 화면에 나오도록 해결함.
 ## 참고문헌
 
-![image](https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/assets/142488262/aee16021-513d-46ad-97db-7c3dcc0f27d1)
+
 
