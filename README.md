@@ -23,14 +23,8 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 ## 주요 기능
 * 수건 수량 분석
-  <details>
-    
-  </details>
 * 대시보드
 * 홍보 문구 생성
-  <details>
-    
-  </details>
 * 사용자 관리
 * 일정 관리
 * 활동 기록 확인
