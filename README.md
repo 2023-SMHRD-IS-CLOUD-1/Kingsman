@@ -161,8 +161,8 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 ### 홍보문구 생성/기록(관리자)
 ![홍보문구생성](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/fbc0fa2b-18d9-4030-ab9e-ab5f04341882)
-![홍보문구기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/303402a2-a3df-4349-b1a0-ed64916ef8c6)
 ![홍보문구생성결과](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/2fe71241-8cd8-4a6c-a2d9-1bb5a952b2d1)
+![홍보문구기록](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/303402a2-a3df-4349-b1a0-ed64916ef8c6)
 
 홍보문구 생성
 - ChatGPT OpenAI를 활용한 홍보 문구 생성 기능을 사용할 수 있다.
