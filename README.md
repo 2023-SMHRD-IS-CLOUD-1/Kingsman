@@ -198,8 +198,8 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   <tr>
     <td align="center"><img src="https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/d424f16b-f34d-47ec-a07f-8c475bf28766" width="100" height="130"/></td>
     <td align="center"><img src="https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/07e02206-e961-4f5d-8328-62b8654c61c7" width="100" height="130"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/a5911392-d391-4473-af56-cb3cdc621b2b" width="100" height="100"/></td>
-    <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/a5911392-d391-4473-af56-cb3cdc621b2b" width="100" height="130"/></td>
+    <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="130"/></td>
   </tr>
   <tr>
     <td align="center"><strong>박범석</strong></td>
