@@ -200,7 +200,8 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   <tr>
     <td align="center"><img src="https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/d424f16b-f34d-47ec-a07f-8c475bf28766" width="100" height="130"/></td>
     <td align="center"><img src="https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/07e02206-e961-4f5d-8328-62b8654c61c7" width="100" height="130"/></td>
-    <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="130"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/c9cff319-9fb9-48da-a39f-3167912904ff
+" width="100" height="130"/></td>
     <td align="center"><img src="https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/a5911392-d391-4473-af56-cb3cdc621b2b" width="100" height="130"/></td>
   </tr>
   <tr>
@@ -218,7 +219,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   <tr>
     <td align="center"><a href="https://github.com/bumseokk/sample" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/hanmyeonghun/sample" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/hanmyeonghun/sample" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/jaeuk0505/test01" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/wannabeMIR/donggyun.git" target='_blank'>github</a></td>
   </tr>
 </table>
