@@ -231,9 +231,13 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   </detail>
 * 문제2<br>
   - 문제: 디자인을 어떻게 해야 할지 갈피가 안 잡힘. (예시: 대시보드 페이지)<br>
+  <detail>
     ![KakaoTalk_20240226_162611580](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc062218-b78c-409b-a965-8e49d88e1b6a)
+  </detail>
   - 연구 및 해결 : 구글링을 통해 참고할 만한 웹 디자인을 찾아보고, 괜찮은 디자인이 나올 때까지 여러 시도를 함.
+ <detail>
     ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/f5f3c703-792a-4808-aeb1-095324bb6be9)
+  </detail>
 * 문제3<br>
   - 문제: 깃헙에서 풀을 받은 이후, 페이지 디자인이 전반적으로 이상해짐.
   - 연구: 누군가 작업 도중에 CSS 코드를 실수로 지워버려서 생긴 문제였음.
