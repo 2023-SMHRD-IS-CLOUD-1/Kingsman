@@ -237,7 +237,6 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
     <details>
         
     ![KakaoTalk_20240226_162611580](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc062218-b78c-409b-a965-8e49d88e1b6a)
-    
     ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/05f14cda-2281-4cfe-ba84-e70a9ad56e2b)
     
     </details>
