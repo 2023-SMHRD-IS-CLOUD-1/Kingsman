@@ -21,26 +21,21 @@ const Login = () => {
             b_ID: loginId,
             b_PW: loginPw
         }
-        axios.post('http://localhost:8085/kingsman/login', loginUserIdPw, { withCredentials: true })
+        axios.post('http://43.201.66.47:8085/kingsman/login', loginUserIdPw, { withCredentials: true })
             .then(res => {
-                console.log("통신 성공", res);
                 if (res.data) {
-                    console.log("값 들어있음");
                     sessionStorage.setItem("user", res.data)
-                    console.log(sessionStorage.getItem("user"));
                     if (res.data == "Admin") {
                         nav("/Dashboard")
                     } else {
                         nav("/UserCountTowel")
                     }
                 } else {
-                    console.log("null");
                     alert("로그인 실패!!")
                 }
 
             })
             .catch(error => {
-                console.log("통신 오류", error);
             })
     }
 

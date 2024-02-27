@@ -7,7 +7,6 @@ const BarChart = ({ data, user }) => {
 
   useEffect(() => {
     if (!data || !user) {
-      console.log("데이터가 없습니다.");
       return;
     }
 
@@ -17,13 +16,11 @@ const BarChart = ({ data, user }) => {
     const seriesData = ids.map(id => {
       const userData = user.find(userItem => userItem.b_ID === id);
       if (!userData) {
-        console.log(`ID ${id}에 해당하는 사용자 데이터를 찾을 수 없습니다.`);
         return 0;
       }
 
       const relevantData = data.filter(dataItem => dataItem.t_ID === id);
       if (relevantData.length === 0) {
-        console.log(`ID ${id}에 해당하는 데이터가 없습니다.`);
         return 0;
       }
 

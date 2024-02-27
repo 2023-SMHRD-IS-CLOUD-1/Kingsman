@@ -33,9 +33,7 @@ const UserCountTowelButtons = () => {
       const result = await s3.upload(params).promise();
       const imageUrl = result.Location; // 업로드된 파일의 URL을 가져옴
       setImageUrl(imageUrl); // setImageUrl로 설정
-      console.log("파일을 s3에 업로드했습니다. URL:", imageUrl);
     } catch (error) {
-      console.error("파일 업로드 중 오류가 발생했습니다:", error);
     }
   };
 
@@ -69,8 +67,6 @@ const UserCountTowelButtons = () => {
 
       // 결과 출력
       setResults(res.data[0].message);
-      console.log(results,+"dadadadadad")
-      console.log("rrrr",res.data[0].message);
       const now = new Date();
       const hours = now.getHours().toString().padStart(2, '0'); // 시
       const minutes = now.getMinutes().toString().padStart(2, '0'); // 분
@@ -91,7 +87,6 @@ const UserCountTowelButtons = () => {
           t_TIME: currentTime // Set the current time
       };
     } catch (error) {
-      console.error('Failed to upload image and get result', error);
     }
 
     Upnoti();
@@ -99,15 +94,12 @@ const UserCountTowelButtons = () => {
       // 현재 시간을 가져와서 포맷팅
       
   
-      console.log('payload2 값 확인:', payload2);
   
       axios
-          .post('http://localhost:8085/kingsman/CountTowel', payload2, { withCredentials: true })
+          .post('http://18.209.180.46:8085/kingsman/CountTowel', payload2, { withCredentials: true })
           .then((response) => {
-              console.log('데이터 전송 성공:', response.data);
           })
           .catch((error) => {
-              console.error('데이터 전송 중 오류:', error);
           });
   };
     sendCountData();
@@ -115,12 +107,10 @@ const UserCountTowelButtons = () => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const url = "http://localhost:8085/kingsman/Notilist";
+            const url = "http://43.201.66.47:8085/kingsman/Notilist";
             const res = await axios.get(url);
-            console.log('알림', res.data[0].b_NOTIFICATION); 
             setCountNoti(res.data[0].b_NOTIFICATION)
           } catch (error) {
-            console.error(error);
         }
     };
   
@@ -131,14 +121,11 @@ const data = {
 };
   const Upnoti=()=>{
     axios
-  .post('http://localhost:8085/kingsman/Upnoti', data, { withCredentials: true })
+  .post('http://43.201.66.47:8085/kingsman/Upnoti', data, { withCredentials: true })
   .then((response) => {
-    console.log("말")
-    console.log('데이터 전송 성공:', response.data);
     
   })
   .catch((error) => {
-    console.error('데이터 전송 중 오류:', error);
   });
 
   }

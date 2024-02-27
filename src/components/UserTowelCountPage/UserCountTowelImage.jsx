@@ -21,7 +21,6 @@ const UserCountTowelImage = () => {
         setStream(mediaStream);
       }
     } catch (err) {
-      console.error('Error accessing camera:', err);
     }
   };
 
@@ -60,7 +59,6 @@ const UserCountTowelImage = () => {
         setBorderColor('black'); // 그 외의 경우에는 검은색으로 설정
       }
       setMarginTop(150); // 이미지가 업로드된 후 marginTop 변경
-      console.log(results)
     }
   }, [imageUrl, results]);
 

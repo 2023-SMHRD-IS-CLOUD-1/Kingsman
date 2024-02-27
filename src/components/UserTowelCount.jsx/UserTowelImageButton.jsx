@@ -21,7 +21,7 @@ const UserTowelImageButton = ({ onImageUpload }) => {
       reader.onloadend = () => {
         const imageData = reader.result.split(',')[1];
 
-        const serverEndpoint = 'http://localhost:8080/upload'; // 실제 서버 URL로 변경
+        const serverEndpoint = 'http://43.201.66.47:8085/upload'; // 실제 서버 URL로 변경
 
         fetch(serverEndpoint, {
           method: 'POST',
@@ -32,11 +32,9 @@ const UserTowelImageButton = ({ onImageUpload }) => {
         })
           .then(response => response.json())
           .then(data => {
-            console.log('Image uploaded successfully:', data);
             // 이미지 업로드 후 추가적인 작업 수행 가능
           })
           .catch(error => {
-            console.error('Error uploading image:', error);
             // 에러 처리 로직 추가
           });
       };

@@ -14,7 +14,6 @@ const UserModify = () => {
   const [department, setDepartment] = useState('');
   const [count, setCount] = useState(0);
   const nav = useNavigate();
-  console.log(selectedUser)
 
   useEffect(() => {
     if (selectedUser) {
@@ -32,9 +31,8 @@ const UserModify = () => {
   useEffect(() => {
     if(count>0){
 
-      console.log(user)
       let userId = user.b_ID
-      axios.post('http://localhost:8085/kingsman/UserModify', 
+      axios.post('http://43.201.66.47:8085/kingsman/UserModify', 
       {userId : userId, position : position, department:department},
     { withCredentials: true,
       headers: {'Content-type': 'application/json'},

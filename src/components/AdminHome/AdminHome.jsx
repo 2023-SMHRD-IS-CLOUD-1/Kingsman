@@ -47,21 +47,7 @@ const AdminHome = () => {
 
           </div>
       </div>
-      {/* <div className='homeTitle'>
-        <div>
-          <p>대시보드</p>
-          <p>홍보 문구</p>
-        </div>
-        <div>
-          <p>사용자 관리</p>
-          <p>일정 관리</p>
-        </div>
-        <div>
-          <p>활동 기록</p>
-          <p>수건 수량 확인</p>
-        </div>
-      
-      </div>   */}
+  
       
       <AdminFooter></AdminFooter>
     </div>

@@ -24,7 +24,6 @@ const ScheduleManagement = () => {
 
 
   const handlerScheduleButton = () => {
-    console.log(scheduleDate, quantity, store);
 
     setScheduleInput([
       ...scheduleInput,
@@ -38,12 +37,10 @@ const ScheduleManagement = () => {
       s_IN_OUT: store,
       s_COMPLETED: scheCompleted
     }
-    axios.post('http://localhost:8085/kingsman/scheduleManage', scheduleInformation, { withCredentials: true })
+    axios.post('http://43.201.66.47:8085/kingsman/scheduleManage', scheduleInformation, { withCredentials: true })
       .then(res =>{
-        console.log("일정 통신 성공", res);
       })
       .catch(error => {
-        console.log("일정 오류", error);
       })
 
   }
@@ -52,11 +49,8 @@ const ScheduleManagement = () => {
 
     const getScheduleList = async()=>{
       try{
-        console.log("스케쥴리스트 통신 성공");
-        const scheduleUrl = 'http://localhost:8085/kingsman/scheduleList';
+        const scheduleUrl = 'http://43.201.66.47:8085/kingsman/scheduleList';
         const response = await axios.get(scheduleUrl);
-        console.log(response.data);
-        console.log(response.data.s_DATE);
 
         setScheduleInput(response.data.map(item=>({
           id: item.s_INDEX,
@@ -68,7 +62,6 @@ const ScheduleManagement = () => {
         }
         })));
       } catch(error){
-        console.log(error);
       }
     };
 

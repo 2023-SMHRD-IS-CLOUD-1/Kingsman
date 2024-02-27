@@ -16,7 +16,7 @@ const UserManagement = () => {
   const[count, setCount] = useState(0);
 
   useEffect(() => {
-    axios.post('http://localhost:8085/kingsman/UserManagement', 
+    axios.post('http://43.201.66.47:8085/kingsman/UserManagement', 
     sendData,
   { withCredentials: true,
     headers: {'Content-type': 'application/json'},
@@ -24,16 +24,13 @@ const UserManagement = () => {
   })
     .then(response => {
       setUserList(response.data);
-      console.log(response.data);
     })
     .catch(error => {
-      console.error('Error searching users:', error);
     });
   }, [sendData, count]);
 
   useEffect(() => {
-    console.log(selected)
-    axios.post('http://localhost:8085/kingsman/UserManagement2', 
+    axios.post('http://43.201.66.47:8085/kingsman/UserManagement2', 
     selected,
   { withCredentials: true,
     headers: {'Content-type': 'application/json'},

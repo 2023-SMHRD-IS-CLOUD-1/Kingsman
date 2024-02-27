@@ -51,7 +51,6 @@ const UserCountTowelS3Button = () => {
     const handleUploadClick = () => {
         setUploadClicked(true);
         uploadS3();
-        console.log("s3에업로드");
     };
 
     return (
