@@ -226,25 +226,25 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   - 문제: 네이버 로그인 API 기능을 구현할 때, 로고 이미지를 클릭해도 팝업창이 뜨지 않음.
   - 연구: 버튼 스타일을 지정해주지 않아서 생기는 간단한 문제였음.
   - 해결: 네이버에서 제공하는 버튼 스타일을 사용해야지만 네이버 로그인 API를 사용할 수 있어서 버튼 태그 스타일을 지정해주었음.
-      <detail>
+      <details>
            ![KakaoTalk_20240227_091047550](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/097fb8b9-2cb5-4829-a3b1-d60a6c283f3b)
-      </detail>
+      </details>
 * 문제2<br>
   - 문제: 디자인을 어떻게 해야 할지 갈피가 안 잡힘. (예시: 대시보드 페이지)<br>
-      <detail>
+      <details>
           ![KakaoTalk_20240226_162611580](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc062218-b78c-409b-a965-8e49d88e1b6a)
-      </detail>
+      </details>
   - 연구 및 해결 : 구글링을 통해 참고할 만한 웹 디자인을 찾아보고, 괜찮은 디자인이 나올 때까지 여러 시도를 함.
-      <detail>
+      <details>
           ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/f5f3c703-792a-4808-aeb1-095324bb6be9)
-      </detail>
+      </details>
 * 문제3<br>
   - 문제: 깃헙에서 풀을 받은 이후, 페이지 디자인이 전반적으로 이상해짐.
   - 연구: 누군가 작업 도중에 CSS 코드를 실수로 지워버려서 생긴 문제였음.
   - 해결: CSS 파일을 페이지별로 새로 만들어서 작성하기 시작함.
-      <detail>
+      <details>
           ![KakaoTalk_20240226_162708791](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc9376b2-fa2f-4e9b-b26a-c5087114987f)
-      </detail>
+      </details>
 ## 참고문헌
 
 
