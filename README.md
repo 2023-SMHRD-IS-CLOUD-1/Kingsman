@@ -233,6 +233,15 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
     
     </details>
 * 문제2<br>
+  - 문제: AWS EC2를 통해 배포를 하는 과정에서 리전 트러블이 발생함.
+  - 연구: 리전을 버지니아 북부로 설정했는데 DB 시간대는 서울이라서 Timezone region not found 오류가 발생함.
+  - 해결: DB timezone을 바꾸려 했으나 권한이 없어, 새로운 AWS 계정을 만들어 서울로 리전을 설정해 배포함.
+    <details>
+        
+    ![KakaoTalk_20240227_091047550](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/097fb8b9-2cb5-4829-a3b1-d60a6c283f3b)
+    
+    </details>
+* 문제3<br>
   - 문제: 디자인을 어떻게 해야 할지 갈피가 안 잡힘. (예시: 대시보드 페이지, 홍보문구 페이지)<br>
     <details>
         
@@ -247,7 +256,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
     ![홍보문구생성](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/fbc0fa2b-18d9-4030-ab9e-ab5f04341882)
     
     </details>
-* 문제3<br>
+* 문제4<br>
   - 문제: 깃헙에서 풀을 받은 이후, 페이지 디자인이 전반적으로 이상해짐.
   - 연구: 누군가 작업 도중에 CSS 코드를 실수로 지워버려서 생긴 문제였음.
   - 해결: CSS 파일을 페이지별로 새로 만들어서 코드를 작성하기 시작함.
