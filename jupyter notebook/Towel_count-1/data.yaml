@@ -1,0 +1,13 @@
+names:
+- 50_towel_counts
+- not_50count_towel
+nc: 2
+roboflow:
+  license: CC BY 4.0
+  project: towel_count
+  url: https://universe.roboflow.com/study-dxmgr/towel_count/dataset/1
+  version: 1
+  workspace: study-dxmgr
+test: test/images
+train: train/images
+val: valid/images

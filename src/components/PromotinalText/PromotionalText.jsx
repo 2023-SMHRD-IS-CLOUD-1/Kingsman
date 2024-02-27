@@ -62,7 +62,7 @@ const PromotionalText = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const url = "http://localhost:8085/kingsman/ProductList";
+                const url = "http://43.201.66.47:8085/kingsman/ProductList";
                 const res = await axios.get(url);
                 res.data.forEach(item => {
                     if (item.p_PRODUCT === '손수건') {
@@ -115,14 +115,11 @@ const PromotionalText = () => {
                         pr_NAME: name,
                         pr_TEXT: chatResponse
                     };
-                    console.log('payload2 값 확인:', payload2);
                     axios
-                        .post('http://localhost:8085/kingsman/MemberPromotional', payload2, { withCredentials: true })
+                        .post('http://43.201.66.47:8085/kingsman/MemberPromotional', payload2, { withCredentials: true })
                         .then((response) => {
-                            console.log('데이터 전송 성공:', response.data);
                         })
                         .catch((error) => {
-                            console.error('데이터 전송 중 오류:', error);
                         });
                 }
             };
@@ -136,20 +133,7 @@ const PromotionalText = () => {
     };
 } 
     
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const url = "http://localhost:8085/kingsman/Notilist";
-    //             const res = await axios.get(url);
-    //             console.log(res,"zzzzzzzzzzzzzzzzzzzzz")
-    //             console.log('알림', res.data[0].b_NOTIFICATION); // 응답 데이터를 콘솔에 출력합니다.
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-      
-    //     fetchData(); // fetchData 함수를 호출하여 데이터를 가져옵니다.
-    // }, []);
+
 
 
     return (

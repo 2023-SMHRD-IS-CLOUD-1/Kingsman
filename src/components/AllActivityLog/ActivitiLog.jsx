@@ -53,15 +53,13 @@ const ActivitiLog = () => {
   React.useEffect(() => {
     const fetchData2 = async () => {
       try {
-        const url = "http://localhost:8085/kingsman/Notiresultfinal";
+        const url = "http://43.201.66.47:8085/kingsman/Notiresultfinal";
         const res = await axios.get(url);
         const activitiLogData = res.data
 
         activitiLogData.sort((a, b) => new Date(b.t_DATE) - new Date(a.t_DATE));
 
-        console.log('관리자동균알림관리자', res.data);
         setActivitiLogData(activitiLogData)
-        console.log("롸롸롸롸롸롸롸롸", activitiLogData)
       } catch (error) {
         console.error(error);
       }

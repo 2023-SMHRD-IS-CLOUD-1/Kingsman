@@ -23,13 +23,11 @@ const Calendar = () => {
     const handleEventClick = (clickInfo) => {
         setSelectedEvent(clickInfo.event); // 클릭된 이벤트 정보 저장
         setShowModal(true); // 모달 창 열기
-        console.log("이벤트클릭", clickInfo.event);
     };
 
     // 완료 버튼 클릭 시 이벤트 텍스트에 줄 추가
     const handleCompleteButtonClick = () => {
         const eventId = selectedEvent._def.publicId; // 클릭된 이벤트의 id 가져오기
-        console.log(eventId);
         setScheduleInput(scheduleInput.map(event => {
             if (event.id === eventId) {
                 return {
@@ -47,13 +45,11 @@ const Calendar = () => {
             s_INDEX: eventId,
             s_COMPLETED: 1
         }
-        axios.post('http://localhost:8085/kingsman/changeCompleted', changeCompletedInfo, { withCredentials: true })
+        axios.post('http://43.201.66.47:8085/kingsman/changeCompleted', changeCompletedInfo, { withCredentials: true })
             .then(response => {
-                console.log('컴플리트통신성공', response.data);
                 window.location.reload(); // 완료 후 새로고침
             })
             .catch(error => {
-                console.error('서버 요청 오류:', error);
             });
 
 

@@ -25,30 +25,17 @@ export default function AdminHeader() {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = "http://localhost:8085/kingsman/Notilist";
+        
+        const url = "http://43.201.66.47:8085/kingsman/Notilist";
         const res = await axios.get(url);
-        console.log('알림', res.data[0].b_NOTIFICATION);
         setCountNoti(res.data[0].b_NOTIFICATION)
       } catch (error) {
-        console.error(error);
       }
     };
 
     fetchData();
   }, []);
-  // React.useEffect(() => {
-  //   const fetchData2 = async () => {
-  //       try {
-  //           const url = "http://localhost:8085/kingsman/Notiresult";
-  //           const res = await axios.get(url);
-  //           console.log('알림2222',res.data); 
-  //         } catch (error) {
-  //           console.error(error);
-  //       }
-  //   };
 
-  //   fetchData2(); 
-  // }, []);
   interface DataItem {
     user: {
       b_NAME: string;
@@ -68,7 +55,6 @@ export default function AdminHeader() {
         const topFourData = sortedData.slice(0, 4);
         setTopFourData(topFourData); // topFourData 상태 업데이트
       } catch (error) {
-        console.error(error);
       }
     };
 
@@ -79,7 +65,6 @@ export default function AdminHeader() {
   const resetgo = () => {
     setCountNoti(0)
     Resetnoti();
-    console.log(countnoti)
   }
 
   const data2 = {
@@ -90,12 +75,9 @@ export default function AdminHeader() {
     axios
       .post('http://localhost:8085/kingsman/Resetnoti', data2, { withCredentials: true })
       .then((response) => {
-        console.log("말")
-        console.log('데이터 전송 성공:', response.data);
 
       })
       .catch((error) => {
-        console.error('데이터 전송 중 오류:', error);
       });
 
   }

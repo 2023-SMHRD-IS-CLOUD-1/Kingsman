@@ -21,7 +21,6 @@ const SignUp = () => {
   
 
   const handleSignUpButton = () =>{
-    console.log("회원가입 버튼 클릭!!");
     const signUpUser ={
       b_ID : signUpId, 
       b_PW : signUpPw, 
@@ -32,13 +31,11 @@ const SignUp = () => {
       b_PHONE : signUpPhoneNumber
     }
 
-    axios.post('http://localhost:8085/kingsman/signUp', signUpUser, {withCredentials : true})
+    axios.post('http://43.201.66.47:8085/kingsman/signUp', signUpUser, {withCredentials : true})
     .then(res => {
-      console.log("회원가입 성공", res);
       nav('/')
     })
     .catch(error =>{
-      console.log("회원가입 오류", error);
     })
 
 

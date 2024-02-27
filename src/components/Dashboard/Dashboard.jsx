@@ -41,15 +41,15 @@ const Dashboard = () => {
     
     useEffect(() => {
         Promise.all([
-            axios.post('http://localhost:8085/kingsman/Dashboard', null, {
+            axios.post('http://43.201.66.47:8085/kingsman/Dashboard', null, {
                 withCredentials: true,
                 headers: { 'Content-type': 'application/json' },
             }),
-            axios.post('http://localhost:8085/kingsman/Dashboard2', null, {
+            axios.post('http://43.201.66.47:8085/kingsman/Dashboard2', null, {
                 withCredentials: true,
                 headers: { 'Content-type': 'application/json' },
             }),
-            axios.post('http://localhost:8085/kingsman/Dashboard3', null, {
+            axios.post('http://43.201.66.47:8085/kingsman/Dashboard3', null, {
                 withCredentials: true,
                 headers: { 'Content-type': 'application/json' },
             })

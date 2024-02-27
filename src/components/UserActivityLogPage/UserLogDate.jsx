@@ -5,8 +5,6 @@ function UserLogDate() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const handleSearch = () => {
-    console.log('Start Date:', startDate);
-    console.log('End Date:', endDate);
   };
   return (
     <div className='userLogDate'>

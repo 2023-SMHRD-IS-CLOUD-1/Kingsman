@@ -32,16 +32,13 @@ const UserModifyProfile = () => {
         b_ID: id,
         b_PW: pw2,
       };
-      console.log('정보수정 데이터 : ', data);
       axios
-        .post('http://localhost:8085/kingsman/UserModifyProfile', data, { withCredentials: true })
+        .post('http://43.201.66.47:8085/kingsman/UserModifyProfile', data, { withCredentials: true })
         .then((response) => {
-          console.log('데이터 전송 성공:', response.data);
           // 데이터 전송 후 페이지 새로고침
           navigate("/UserCountTowel");
         })
         .catch((error) => {
-          console.error('데이터 전송 중 오류:', error);
         });
     }
   };

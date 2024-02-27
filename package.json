@@ -82,5 +82,5 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react": "^18.2.55"
   },
-  "proxy": "http://localhost:8085"
+  "proxy": "http://ec2-35-175-102-60.compute-1.amazonaws.com"
 }
