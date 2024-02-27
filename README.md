@@ -225,13 +225,14 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 ## 트러블슈팅
 * 문제1<br>
   - 문제: 네이버 로그인 API 기능을 구현할 때, 로고 이미지를 클릭해도 팝업창이 뜨지 않음.
-  - 연구: 버튼 스타일을 지정해주지 않아서 생기는 간단한 문제였음.
-  - 해결: 네이버에서 제공하는 버튼 스타일을 사용해야지만 네이버 로그인 API를 사용할 수 있어서 버튼 태그 스타일을 지정해주었음.
     <details>
         
-    ![KakaoTalk_20240227_091047550](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/097fb8b9-2cb5-4829-a3b1-d60a6c283f3b)
+    ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/65087b50-48e0-4d89-a116-29f7c22aa668)
     
     </details>
+  - 연구: 버튼 스타일을 지정해주지 않아서 생기는 간단한 문제였음.
+  - 해결: 네이버에서 제공하는 버튼 스타일을 사용해야지만 네이버 로그인 API를 사용할 수 있어서 버튼 태그 스타일을 지정해주었음.
+    
 * 문제2<br>
   - 문제: AWS EC2를 통해 배포를 하는 과정에서 리전 트러블이 발생함.
   - 연구: 리전을 버지니아 북부로 설정했는데 DB 시간대는 서울이라서 Timezone region not found 오류가 생긴 거였음.
