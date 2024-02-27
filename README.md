@@ -227,7 +227,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   - 연구: 버튼 스타일을 지정해주지 않아서 생기는 간단한 문제였음.
   - 해결: 네이버에서 제공하는 버튼 스타일을 사용해야지만 네이버 로그인 API를 사용할 수 있어서 버튼 태그 스타일을 지정해주었음.
       <details>
-           ![KakaoTalk_20240227_091047550](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/097fb8b9-2cb5-4829-a3b1-d60a6c283f3b)
+        ![KakaoTalk_20240227_091047550](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/097fb8b9-2cb5-4829-a3b1-d60a6c283f3b)
       </details>
 * 문제2<br>
   - 문제: 디자인을 어떻게 해야 할지 갈피가 안 잡힘. (예시: 대시보드 페이지)<br>
