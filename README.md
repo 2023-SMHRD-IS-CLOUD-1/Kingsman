@@ -243,7 +243,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   - 연구: 누군가 작업 도중에 CSS 코드를 실수로 지워버려서 생긴 문제였음.
   - 해결: CSS 파일을 페이지별로 새로 만들어서 작성하기 시작함.
   <detail>
-  ![KakaoTalk_20240226_162708791](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc9376b2-fa2f-4e9b-b26a-c5087114987f)
+      ![KakaoTalk_20240226_162708791](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc9376b2-fa2f-4e9b-b26a-c5087114987f)
   </detail>
 ## 참고문헌
 
