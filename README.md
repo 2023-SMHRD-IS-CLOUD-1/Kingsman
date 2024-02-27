@@ -223,7 +223,9 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 ## 트러블슈팅
 * 문제1<br>
-  - 문제: jupyter notebook과 jsp를 flask로 연결하려 했으나, 404 오류 메시지만 계속 화면에 나타남.
+  - 문제: 네이버 로그인 API 기능 구현할때
+        => 네이버 로고이미지를 먼저 구현해놓고 클릭하면 팝업창이 실행되는 방식으로 시작하려해서 버튼 스타일을 지정해주지 않아서 아무리 클릭해도 팝업창이 뜨지 않았음,,
+        => 네이버에서 제공하는 버튼 스타일을 사용해야지만 네이버 로그인 API를 사용할 수 있어서 버튼 태그 스타일을 지정해주었다
   - 연구:  jupyter notebook 커널 문제로 오류 메시지가 제대로 뜨지 않아 원인을 flask로 여겼으나, 컴퓨터를 재부팅 해 커널 문제를 해결하고 오류 메시지를 확인한 결과, OpenCV 함수에 전달되는 이미지가 NumPy 배열이 아니었다는 간단한 문제였음.
   - 해결: 이미지를 다음과 같이 Numpy 배열로 고침.
 https://github.com/2023-SMHRD-IS-CLOUD-1/StrongRepo/blob/f51b476fa0b838710623dbf5f160b2de8e93e859/Strong1team2/drug_filter/face_distort%20-%20%EC%B5%9C%EC%A2%85%EB%B3%B8.ipynb#L177
