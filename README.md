@@ -211,9 +211,9 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   </tr>
   <tr>
     <td align="center"><b>Project Manager</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend</b></td>
+    <td align="center"><b>Backend, Frontend</b></td>
+    <td align="center"><b>Backend, Frontend</b></td>
+    <td align="center"><b>Backend, Frontend</b></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/bumseokk/sample" target='_blank'>github</a></td>
