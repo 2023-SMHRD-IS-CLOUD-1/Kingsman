@@ -253,7 +253,8 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   - 해결: CSS 파일을 페이지별로 새로 만들어서 코드를 작성하기 시작함.
     <details>
 
-    ![KakaoTalk_20240226_162708791](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc9376b2-fa2f-4e9b-b26a-c5087114987f)
+    ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/44bd8be1-bb2f-447d-b9e4-dc38a4d9ac95)
+
     
     </details>
 ## 참고문헌
