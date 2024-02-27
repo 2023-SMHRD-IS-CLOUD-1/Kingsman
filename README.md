@@ -112,7 +112,8 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 
 ### 로그인/회원가입
 ![로그인화면](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/b58e0dd2-b8ca-4728-b520-47b713c742dd)
-![회원가입](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/c8a9c204-9cd4-4c97-8c0c-26555e9f46be)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/629b0497-14bf-4696-ac08-76b5a89e103e)
+
 
 
 로그인
