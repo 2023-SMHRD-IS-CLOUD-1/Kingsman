@@ -234,7 +234,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
     </details>
 * 문제2<br>
   - 문제: AWS EC2를 통해 배포를 하는 과정에서 리전 트러블이 발생함.
-  - 연구: 리전을 버지니아 북부로 설정했는데 DB 시간대는 서울이라서 Timezone region not found 오류가 발생함.
+  - 연구: 리전을 버지니아 북부로 설정했는데 DB 시간대는 서울이라서 Timezone region not found 오류가 생긴 거였음.
   - 해결: DB timezone을 바꾸려 했으나 권한이 없어, 새로운 AWS 계정을 만들어 서울로 리전을 설정해 배포함.
     <details>
         
