@@ -226,12 +226,21 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   - 문제: 네이버 로그인 API 기능을 구현할 때, 로고 이미지를 클릭해도 팝업창이 뜨지 않음.
   - 연구: 버튼 스타일을 지정해주지 않아서 생기는 간단한 문제였음.
   - 해결: 네이버에서 제공하는 버튼 스타일을 사용해야지만 네이버 로그인 API를 사용할 수 있어서 버튼 태그 스타일을 지정해주었음.
+  <detail>
    ![KakaoTalk_20240227_091047550](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/097fb8b9-2cb5-4829-a3b1-d60a6c283f3b)
-   
+  </detail>
 * 문제2<br>
-  - 문제: 댓글 삭제 버튼 클릭 시 DropComment.do가 실행되어서 댓글 삭제 후 페이지로 돌아와서 자동으로 댓글이 삭제된 상태로 보여야 하는데 댓글이 DB에서는 삭제되었으나 화면에서는 F5로 새로고침 하지 않으면 그대로 보이는 문제가 나타남.
-  - 연구: 성공 시든 실패 시든 return ＂redirect:/GoboardView.do?id=＂+ 해당 게시글 번호; 로 되돌아가서 다시 해당 페이지가 새로 고침 되는 줄 알았으나 새로고침 되지 않았고, 비동기 통신인 $.ajax를 활용하여서 따로 redirect 주소를 잡아주는 건 상관이 없었음.
-  - 해결: 비동기 통신 정보 전송 성공 시 실행되는 success: 문 안쪽에 window.location.reload(); 해당 실행되어서 창을 새로고침 해주는 코드를 넣어줌으로써 삭제 버튼 클릭 시 삭제 된 후 새로고침 되어 화면에 나오도록 해결함.
+  - 문제: 디자인을 어떻게 해야 할지 갈피가 안 잡힘. (예시: 대시보드 페이지)
+    ![KakaoTalk_20240226_162611580](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc062218-b78c-409b-a965-8e49d88e1b6a)
+  - 연구 및 해결 : 구글링을 통해 참고할 만한 웹 디자인을 찾아보고, 괜찮은 디자인이 나올 때까지 여러 시도를 함.
+    ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/f5f3c703-792a-4808-aeb1-095324bb6be9)
+* 문제3<br>
+  - 문제: 깃헙에서 풀을 받은 이후, 페이지 디자인이 전반적으로 이상해짐.
+  - 연구: 누군가 작업 도중에 CSS 코드를 실수로 지워버려서 생긴 문제였음.
+  - 해결: CSS 파일을 페이지별로 새로 만들어서 작성하기 시작함.
+  <detail>
+  ![KakaoTalk_20240226_162708791](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc9376b2-fa2f-4e9b-b26a-c5087114987f)
+  </detail>
 ## 참고문헌
 
 
