@@ -58,7 +58,7 @@ const UserModify = () => {
             <table>
               <tr>
                 <td>이름</td>
-                <td>{user.b_NAME}</td>
+                <td>{user.b_NAME.substring(0, Math.floor(user.b_NAME.length / 2)) + "*".repeat(user.b_NAME.length % 2) + user.b_NAME.substring(Math.floor(user.b_NAME.length / 2) + (user.b_NAME.length % 2))}</td>
               </tr>
               <tr>
                 <td>직급</td>
@@ -91,7 +91,12 @@ const UserModify = () => {
               </tr>
               <tr>
                 <td>개인 연락처</td>
-                <td>{user.b_PHONE}</td>
+                <td>{user.b_PHONE.substring(0, Math.floor(user.b_PHONE.length / 2) - 2) +
+                  "*".repeat(4) +
+                  user.b_PHONE.substring(
+                    Math.floor(user.b_PHONE.length / 2) + 2,
+                    user.b_PHONE.length
+                  )}</td>
               </tr>
               <tr>
                 <td>가입 일자</td>
