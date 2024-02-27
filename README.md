@@ -244,7 +244,6 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
     <details>
         
     ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/f5f3c703-792a-4808-aeb1-095324bb6be9)
-    
     ![홍보문구생성](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/fbc0fa2b-18d9-4030-ab9e-ab5f04341882)
     
     </details>
