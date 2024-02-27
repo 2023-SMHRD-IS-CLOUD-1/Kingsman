@@ -174,7 +174,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
 - 카테고리를 선택 후 적용하고 홍보문구생성 버튼을 클릭하면, 사진과 같이 홍보 문구가 생성된다.
 
 홍보문구 기록
-- 지금까지의 프롬프트와 홍보 문구를 채팅 형식으로 볼 수 있습니다.
+- 지금까지의 프롬프트와 홍보 문구를 채팅 형식으로 볼 수 있다.
 
 <br>
 
@@ -234,7 +234,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
   - 문제: 디자인을 어떻게 해야 할지 갈피가 안 잡힘. (예시: 대시보드 페이지, 홍보문구 페이지)<br>
     <details>
     ![KakaoTalk_20240226_162611580](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc062218-b78c-409b-a965-8e49d88e1b6a)
-    ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/8ef89746-775b-4ae4-b3c4-1acc1f04b36a)
+    ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/05f14cda-2281-4cfe-ba84-e70a9ad56e2b)
     </details>
   - 연구 및 해결 : 구글링을 통해 참고할 만한 웹 디자인을 찾아보고, 괜찮은 디자인이 나올 때까지 여러 시도를 함.
     <details>
