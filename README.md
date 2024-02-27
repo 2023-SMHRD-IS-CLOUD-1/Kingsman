@@ -242,7 +242,7 @@ https://github.com/2023-SMHRD-IS-CLOUD-1/springkingsman
     
     </details>
 * 문제3<br>
-  - 문제: 디자인을 어떻게 해야 할지 갈피가 안 잡힘. (예시: 대시보드 페이지, 홍보문구 페이지)<br>
+  - 문제: 페이지의 디자인(통일성 없고 촌스러운 색감, 중구난방한 페이지 요소 위치 등)(예시: 대시보드 페이지, 홍보문구 페이지)<br>
     <details>
         
     ![KakaoTalk_20240226_162611580](https://github.com/2023-SMHRD-IS-CLOUD-1/Kingsman/assets/142488262/bc062218-b78c-409b-a965-8e49d88e1b6a)
